@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key});
 
@@ -11,7 +12,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Details Page'),
+        title: Text(
+          'Details Page',
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
         centerTitle: true,
       ),
     );

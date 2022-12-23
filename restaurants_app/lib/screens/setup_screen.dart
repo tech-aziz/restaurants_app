@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SetUpPage extends StatefulWidget {
-  String? itemName;
-  SetUpPage({super.key, this.itemName});
+  String itemName;
+  SetUpPage({super.key, this.itemName = 'First page'});
 
   @override
   State<SetUpPage> createState() => _SetUpPageState();
@@ -49,7 +49,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Items',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Items',)));
                 },
                 child: itemList(
                     Icon(
@@ -67,7 +67,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Category',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Category',)));
                 },
                 child: itemList(
                     Icon(
@@ -85,7 +85,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Employes',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Employes',)));
                 },
                 child: itemList(
                     Icon(
@@ -103,7 +103,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Tables',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Tables',)));
                 },
                 child: itemList(
                     Icon(
@@ -121,7 +121,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Payment Method',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Payment Method',)));
                 },
                 child: itemList(
                     Icon(
@@ -139,7 +139,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'All Charges',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'All Charges',)));
                 },
                 child: itemList(
                     Icon(
@@ -157,7 +157,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Manage',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Manage',)));
                 },
                 child: itemList(
                     Icon(
@@ -175,7 +175,7 @@ class _SetUpPageState extends State<SetUpPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Restaurent Info',)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SetUpPage(itemName: 'Restaurent Info',)));
                 },
                 child: itemList(
                     Icon(

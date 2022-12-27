@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
+import 'package:restaurants_app/screens/dashboard_screen.dart';
 import 'package:restaurants_app/screens/setup_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,10 +51,10 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       InkWell(
                                         onTap: () {
-                                          // Navigator.of(context).push(
-                                          //     MaterialPageRoute(
-                                          //         builder: (context) =>
-                                          //             SetUpPage()));
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const DashBoardScreen()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(
@@ -77,10 +78,7 @@ class _HomePageState extends State<HomePage> {
                                               ),
                                             )),
                                       ),
-                                      // Image.asset('assets/images/avatar.png',
-                                      //     width: 100.w,
-                                      //     height: 100.h,
-                                      //     fit: BoxFit.cover),
+                                    
                                       SizedBox(
                                         height: 5.h,
                                       ),

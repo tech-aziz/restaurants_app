@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/drawer.dart';
 
 // ignore: must_be_immutable
@@ -14,73 +15,42 @@ class _SetUpPageState extends State<SetUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const DrawerWidget(),
+      endDrawer: DrawerWidget(),
+      // endDrawer: const DrawerWidget(),
       appBar: AppBar(
+        // centerTitle: true,
+        titleSpacing: -5,
+        automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            size: 20,
+            size: 20.0,
           ),
         ),
         title: const Text(
           'Setup',
           style: TextStyle(fontSize: 19),
         ),
-        titleSpacing: 0,
+        actions: [
+          Builder(builder: (context) {
+            return IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                icon: Image.asset(
+                  'assets/images/drawer_menu.png',
+                  height: 22,
+                  width: 22,
+                ));
+          })
+        ],
       ),
       body: Center(
         child: Text(widget.itemName.toString()),
       ),
     );
   }
-
-  // AppBar buildAppBar(BuildContext context) {
-  //   return AppBar(
-  //       backgroundColor: Color(0xFF0E4A88),
-  //       automaticallyImplyLeading: false,
-  //       centerTitle: false,
-  //       flexibleSpace: Padding(
-  //         padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
-  //         child: Padding(
-  //           padding: const EdgeInsets.only(top: 12,left: 2),
-  //           child: Row(
-  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //             children: [
-  //               Container(
-  //                 width: .65.sw,
-  //                 child: Row(
-  //                   children: [
-  //                     IconButton(
-  //                       onPressed: (){
-  //                         Navigator.of(context).pop();
-  //                       },
-  //                       icon: Icon(Icons.arrow_back,color: Colors.white,)),
-  //                     // Icon(Icons.arrow_back,color: Colors.white,),
-  //                     // SizedBox(width: 5,),
-  //                     Text("Setup",style: TextStyle(color: Colors.white,fontSize: 18),)
-  //                   ],
-  //                 ),
-  //               ),
-  //               Container(
-  //                   width: 45,
-
-  //                   child: InkWell(
-  //                       onTap: () {
-  //                         Scaffold.of(context).openDrawer();
-  //                       },
-  //                       child: Padding(
-  //                           padding: const EdgeInsets.symmetric(horizontal: 10),
-  //                           child: Image.asset(
-  //                             'assets/images/un_hold.png',
-  //                             height: 45,
-  //                             width: 45,
-  //                           )))),
-  //             ],
-  //           ),
-  //         ),
-  //       ));
-  // }
 }

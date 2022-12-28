@@ -35,27 +35,43 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
             child: PopupMenuButton(
+              elevation: 10,
+              offset: const Offset(0, 55),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
               itemBuilder: (context) => [
                 PopupMenuItem(
                   child: Column(
                     children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.attach_money_rounded,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Today Sale',
-                            style: TextStyle(
-                                fontSize: 15,
+                      Column(
+                        children: [
+                          Row(
+                            children: const [
+                              Icon(
+                                Icons.attach_money_rounded,
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1),
-                          )
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Today Sale',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Divider(
+                            height: 0,
+                            indent: 12,
+                            color: Colors.black12,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
                         ],
                       ),
                     ],
@@ -64,23 +80,35 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   child: Column(
                     children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.attach_money_rounded,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Weekly Sale',
-                            style: TextStyle(
-                                fontSize: 15,
+                      Column(
+                        children: [
+                          Row(
+                            children: const [
+                              Icon(
+                                Icons.attach_money_rounded,
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1),
-                          )
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Weekly Sale',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Divider(
+                            height: 0,
+                            indent: 12,
+                            color: Colors.black12,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
                         ],
                       ),
                     ],
@@ -89,23 +117,35 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   child: Column(
                     children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.attach_money_rounded,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Monthly Sale',
-                            style: TextStyle(
-                                fontSize: 15,
+                      Column(
+                        children: [
+                          Row(
+                            children: const [
+                              Icon(
+                                Icons.attach_money_rounded,
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1),
-                          )
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Monthly Sale',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Divider(
+                            height: 0,
+                            indent: 12,
+                            color: Colors.black12,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
                         ],
                       ),
                     ],
@@ -114,23 +154,35 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   child: Column(
                     children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.attach_money_rounded,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Yearly Sale',
-                            style: TextStyle(
-                                fontSize: 15,
+                      Column(
+                        children: [
+                          Row(
+                            children: const [
+                              Icon(
+                                Icons.attach_money_rounded,
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1),
-                          )
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Yearly Sale',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Divider(
+                            height: 0,
+                            indent: 12,
+                            color: Colors.black12,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
                         ],
                       ),
                     ],
@@ -139,23 +191,35 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   child: Column(
                     children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.attach_money_rounded,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Total Sale',
-                            style: TextStyle(
-                                fontSize: 15,
+                      Column(
+                        children: [
+                          Row(
+                            children: const [
+                              Icon(
+                                Icons.attach_money_rounded,
                                 color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1),
-                          )
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Total Sale',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Divider(
+                            height: 0,
+                            indent: 12,
+                            color: Colors.white,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
                         ],
                       ),
                     ],

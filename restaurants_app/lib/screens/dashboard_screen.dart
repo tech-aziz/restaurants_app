@@ -52,7 +52,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                 color: Colors.black,
                               ),
                               SizedBox(
-                                width: 5,
+                                width: 10,
                               ),
                               Text(
                                 'Today Sale',

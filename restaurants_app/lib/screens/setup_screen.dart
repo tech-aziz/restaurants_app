@@ -47,8 +47,11 @@ class _SetUpPageState extends State<SetUpPage> {
           })
         ],
       ),
-      body: Center(
-        child: Text(widget.itemName.toString()),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(widget.itemName.toString()),
+        ),
       ),
     );
   }

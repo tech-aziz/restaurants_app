@@ -87,7 +87,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                   ),
                 ),
                 PopupMenuItem(
-                  onTap: () {
+                  onTap: () { 
                     setState(() {
                       name = 'Weekly Sale';
                       popUpShowMessage(name);

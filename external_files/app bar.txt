@@ -1,0 +1,437 @@
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        actions: [
+          Container(),
+        ],
+        centerTitle: false,
+        flexibleSpace: Padding(
+          padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+          child: Column(
+            children: [
+              buildTopAppbar(context),
+              Container(
+                height: 1,
+                color: Colors.black54,
+              ),
+              buildBottomAppBar(context)
+            ],
+          ),
+        ));
+  }
+
+
+
+
+  Row buildTopAppbar(BuildContext context) {
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <
+        Widget>[
+      Builder(
+        builder: (context) => widget.from_navigation
+            ? UsefulElements.backToMain(context, go_back: false)
+            : UsefulElements.backButton(context),
+      ),
+      // IconButton(
+      //   padding: EdgeInsets.zero,
+      //   icon: Icon(Icons.arrow_back_ios_new_rounded,),
+      //   onPressed: (){
+      //     if(widget.from_navigation){
+      //       Navigator.
+      //     }
+      //   },
+      // ),
+      SizedBox(
+        width: MediaQuery.of(context).size.width * .6,
+        child: Padding(
+            padding: MediaQuery.of(context).viewPadding.top >
+                    30 //MediaQuery.of(context).viewPadding.top is the statusbar height, with a notch phone it results almost 50, without a notch it shows 24.0.For safety we have checked if its greater than thirty
+                ? const EdgeInsets.symmetric(vertical: 36.0, horizontal: 0.0)
+                : const EdgeInsets.symmetric(vertical: 14.0, horizontal: 0.0),
+            child: Material(
+              color: Colors.white70,
+              borderRadius: BorderRadius.circular(20),
+              elevation: 1,
+              child: SizedBox(
+                height: 40,
+                child: TypeAheadField(
+                  suggestionsCallback: (pattern) async {
+                    //return await BackendService.getSuggestions(pattern);
+                    var suggestions = await SearchRepository()
+                        .getSearchSuggestionListResponse(
+                            query_key: pattern,
+                            type: _selectedFilter!.option_key);
+                    //print(suggestions.toString());
+                    return suggestions;
+                  },
+                  loadingBuilder: (context) {
+                    return Container(
+                      height: 50,
+                      child: Center(
+                          child: Text('Loading suggestions...',
+                              style: TextStyle(color: MyTheme.white))),
+                    );
+                  },
+                  itemBuilder: (context, suggestion) {
+                    //print(suggestion.toString());
+                    var subtitle =
+                        "${'searched for'} ${suggestion.count} ${'time(s)'}";
+                    if (suggestion.type != "search") {
+                      subtitle = "${suggestion.type_string} ${'found'}";
+                    }
+                    return ListTile(
+                      dense: true,
+                      title: Text(
+                        suggestion.query,
+                        style: TextStyle(
+                            color: suggestion.type != "search"
+                                ? MyTheme.accent_color
+                                : MyTheme.font_grey),
+                      ),
+                      subtitle: Text(subtitle,
+                          style: TextStyle(
+                              color: suggestion.type != "search"
+                                  ? MyTheme.font_grey
+                                  : MyTheme.medium_grey)),
+                    );
+                  },
+                  noItemsFoundBuilder: (context) {
+                    return Container(
+                      height: 50,
+                      child: Center(
+                          child: Text('No suggestion is available',
+                              style: TextStyle(color: MyTheme.medium_grey))),
+                    );
+                  },
+                  onSuggestionSelected: (suggestion) {
+                    _searchController.text = suggestion.query;
+                    _searchKey = suggestion.query;
+                    setState(() {});
+                    _onSearchSubmit();
+                  },
+                  textFieldConfiguration: TextFieldConfiguration(
+                    autofocus: false,
+                    onTap: () {},
+                    //autofocus: true,
+                    controller: _searchController,
+                    onSubmitted: (txt) {
+                      _searchKey = txt;
+                      setState(() {});
+                      _onSearchSubmit();
+                    },
+
+                    style: const TextStyle(color: Colors.black87),
+                    decoration: const InputDecoration(
+                        hintText: 'Search here ?',
+                        hintStyle:
+                            TextStyle(fontSize: 12.0, color: Colors.black54),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          borderSide:
+                              BorderSide(color: Colors.black12, width: 1.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          borderSide:
+                              BorderSide(color: Colors.black12, width: 1.0),
+                        ),
+                        contentPadding: EdgeInsets.only(left: 10, right: 10)),
+                  ),
+                ),
+              ),
+            )),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(right: 5, left: 5),
+        child: GestureDetector(
+          onTap: () {
+            _searchKey = _searchController.text.toString();
+            setState(() {});
+            _onSearchSubmit();
+          },
+          child: const Icon(
+            CupertinoIcons.search,
+            size: 30,
+            color: Colors.black54,
+          ),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(right: 10),
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              listView = !listView;
+            });
+          },
+          child: Icon(
+            listView == false ? Icons.grid_view_rounded : Icons.list_alt_sharp,
+            size: 30,
+            color: Colors.purple,
+          ),
+        ),
+      ),
+    ]);
+  }
+
+
+
+  Row buildBottomAppBar(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.symmetric(
+                  vertical: BorderSide(color: MyTheme.light_grey, width: .5),
+                  horizontal: BorderSide(color: MyTheme.light_grey, width: 1))),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          height: 36,
+          width: MediaQuery.of(context).size.width * .33,
+          child: DropdownButton<WhichFilter>(
+            icon: Padding(
+              padding: app_language_rtl.$
+                  ? const EdgeInsets.only(right: 18.0)
+                  : const EdgeInsets.only(left: 18.0),
+              child: const Icon(Icons.expand_more, color: Colors.black54),
+            ),
+            hint: const Text(
+              'Products',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 13,
+              ),
+            ),
+            style: const TextStyle(color: Colors.black, fontSize: 13),
+            iconSize: 13,
+            underline: const SizedBox(),
+            value: _selectedFilter,
+            items: _dropdownWhichFilterItems,
+            onChanged: (selectedFilter) {
+              setState(() {
+                _selectedFilter = selectedFilter;
+              });
+
+              _onWhichFilterChange();
+            },
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            _selectedFilter!.option_key == "product"
+                ? _scaffoldKey.currentState?.openEndDrawer()
+                : ToastComponent.showDialog(
+                    'You can use sorting while searching for products.',
+                    gravity: Toast.center,
+                    duration: Toast.lengthLong);
+          },
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.symmetric(
+                    vertical: BorderSide(color: MyTheme.light_grey, width: .5),
+                    horizontal:
+                        BorderSide(color: MyTheme.light_grey, width: 1))),
+            height: 36,
+            width: MediaQuery.of(context).size.width * .33,
+            child: Center(
+                child: SizedBox(
+              width: 50,
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.filter_alt_outlined,
+                    size: 13,
+                  ),
+                  SizedBox(width: 2),
+                  Text(
+                    'Filter',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            )),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            _selectedFilter!.option_key == "product"
+                ? showDialog(
+                    context: context,
+                    builder: (_) => Directionality(
+                          textDirection: app_language_rtl.$
+                              ? TextDirection.rtl
+                              : TextDirection.ltr,
+                          child: AlertDialog(
+                            contentPadding: const EdgeInsets.only(
+                                top: 16.0, left: 2.0, right: 2.0, bottom: 2.0),
+                            content: StatefulBuilder(builder:
+                                (BuildContext context, StateSetter setState) {
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 24.0),
+                                      child: Text(
+                                        'Sort Products By',
+                                      )),
+                                  RadioListTile(
+                                    dense: true,
+                                    value: "",
+                                    groupValue: _selectedSort,
+                                    activeColor: MyTheme.font_grey,
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    title: const Text('Default'),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _selectedSort = value!;
+                                      });
+                                      _onSortChange();
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    dense: true,
+                                    value: "price_high_to_low",
+                                    groupValue: _selectedSort,
+                                    activeColor: MyTheme.font_grey,
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    title: const Text('Price high to low'),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _selectedSort = value!;
+                                      });
+                                      _onSortChange();
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    dense: true,
+                                    value: "price_low_to_high",
+                                    groupValue: _selectedSort,
+                                    activeColor: MyTheme.font_grey,
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    title: const Text('Price low to high'),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _selectedSort = value!;
+                                      });
+                                      _onSortChange();
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    dense: true,
+                                    value: "new_arrival",
+                                    groupValue: _selectedSort,
+                                    activeColor: MyTheme.font_grey,
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    title: const Text('New Arrival'),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        // _selectedSort = value;
+                                        _newArrival = value!;
+                                      });
+                                      _onSortChange();
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    dense: true,
+                                    value: "popularity",
+                                    groupValue: _selectedSort,
+                                    activeColor: MyTheme.font_grey,
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    title: const Text('Popularity'),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _selectedSort = value!;
+                                      });
+                                      _onSortChange();
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    dense: true,
+                                    value: "top_rated",
+                                    groupValue: _selectedSort,
+                                    activeColor: MyTheme.font_grey,
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    title: const Text('Top Rated'),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        // _selectedSort = value;
+                                        _topSelling = value!;
+                                      });
+                                      _onSortChange();
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                ],
+                              );
+                            }),
+                            actions: [
+                              MaterialButton(
+                                child: Text(
+                                  'CLOSE',
+                                  style: TextStyle(color: MyTheme.medium_grey),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pop();
+                                },
+                              ),
+                            ],
+                          ),
+                        ))
+                : ToastComponent.showDialog(
+                    'You can use filters while searching for products.',
+                    gravity: Toast.center,
+                    duration: Toast.lengthLong);
+          },
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.symmetric(
+                    vertical: BorderSide(color: MyTheme.light_grey, width: .5),
+                    horizontal:
+                        BorderSide(color: MyTheme.light_grey, width: 1))),
+            height: 36,
+            width: MediaQuery.of(context).size.width * .33,
+            child: Center(
+                child: Container(
+              width: 50,
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.swap_vert,
+                    size: 13,
+                  ),
+                  SizedBox(width: 2),
+                  Text(
+                    "Sort",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            )),
+          ),
+        )
+      ],
+    );
+  }

@@ -15,8 +15,7 @@ class _SetUpPageState extends State<SetUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: DrawerWidget(),
-      // endDrawer: const DrawerWidget(),
+      endDrawer: const DrawerWidget(),
       appBar: AppBar(
         // centerTitle: true,
         titleSpacing: -5,
@@ -48,8 +47,11 @@ class _SetUpPageState extends State<SetUpPage> {
           })
         ],
       ),
-      body: Center(
-        child: Text(widget.itemName.toString()),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(widget.itemName.toString()),
+        ),
       ),
     );
   }

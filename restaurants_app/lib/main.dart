@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:restaurants_app/screens/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurants_app/screens/order_screens/order_screen_home.dart';
 
-void main() {
+void main() async {
+  await ScreenUtil.ensureScreenSize();
   runApp(const MyApp());
 }
 
@@ -14,14 +16,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(builder: ((context, child) {
       return MaterialApp(
-        debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           title: 'restaurants app',
           theme: Theme.of(context).copyWith(
             colorScheme: Theme.of(context).colorScheme.copyWith(
                   primary: const Color(0xFF0E4A88),
                 ),
           ),
-          home: const HomePage());
+          home: HomePage());// const HomePage());
     }));
   }
 }

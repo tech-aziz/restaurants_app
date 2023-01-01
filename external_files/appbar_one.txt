@@ -1,0 +1,65 @@
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(fit: StackFit.loose, children: [
+        buildBody(),
+        Positioned(
+          top: 0.0,
+          left: 0.0,
+          right: 0.0,
+          child: buildAppBar(context),
+        ),
+      ]),
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        actions: [
+          Container(),
+        ],
+        centerTitle: false,
+        flexibleSpace: Padding(
+          padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+          child: Column(
+            children: [
+              buildTopAppbar(context),
+              Container(
+                height: 1,
+                color: Colors.black54,
+              ),
+              buildBottomAppBar(context)
+            ],
+          ),
+        ));
+  }
+
+  buildTopAppbar(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          height: 100,
+          width: MediaQuery.of(context).size.width,
+          color: Colors.red,
+        )
+      ],
+    );
+  }
+
+  buildBottomAppBar(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          height: 50,
+          width: MediaQuery.of(context).size.width,
+          color: Colors.amber,
+        )
+      ],
+    );
+  }
+
+  buildBody() {
+    return Container();
+  }

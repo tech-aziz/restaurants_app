@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/all_charges.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/category.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/employes.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/items.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/manage.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/payment_method.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/restaurent_info.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_drawer/tables.dart';
 import '../helpers/url_helpers.dart';
-import '../screens/setup_screen.dart';
+import '../screens/setup_screens/setup_home.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  DrawerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +42,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'Items',
+                          customWidget: Items(),
                         )));
               },
               child: itemList(
@@ -57,7 +65,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'Category',
+                          customWidget: Category(),
                         )));
               },
               child: itemList(
@@ -79,7 +87,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'Employes',
+                          customWidget: Emplyes(),
                         )));
               },
               child: itemList(
@@ -101,7 +109,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'Tables',
+                          customWidget: Tables(),
                         )));
               },
               child: itemList(
@@ -123,7 +131,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'Payment Method',
+                          customWidget: Payment_Method(),
                         )));
               },
               child: itemList(
@@ -145,7 +153,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'All Charges',
+                          customWidget: All_Charge(),
                         )));
               },
               child: itemList(
@@ -167,7 +175,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'Manage',
+                          customWidget: Manage(),
                         )));
               },
               child: itemList(
@@ -189,7 +197,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          itemName: 'Restaurent Info',
+                          customWidget: Restaurent_Info(),
                         )));
               },
               child: itemList(

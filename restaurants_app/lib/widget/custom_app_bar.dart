@@ -1,25 +1,25 @@
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-Widget customAppBar(BuildContext context) {
-  return InkWell(
-        onTap: () {
-           Scaffold.of(context).openDrawer();
-        },
-        child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Image.asset(
-              'assets/images/un_hold.png',
-              height: 30,
-              width: 35,
-            ))
-            );
-
-    // endDrawer: InkWell(
-    //     onTap: () {
-    //       const DrawerWidget();
-    //     },
-    //     child: Padding(
-    //       padding: const EdgeInsets.symmetric(horizontal: 10),
-    //       child: Image.asset('assets/images/un_hold.png',height: 30, width: 35,))),
+AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        actions: [
+          Container(),
+        ],
+        centerTitle: false,
+        flexibleSpace: Column(
+          children: [
+            // buildTopAppbar(context),
+            Text('top appbar '),
+            Container(
+              height: 1,
+              color: Colors.black54,
+            ),
+            // buildBottomAppBar(context)
+            Text('bottom appbar')
+          ],
+        ));
+  }
   
-}

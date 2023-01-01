@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
-import 'package:restaurants_app/screens/dashboard_screen.dart';
+import 'package:restaurants_app/screens/dashboard_screens/dashboard_home.dart';
 import 'package:restaurants_app/screens/order_screens/order_screen.dart';
-import 'package:restaurants_app/screens/setup_screen.dart';
+import 'package:restaurants_app/screens/setup_screens/setup_home.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

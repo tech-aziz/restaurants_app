@@ -87,7 +87,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                   ),
                 ),
                 PopupMenuItem(
-                  onTap: () { 
+                  onTap: () {
                     setState(() {
                       name = 'Weekly Sale';
                       popUpShowMessage(name);
@@ -260,34 +260,6 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 Icons.more_vert,
                 size: 28,
               ),
-              // onSelected: (value) {
-              //   if (value == 'Today Sale') {
-              //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-              //         builder: (context) => DashBoardScreen(
-              //               popUpItemName: 'Today Sale',
-              //             )));
-              //   } else if (value == 'Weekly Sale') {
-              //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-              //         builder: (context) => DashBoardScreen(
-              //               popUpItemName: 'Weekly Sale',
-              //             )));
-              //   } else if (value == 'Monthly Sale') {
-              //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-              //         builder: (context) => DashBoardScreen(
-              //               popUpItemName: 'Monthly Sale',
-              //             )));
-              //   } else if (value == 'Yearly Sale') {
-              //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-              //         builder: (context) => DashBoardScreen(
-              //               popUpItemName: 'Yearly Sale',
-              //             )));
-              //   } else if (value == 'Total Sale') {
-              //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-              //         builder: (context) => DashBoardScreen(
-              //               popUpItemName: 'Total Sale',
-              //             )));
-              //   }
-              // },
             ),
           )
         ],

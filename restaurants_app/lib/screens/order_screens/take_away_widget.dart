@@ -12,7 +12,7 @@ class _TakeAwayWidgetState extends State<TakeAwayWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dine in page'),
+        title: Text('Take Away page'),
       ),
     );
   }

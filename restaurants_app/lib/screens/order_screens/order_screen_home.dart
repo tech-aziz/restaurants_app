@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
 import 'package:restaurants_app/screens/home_page.dart';
 import 'package:restaurants_app/screens/order_screens/dine_in_widget.dart';
+import 'package:restaurants_app/screens/order_screens/order_delivery_screen.dart';
 
 class OrderScreenHome extends StatefulWidget {
   const OrderScreenHome({super.key});
@@ -171,7 +172,8 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                             InkWell(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => DineInWidget()));
+                                    builder: (context) =>
+                                        OrderDeliveryScreen()));
                               },
                               child: Container(
                                   decoration: BoxDecoration(

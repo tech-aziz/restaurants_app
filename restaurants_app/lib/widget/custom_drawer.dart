@@ -42,7 +42,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: Items(),
+                          name: 'Items',
                         )));
               },
               child: itemList(
@@ -65,7 +65,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: Category(),
+                               name: 'Category',
                         )));
               },
               child: itemList(
@@ -87,7 +87,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: Emplyes(),
+                          name: 'Employes',
                         )));
               },
               child: itemList(
@@ -109,7 +109,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: Tables(),
+                          name: 'Tables',
                         )));
               },
               child: itemList(
@@ -131,7 +131,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: Payment_Method(),
+                          name: 'Payment Method',
                         )));
               },
               child: itemList(
@@ -153,7 +153,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: All_Charge(),
+                          name: 'All Charges',
                         )));
               },
               child: itemList(
@@ -175,7 +175,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: Manage(),
+                          name: 'Manage',
                         )));
               },
               child: itemList(
@@ -197,7 +197,7 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => SetUpPage(
-                          customWidget: Restaurent_Info(),
+                          name: 'Restaurent Info',
                         )));
               },
               child: itemList(

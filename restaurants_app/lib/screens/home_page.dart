@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SetUpPage()));
+                                                      SetUpPage(name: '',)));
                                         },
                                         child: Container(
                                           child: Container(

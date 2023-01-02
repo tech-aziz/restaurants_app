@@ -9,9 +9,9 @@ class Emplyes extends StatefulWidget {
 class _EmplyesState extends State<Emplyes> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Employes"),
+    return Container(
+      child: Center(
+        child: Text('Employes'),
       ),
     );
   }

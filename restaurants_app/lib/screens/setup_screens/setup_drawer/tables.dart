@@ -9,8 +9,8 @@ class Tables extends StatefulWidget {
 class _TablesState extends State<Tables> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Container(
+      child: Center(
         child: Text('Tables'),
       ),
     );

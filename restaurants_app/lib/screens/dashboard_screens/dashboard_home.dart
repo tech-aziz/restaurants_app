@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restaurants_app/screens/home_page.dart';
 
 class DashBoardScreen extends StatefulWidget {
   String? popUpItemName;
@@ -227,12 +226,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       Column(
                         children: [
                           Row(
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               const Icon(
                                 Icons.attach_money_rounded,
                                 color: Colors.black,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               const Text(
@@ -330,10 +330,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               color: Colors.green.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
-          child: Center(child: Text("Weekly Sale")),
+          child: const Center(child: Text("Weekly Sale")),
         )
       ],
     );
@@ -351,10 +351,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               color: Colors.green.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
-          child: Center(child: Text("Monthly Sale")),
+          child: const Center(child: Text("Monthly Sale")),
         )
       ],
     );
@@ -372,10 +372,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               color: Colors.green.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
-          child: Center(child: Text("Yearly Sale")),
+          child: const Center(child: Text("Yearly Sale")),
         )
       ],
     );
@@ -393,10 +393,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               color: Colors.green.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
-          child: Center(child: Text("Total Sale")),
+          child: const Center(child: Text("Total Sale")),
         )
       ],
     );

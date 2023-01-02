@@ -69,10 +69,10 @@ class _OrderScreenState extends State<OrderScreen> {
                                   width: 22,
                                   color: Colors.black,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
-                                Text(
+                                const Text(
                                   'New',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -109,15 +109,16 @@ class _OrderScreenState extends State<OrderScreen> {
                       Column(
                         children: [
                           Row(
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.download_done_rounded,
                                 color: Colors.black,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
-                              Text(
+                              const Text(
                                 'Completed',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -217,7 +218,7 @@ class _OrderScreenState extends State<OrderScreen> {
         return orderHoldWidget();
 
       default:
-        return OrderScreenHome();
+        return const OrderScreenHome();
     }
   }
 
@@ -226,15 +227,15 @@ class _OrderScreenState extends State<OrderScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         ListTile(
-          leading: CircleAvatar(
+          leading: const CircleAvatar(
             backgroundImage: AssetImage('assets/images/app_icon.png'),
           ),
-          title: Text('Table Name: T-1',
+          title: const Text('Table Name: T-1',
               style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: .2)),
-          subtitle: Text('BDT 20.0'),
+          subtitle: const Text('BDT 20.0'),
           trailing: payNowButton('Pay Now', Color(0xFF0E4A88)),
         ),
-        Divider(
+        const Divider(
           indent: 70,
           endIndent: 17,
           thickness: 1,
@@ -259,7 +260,7 @@ class _OrderScreenState extends State<OrderScreen> {
               offset: Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
-          child: Center(child: Text("Completed Order")),
+          child: const Center(child: Text("Completed Order")),
         )
       ],
     );
@@ -280,7 +281,7 @@ class _OrderScreenState extends State<OrderScreen> {
               offset: Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
-          child: Center(child: Text("Hold")),
+          child: const Center(child: Text("Hold")),
         )
       ],
     );
@@ -299,7 +300,7 @@ class _OrderScreenState extends State<OrderScreen> {
         child: Center(
             child: Text(
           buttonName,
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         )),
       ),
     );

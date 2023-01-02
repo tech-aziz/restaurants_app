@@ -9,7 +9,7 @@ class Emplyes extends StatefulWidget {
 class _EmplyesState extends State<Emplyes> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text("Employes"),
       ),

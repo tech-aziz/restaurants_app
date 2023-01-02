@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
+
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Restaurent_Info extends StatefulWidget {
@@ -22,13 +23,13 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 20),
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 60),
+                  padding: const EdgeInsets.only(left: 60),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -38,7 +39,7 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                         child: Image.asset('assets/images/app_icon.png',
                             fit: BoxFit.cover),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Column(
@@ -64,7 +65,7 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Padding(
@@ -75,47 +76,47 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                         maxLength: 30,
                         controller: nameController,
                         decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 12),
-                            prefixIcon: Icon(Icons.keyboard),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                            prefixIcon: const Icon(Icons.keyboard),
                             hintText: 'Restaurent Name',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
                         maxLength: 160,
                         controller: addressController,
                         decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 12),
-                            prefixIcon: Icon(Icons.location_on),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                            prefixIcon: const Icon(Icons.location_on),
                             hintText: 'Address',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
                         maxLength: 11,
                         controller: phoneController,
                         decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 12),
-                            prefixIcon: Icon(Icons.phone),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                            prefixIcon: const Icon(Icons.phone),
                             hintText: 'Phone Number',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
                         maxLength: 50,
                         controller: emailController,
                         decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 12),
-                            prefixIcon: Icon(Icons.email),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                            prefixIcon: const Icon(Icons.email),
                             hintText: 'Email',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))),
@@ -124,7 +125,7 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue),
                           onPressed: () {},
-                          child: Text('Update'))
+                          child: const Text('Update'))
                     ],
                   ),
                 )

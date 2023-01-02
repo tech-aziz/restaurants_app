@@ -1,6 +1,6 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/restaurent_info.dart';
 import '../../widget/custom_drawer.dart';
 
 

@@ -31,12 +31,13 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
             child: Row(
               children: [
                 Column(
+                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Icon(Icons.home),
-                    SizedBox(
+                    const Icon(Icons.home),
+                    const SizedBox(
                       height: 2,
                     ),
-                    Text('Home'),
+                    const Text('Home'),
                   ],
                 ),
               ],
@@ -60,12 +61,13 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
               child: Row(
                 children: [
                   Column(
+                    // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      Icon(Icons.discount_rounded),
-                      SizedBox(
+                      const Icon(Icons.discount_rounded),
+                      const SizedBox(
                         height: 2,
                       ),
-                      Text('Orders'),
+                      const Text('Orders'),
                     ],
                   ),
                 ],
@@ -173,7 +175,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) =>
-                                        OrderDeliveryScreen()));
+                                        const OrderDeliveryScreen()));
                               },
                               child: Container(
                                   decoration: BoxDecoration(

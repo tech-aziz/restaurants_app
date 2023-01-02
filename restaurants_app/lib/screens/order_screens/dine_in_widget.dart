@@ -11,7 +11,7 @@ class _DineInWidgetState extends State<DineInWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dine in page'),
+        title: const Text('Dine in page'),
       ),
     );
   }

@@ -9,8 +9,10 @@ class Manage extends StatefulWidget {
 class _ManageState extends State<Manage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Manage Widget')),
+    return Container(
+      child: Center(
+        child: Text('Mangage'),
+      ),
     );
   }
 }

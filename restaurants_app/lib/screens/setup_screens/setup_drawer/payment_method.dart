@@ -11,8 +11,8 @@ class Payment_Method extends StatefulWidget {
 class _Payment_MethodState extends State<Payment_Method> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Container(
+      child: Center(
         child: Text('Payment'),
       ),
     );

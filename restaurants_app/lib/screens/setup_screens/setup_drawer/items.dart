@@ -218,7 +218,7 @@ class _ItemsState extends State<Items> {
                   // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   maxLength: 4,
                   decoration: InputDecoration(
-                    labelText: 'VAT (%)',
+                    labelText: 'VAT     (%)',
                     prefixIcon: const Icon(Icons.keyboard),
                     // enabledBorder: Style.inputBorder(),
                     // focusedBorder: Style.focusBorder(),

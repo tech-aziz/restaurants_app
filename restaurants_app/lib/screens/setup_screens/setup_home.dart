@@ -90,7 +90,7 @@ class _SetUpPageState extends State<SetUpPage> {
   }
 
   //Restaurent Info Widget Start
-  // ignore: non_constant_identifier_names
+
   Widget restaurent_Info() {
     return const Restaurent_Info();
   }

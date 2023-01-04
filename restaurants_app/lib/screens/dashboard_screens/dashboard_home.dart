@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashBoardScreen extends StatefulWidget {
-  String? popUpItemName;
-  DashBoardScreen({super.key, this.popUpItemName = 'Empty'});
+
+  DashBoardScreen({super.key,});
 
   @override
   State<DashBoardScreen> createState() => _DashBoardScreenState();

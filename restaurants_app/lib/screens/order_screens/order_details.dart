@@ -5,6 +5,7 @@ import 'package:restaurants_app/screens/home_page.dart';
 import 'package:restaurants_app/screens/order_screens/order_home.dart';
 import 'package:restaurants_app/screens/order_screens/order_more/dine_in_widget.dart';
 import 'package:restaurants_app/screens/order_screens/order_more/order_delivery_screen.dart';
+import 'package:restaurants_app/screens/order_screens/order_more/take_away_widget.dart';
 
 class OrderScreenHome extends StatefulWidget {
   const OrderScreenHome({super.key});
@@ -54,8 +55,10 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => OrderScreen()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) =>
+                      // OrderScreen()
+                      OrderScreen()));
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 12, top: 12),
@@ -135,7 +138,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                             InkWell(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => DineInWidget()));
+                                    builder: (context) => TakeAwayWidget()));
                               },
                               child: Container(
                                   decoration: BoxDecoration(

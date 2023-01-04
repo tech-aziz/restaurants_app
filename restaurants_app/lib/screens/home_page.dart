@@ -155,6 +155,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
+
                         Center(
                           child: Container(
                             height: .23.sh,
@@ -163,6 +164,12 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceEvenly,
                               children: [
+
+
+
+
+
+
                                 Center(
                                   child: Column(
                                     mainAxisAlignment:
@@ -173,9 +180,7 @@ class _HomePageState extends State<HomePage> {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
-
-                                                      OrderScreenHome()
-                                                      
+                                                      OrderScreenHome()    
                                                       ));
                                         },
                                         child: Container(
@@ -219,6 +224,12 @@ class _HomePageState extends State<HomePage> {
                                     ],
                                   ),
                                 ),
+
+
+
+
+
+
                                 Center(
                                   child: Column(
                                     mainAxisAlignment:

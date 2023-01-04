@@ -11,7 +11,7 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  String defalutValue = 'New';
+  String defalutValue = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,30 +54,24 @@ class _OrderScreenState extends State<OrderScreen> {
                   },
                   child: Column(
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => OrderScreen()));
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              'assets/images/new.png',
-                              height: 22.h,
-                              width: 22.w,
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/new.png',
+                            height: 22.h,
+                            width: 22.w,
+                            color: Colors.black,
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          const Text(
+                            'New',
+                            style: TextStyle(
                               color: Colors.black,
                             ),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            const Text(
-                              'New',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            )
-                          ],
-                        ),
+                          )
+                        ],
                       ),
                       SizedBox(
                         height: 5.h,
@@ -104,28 +98,23 @@ class _OrderScreenState extends State<OrderScreen> {
                     children: [
                       Column(
                         children: [
-                          InkWell(
-                            onTap: () {
-                              //Navigator section will be here
-                            },
-                            child: Row(
-                              // ignore: prefer_const_literals_to_create_immutables
-                              children: [
-                                const Icon(
-                                  Icons.download_done_rounded,
+                          Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              const Icon(
+                                Icons.download_done_rounded,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              const Text(
+                                'Completed',
+                                style: TextStyle(
                                   color: Colors.black,
                                 ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                const Text(
-                                  'Completed',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                )
-                              ],
-                            ),
+                              )
+                            ],
                           ),
                           SizedBox(
                             height: 5.h,
@@ -207,19 +196,16 @@ class _OrderScreenState extends State<OrderScreen> {
     );
   }
 
-  showOrderMessage(String newValue) {
-    switch (newValue) {
+  showOrderMessage(String defalutValue) {
+    switch (defalutValue) {
       case 'New':
-        return OrderScreen();
+        return newOrderWidget();
 
       case 'Completed':
         return completeOrderWidget();
 
       case 'Hold':
         return orderHoldWidget();
-
-      default:
-        return newOrderWidget();
     }
   }
 

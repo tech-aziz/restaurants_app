@@ -34,8 +34,8 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     const Icon(Icons.home),
-                    const SizedBox(
-                      height: 2,
+                    SizedBox(
+                      height: 2.h,
                     ),
                     const Text('Home'),
                   ],
@@ -64,8 +64,8 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const Icon(Icons.discount_rounded),
-                      const SizedBox(
-                        height: 2,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       const Text('Orders'),
                     ],
@@ -102,7 +102,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                                     // color: Colors.white,
                                     border: Border.all(
                                       color: Colors.white,
-                                      width: 2,
+                                      width: 2.w,
                                     ),
                                   ),
                                   // ignore: prefer_const_constructors
@@ -142,7 +142,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                                     // color: Colors.white,
                                     border: Border.all(
                                       color: Colors.white,
-                                      width: 2,
+                                      width: 2.w,
                                     ),
                                   ),
                                   // ignore: prefer_const_constructors
@@ -183,7 +183,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                                     // color: Colors.white,
                                     border: Border.all(
                                       color: Colors.white,
-                                      width: 2,
+                                      width: 2.w,
                                     ),
                                   ),
                                   // ignore: prefer_const_constructors

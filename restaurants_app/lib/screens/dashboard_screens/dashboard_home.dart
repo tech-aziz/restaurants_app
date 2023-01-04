@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashBoardScreen extends StatefulWidget {
   String? popUpItemName;
@@ -302,8 +303,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 100,
-          width: 200,
+          height: 100.h,
+          width: 200.w,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
               color: Colors.green.withOpacity(0.5),
@@ -323,8 +324,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 100,
-          width: 200,
+          height: 100.h,
+          width: 200.w,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
               color: Colors.green.withOpacity(0.5),
@@ -344,8 +345,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 100,
-          width: 200,
+          height: 100.h,
+          width: 200.w,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
               color: Colors.green.withOpacity(0.5),
@@ -365,8 +366,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 100,
-          width: 200,
+          height: 100.h,
+          width: 200.w,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
               color: Colors.green.withOpacity(0.5),
@@ -386,8 +387,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 100,
-          width: 200,
+          height: 100.h,
+          width: 200.w,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
               color: Colors.green.withOpacity(0.5),

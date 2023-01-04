@@ -23,9 +23,9 @@ class _OrderScreenState extends State<OrderScreen> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: const Icon(
+          icon:  Icon(
             Icons.arrow_back_ios_new_rounded,
-            size: 20.0,
+            size: 20.0.sp,
           ),
         ),
         title: const Padding(
@@ -65,12 +65,12 @@ class _OrderScreenState extends State<OrderScreen> {
                               children: [
                                 Image.asset(
                                   'assets/images/new.png',
-                                  height: 22,
-                                  width: 22,
+                                  height: 22.h,
+                                  width: 22.w,
                                   color: Colors.black,
                                 ),
-                                const SizedBox(
-                                  width: 10,
+                                SizedBox(
+                                  width: 10.w,
                                 ),
                                 const Text(
                                   'New',
@@ -81,11 +81,11 @@ class _OrderScreenState extends State<OrderScreen> {
                               ],
                             ),
                           ),
-                          const SizedBox(
-                            height: 5,
+                          SizedBox(
+                            height: 5.h,
                           ),
-                          const Divider(
-                            height: 0,
+                          Divider(
+                            height: 0.h,
                             indent: 12,
                             color: Colors.black12,
                             endIndent: 12,
@@ -115,8 +115,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                 Icons.download_done_rounded,
                                 color: Colors.black,
                               ),
-                              const SizedBox(
-                                width: 5,
+                              SizedBox(
+                                width: 5.w,
                               ),
                               const Text(
                                 'Completed',
@@ -126,11 +126,11 @@ class _OrderScreenState extends State<OrderScreen> {
                               )
                             ],
                           ),
-                          const SizedBox(
-                            height: 5,
+                          SizedBox(
+                            height: 5.h,
                           ),
-                          const Divider(
-                            height: 0,
+                         Divider(
+                            height: 0.h,
                             indent: 12,
                             color: Colors.black12,
                             endIndent: 12,
@@ -170,11 +170,11 @@ class _OrderScreenState extends State<OrderScreen> {
                               )
                             ],
                           ),
-                          const SizedBox(
-                            height: 5,
+                          SizedBox(
+                            height: 5.h,
                           ),
-                          const Divider(
-                            height: 0,
+                         Divider(
+                            height: 0.h,
                             indent: 12,
                             color: Colors.black12,
                             endIndent: 12,
@@ -186,9 +186,9 @@ class _OrderScreenState extends State<OrderScreen> {
                   ),
                 ),
               ],
-              child: const Icon(
+              child: Icon(
                 Icons.more_vert,
-                size: 28,
+                size: 28.sp,
               ),
             ),
           )
@@ -250,8 +250,8 @@ class _OrderScreenState extends State<OrderScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 100,
-          width: 200,
+          height: 100.h,
+          width: 200.w,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
               color: Colors.green.withOpacity(0.5),

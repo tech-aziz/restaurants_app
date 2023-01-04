@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurants_app/widget/custom_add_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Items extends StatefulWidget {
   const Items({super.key});
@@ -15,7 +15,7 @@ class _ItemsState extends State<Items> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFF0E4A88),
         onPressed: () {
-          _showDialog();
+          _showItemDialog();
         },
         child: const Icon(
           Icons.add,
@@ -34,18 +34,18 @@ class _ItemsState extends State<Items> {
               hintText: 'Search Item Here...',
               prefixIcon: const Icon(Icons.search),
             )),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 5.h,
             ),
             customWidget(),
-            const SizedBox(
-              height: 10,
-            ),
+            // const SizedBox(
+            //   height: 10,
+            // ),
             Divider(
-              height: 0,
-              indent: 2,
+              height: 0.h,
+              indent: 54,
               color: Colors.black12,
-              endIndent: 1,
+              endIndent: 50,
               thickness: 1,
             )
           ],
@@ -55,29 +55,29 @@ class _ItemsState extends State<Items> {
   }
 
   Widget customWidget() {
-    return Container(
-      height: 70,
+    return SizedBox(
+      // height: 70,
       child: ListTile(
           minVerticalPadding: 10,
           leading: Image.asset(
             'assets/images/item.png',
-            width: 40,
-            height: 40,
+            width: 40.w,
+            height: 40.h,
           ),
-          title: Text('Pepsi'),
-          subtitle: Text('Category: Soft-drinks'),
+          title: const Text('Pepsi'),
+          subtitle: const Text('Category: Soft-drinks'),
           trailing: IconButton(
             onPressed: () {},
             icon: Icon(
               Icons.delete,
               color: Colors.red,
-              size: 30,
+              size: 30.sp,
             ),
           )),
     );
   }
 
-  void _showDialog() {
+  void _showItemDialog() {
     showDialog(
         context: context,
         builder: ((context) {
@@ -97,10 +97,11 @@ class _ItemsState extends State<Items> {
           child: Icon(
             Icons.cancel_outlined,
             color: Colors.red.shade300,
-            size: 20,
+            size: 20.sp,
           ),
           onTap: () {
             // Get.back();
+            Navigator.of(context).pop();
           },
         )
       ],
@@ -109,141 +110,126 @@ class _ItemsState extends State<Items> {
 
   Widget _body() {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics()),
-        child: Column(
-          children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 50,
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black54)),
-            child: DropdownButtonFormField(
-              hint: Text(
-                'Please Choose a Category',
-              ),
-              items: [
-                DropdownMenuItem<int>(
-                  // value: value.categoryId!,
-                  child: Text('one'),
-                )
-              ],
-              onChanged: (selectedItem) {
-                debugPrint(selectedItem.toString());
-              },
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          physics:
+              const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+          child: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: TextField(
-                  // controller: _nameTextController,
-                  keyboardType: TextInputType.name,
-                  maxLength: 15,
-                  decoration: InputDecoration(
-                    labelText: 'Item Name',
-                    prefixIcon: const Icon(Icons.keyboard),
-                    // enabledBorder: Style.inputBorder(),
-                    // focusedBorder: Style.focusBorder(),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.black54)),
+                child: DropdownButtonFormField(
+                  hint: const Text(
+                    'Please Choose a Category',
+                    style: TextStyle(color: Colors.black),
                   ),
-                  // style: Style.largeInputText(),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: TextField(
-                  // controller: _shortNameTextController,
-                  keyboardType: TextInputType.name,
-                  maxLength: 10,
-                  decoration: InputDecoration(
-                    labelText: 'Short Name',
-                    prefixIcon: const Icon(Icons.keyboard),
-                    // enabledBorder: Style.inputBorder(),
-                    // focusedBorder: Style.focusBorder(),
-                  ),
-                  // style: Style.largeInputText(),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Column(
-            children: [
-              Expanded(
-                flex: 1,
-                child: TextField(
-                  // controller: _regularPriceTextController,
-                  keyboardType: TextInputType.number,
-                  // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  maxLength: 4,
-                  decoration: InputDecoration(
-                    labelText: 'Item Price',
-                    prefixIcon: const Icon(Icons.keyboard),
-                    // enabledBorder: Style.inputBorder(),
-                    // focusedBorder: Style.focusBorder(),
-                  ),
-                  // style: Style.largeInputText(),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: TextField(
-                  // controller: _sdPercentTextController,
-                  keyboardType: TextInputType.number,
-                  // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  maxLength: 4,
-                  decoration: InputDecoration(
-                    labelText: 'SD (%)',
-                    prefixIcon: const Icon(Icons.keyboard),
-                    // enabledBorder: Style.inputBorder(),
-                    // focusedBorder: Style.focusBorder(),
-                  ),
-                  // style: Style.largeInputText(),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: TextField(
-                  // controller: _vatPercentTextController,
-                  keyboardType: TextInputType.number,
-                  // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  maxLength: 4,
-                  decoration: InputDecoration(
-                    labelText: 'VAT     (%)',
-                    prefixIcon: const Icon(Icons.keyboard),
-                    // enabledBorder: Style.inputBorder(),
-                    // focusedBorder: Style.focusBorder(),
-                  ),
-                  // style: Style.largeInputText(),
-                ),
-              ),
-              ElevatedButton(
-                child: const Text('ADD'),
-                style: ElevatedButton.styleFrom(
-                    // minimumSize: Size(Get.context!.mediaQuerySize.width, 50),
-                    // primary: ColorHelper.primaryColor,
-                    // textStyle: const TextStyle(
-                    //     fontSize: Constants.mediumFontSize,
-                    //     fontWeight: FontWeight.w500
-                    // )
+                  items: const [
+                    DropdownMenuItem(
+                      value: 'one',
+                      child: Text('one'),
                     ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                    DropdownMenuItem(
+                      value: 'two',
+                      child: Text('two'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'three',
+                      child: Text('three'),
+                    )
+                  ],
+                  onChanged: (selectedItem) {
+                    debugPrint(selectedItem.toString());
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 17.h,
+              ),
+              TextField(
+                maxLength: 15,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    hintText: 'Item Name',
+                    hintStyle: TextStyle(color: Colors.black),
+                    prefixIcon: Icon(Icons.keyboard)),
+              ),
+              const SizedBox(
+                height: 2,
+              ),
+              TextField(
+                maxLength: 10,
+                decoration: InputDecoration(
+                    hintMaxLines: 10,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    hintText: 'Short Name',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    prefixIcon: const Icon(Icons.keyboard)),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              TextField(
+                maxLength: 4,
+                decoration: InputDecoration(
+                    hintMaxLines: 10,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    hintText: 'Item Price',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    prefixIcon: const Icon(Icons.keyboard)),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              TextField(
+                maxLength: 4,
+                decoration: InputDecoration(
+                    hintText: '0.0',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    labelText: 'SD(%)',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    prefixIcon: const Icon(Icons.keyboard)),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              TextField(
+                maxLength: 4,
+                decoration: InputDecoration(
+                    hintText: '0.0',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    labelText: 'VAT(%)',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    prefixIcon: const Icon(Icons.keyboard)),
+              ),
+              SizedBox(
+                height: 25.h,
+              ),
+              Container(
+                height: 40.h,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: const Color(0xFF0E4A88),
+                ),
+                child: ElevatedButton(
+                  child: const Text('ADD'),
+                  onPressed: () {
+                    // Navigator.of(context).pop();
+                  },
+                ),
               ),
             ],
-          )
-        ]),
-      ),
+          )),
     );
   }
 }

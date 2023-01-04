@@ -1,7 +1,6 @@
-
-// ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class Restaurent_Info extends StatefulWidget {
   const Restaurent_Info({super.key});
 
@@ -14,7 +13,6 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
   TextEditingController addressController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +33,8 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                     child: Image.asset('assets/images/app_icon.png',
                         fit: BoxFit.cover),
                   ),
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(
+                    width: 10.w,
                   ),
                   Column(
                     children: [
@@ -45,7 +43,7 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                         child: Icon(
                           Icons.camera_alt,
                           color: Colors.blue,
-                          size: 40.h,
+                          size: 40.sp,
                         ),
                       ),
                       InkWell(
@@ -53,7 +51,7 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                         child: Icon(
                           Icons.upload,
                           color: Colors.blue,
-                          size: 40.h,
+                          size: 40.sp,
                         ),
                       )
                     ],
@@ -61,8 +59,8 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             Padding(
               padding: const EdgeInsets.all(15.0),
@@ -79,8 +77,8 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10))),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: 15.h,
                   ),
                   TextFormField(
                     maxLength: 160,
@@ -93,8 +91,8 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10))),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: 15.h,
                   ),
                   TextFormField(
                     maxLength: 11,
@@ -107,8 +105,8 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10))),
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: 15.h,
                   ),
                   TextFormField(
                     maxLength: 50,

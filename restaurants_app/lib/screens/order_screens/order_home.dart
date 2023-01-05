@@ -219,7 +219,7 @@ class _OrderScreenState extends State<OrderScreen> {
         return orderHoldWidget();
 
       default:
-        return newOrderWidget();
+        return OrderScreen();
     }
   }
 

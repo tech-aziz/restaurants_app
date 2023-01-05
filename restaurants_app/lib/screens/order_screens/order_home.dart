@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurants_app/screens/order_screens/order_screen_home.dart';
+import 'package:restaurants_app/screens/order_screens/order_details.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
@@ -23,7 +23,7 @@ class _OrderScreenState extends State<OrderScreen> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon:  Icon(
+          icon: Icon(
             Icons.arrow_back_ios_new_rounded,
             size: 20.0.sp,
           ),
@@ -54,44 +54,40 @@ class _OrderScreenState extends State<OrderScreen> {
                   },
                   child: Column(
                     children: [
-                      Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => OrderScreenHome()));
-                            },
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/new.png',
-                                  height: 22.h,
-                                  width: 22.w,
-                                  color: Colors.black,
-                                ),
-                                SizedBox(
-                                  width: 10.w,
-                                ),
-                                const Text(
-                                  'New',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                )
-                              ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => OrderScreen()));
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              'assets/images/new.png',
+                              height: 22.h,
+                              width: 22.w,
+                              color: Colors.black,
                             ),
-                          ),
-                          SizedBox(
-                            height: 5.h,
-                          ),
-                          Divider(
-                            height: 0.h,
-                            indent: 12,
-                            color: Colors.black12,
-                            endIndent: 12,
-                            thickness: 1,
-                          ),
-                        ],
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            const Text(
+                              'New',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Divider(
+                        height: 1.h,
+                        indent: 12,
+                        color: Colors.black12,
+                        endIndent: 12,
+                        thickness: 1,
                       ),
                     ],
                   ),
@@ -108,29 +104,34 @@ class _OrderScreenState extends State<OrderScreen> {
                     children: [
                       Column(
                         children: [
-                          Row(
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              const Icon(
-                                Icons.download_done_rounded,
-                                color: Colors.black,
-                              ),
-                              SizedBox(
-                                width: 5.w,
-                              ),
-                              const Text(
-                                'Completed',
-                                style: TextStyle(
+                          InkWell(
+                            onTap: () {
+                              //Navigator section will be here
+                            },
+                            child: Row(
+                              // ignore: prefer_const_literals_to_create_immutables
+                              children: [
+                                const Icon(
+                                  Icons.download_done_rounded,
                                   color: Colors.black,
                                 ),
-                              )
-                            ],
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                const Text(
+                                  'Completed',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                           SizedBox(
                             height: 5.h,
                           ),
-                         Divider(
-                            height: 0.h,
+                          Divider(
+                            height: 1.h,
                             indent: 12,
                             color: Colors.black12,
                             endIndent: 12,
@@ -173,8 +174,8 @@ class _OrderScreenState extends State<OrderScreen> {
                           SizedBox(
                             height: 5.h,
                           ),
-                         Divider(
-                            height: 0.h,
+                          Divider(
+                            height: 1.h,
                             indent: 12,
                             color: Colors.black12,
                             endIndent: 12,
@@ -209,7 +210,7 @@ class _OrderScreenState extends State<OrderScreen> {
   showOrderMessage(String newValue) {
     switch (newValue) {
       case 'New':
-        return newOrderWidget();
+        return OrderScreen();
 
       case 'Completed':
         return completeOrderWidget();
@@ -218,7 +219,7 @@ class _OrderScreenState extends State<OrderScreen> {
         return orderHoldWidget();
 
       default:
-        return const OrderScreenHome();
+        return newOrderWidget();
     }
   }
 
@@ -293,14 +294,15 @@ class _OrderScreenState extends State<OrderScreen> {
         //Will be navigate button
       },
       child: Container(
-        height: 30.h,
+        height: 35.h,
         width: 80.w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6), color: buttonColor),
         child: Center(
             child: Text(
           buttonName,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         )),
       ),
     );

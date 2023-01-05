@@ -8,8 +8,8 @@ class UpdateButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 30.h,
-        width: 75.w,
+        height: 35.h,
+        width: 80.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
         ),

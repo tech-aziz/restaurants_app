@@ -11,7 +11,7 @@ class AddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 40.h,
+        height: 35.h, 
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),

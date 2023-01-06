@@ -25,7 +25,7 @@ class _OrderScreenState extends State<OrderScreen> {
           },
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            size: 20.0.sp,
+            size: 18.0.sp,
           ),
         ),
         title: const Padding(
@@ -206,12 +206,6 @@ class _OrderScreenState extends State<OrderScreen> {
 
       case 'Hold':
         return orderHoldWidget();
-<<<<<<< HEAD
-
-      default:
-        return OrderScreen();
-=======
->>>>>>> ded7be6c499e66188ab30c1f77839fc1191eda9f
     }
   }
 

@@ -20,9 +20,9 @@ class _DineInWidgetState extends State<DineInWidget> {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              size: 20.0,
+              size: 18.0.sp,
             ),
           ),
           title: const Padding(

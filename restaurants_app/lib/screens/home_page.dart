@@ -14,13 +14,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0E4A88),
       body: SafeArea(
-        child: CustomScrollView(   
+        child: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
             SliverList(
@@ -43,20 +42,18 @@ class _HomePageState extends State<HomePage> {
                             height: .23.sh,
                             width: double.infinity,
                             child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Center(
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       InkWell(
                                         onTap: () {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                       DashBoardScreen()));
+                                                      DashBoardScreen()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(
@@ -74,13 +71,12 @@ class _HomePageState extends State<HomePage> {
                                                   const EdgeInsets.all(8.0),
                                               // ignore: prefer_const_constructors
                                               child: Icon(
-                                                Icons.dashboard,
+                                                Icons.dashboard_rounded,
                                                 size: 90,
                                                 color: Colors.white,
                                               ),
                                             )),
                                       ),
-                                    
                                       SizedBox(
                                         height: 5.h,
                                       ),
@@ -97,15 +93,16 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 Center(
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       InkWell(
                                         onTap: () {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SetUpPage(name: '',)));
+                                                      SetUpPage(
+                                                        name: '',
+                                                      )));
                                         },
                                         child: Container(
                                           child: Container(
@@ -161,27 +158,18 @@ class _HomePageState extends State<HomePage> {
                             height: .23.sh,
                             width: double.infinity,
                             child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-
-
-
-
-
-
                                 Center(
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       InkWell(
                                         onTap: () {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      OrderScreenHome()    
-                                                      ));
+                                                      OrderScreenHome()));
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -195,11 +183,10 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           // ignore: prefer_const_constructors
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             // ignore: prefer_const_constructors
                                             child: Icon(
-                                              Icons.mobile_screen_share,
+                                              Icons.point_of_sale_outlined,
                                               size: 90,
                                               color: Colors.white,
                                             ),
@@ -224,16 +211,9 @@ class _HomePageState extends State<HomePage> {
                                     ],
                                   ),
                                 ),
-
-
-
-
-
-
                                 Center(
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       InkWell(
                                         onTap: () {
@@ -254,11 +234,10 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           // ignore: prefer_const_constructors
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             // ignore: prefer_const_constructors
                                             child: Icon(
-                                              Icons.file_open_rounded,
+                                              Icons.file_copy_outlined,
                                               size: 90,
                                               color: Colors.white,
                                             ),

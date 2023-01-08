@@ -23,8 +23,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+    return Scaffold(  
       appBar: AppBar(
         titleSpacing: -5,
         // centerTitle: true,

@@ -17,10 +17,10 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        height: 100,
+        height: 120,
         child: Padding(
           padding: EdgeInsets.only(
-            top: 15,
+            top: 45,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -187,11 +187,10 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     borderSide:
                         BorderSide(color: Colors.blueGrey.shade200, width: 1),
                     borderRadius: BorderRadius.circular(12)),
-                    focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Colors.blue.withOpacity(0.8), width: 2),
-                    borderRadius: BorderRadius.circular(12))
-                    ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.blue.withOpacity(0.8), width: 2),
+                    borderRadius: BorderRadius.circular(12))),
             suggestions: [
               SearchFieldListItem("Burger"),
               SearchFieldListItem('Sandwich'),

@@ -11,7 +11,7 @@ class DashBoardScreen extends StatefulWidget {
 }
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
-  // String name = "Today Sale";
+  String? name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +47,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setState(() {
-                      // name = 'Today Sale';
-                      // popUpShowMessage(
-                      //   name,
-                      // );
+                      name = 'Today Sale';
+                      popUpShowMessage(name.toString());
                     });
                   },
                   child: Column(
@@ -92,10 +90,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setState(() {
-                      // name = 'Weekly Sale';
-                      // popUpShowMessage(
-                      //   name,
-                      // );
+                      name = 'Weekly Sale';
+                      popUpShowMessage(name.toString());
                     });
                   },
                   child: Column(
@@ -412,10 +408,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   popUpShowMessage(String title) {
     switch (title) {
       case 'Today Sale':
-        return Text('data');
+        return Text('');
+        // ignore: dead_code
 
+      // ignore: dead_code
       case 'Weekly Sale':
-      // return weeklySaleWidget();
+        return Text('');
+        // ignore: dead_code
 
       case 'Monthly Sale':
       // return monthlySaleWidget();
@@ -431,6 +430,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       //     'Total Sales', 0.0, Color(0xff815F53), Icon(Icons.arrow_back));
     }
   }
+
 
   Widget customContainer(String title, double amount, Color backgroundColor,
       Color textColor, IconData icon, Color iconColor) {

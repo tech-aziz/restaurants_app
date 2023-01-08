@@ -4,8 +4,8 @@ import 'package:restaurants_app/helpers/url_helpers.dart';
 import 'package:restaurants_app/screens/home_page.dart';
 import 'package:restaurants_app/screens/order_screens/order_home.dart';
 import 'package:restaurants_app/screens/order_screens/order_more/dine_in_widget.dart';
-import 'package:restaurants_app/screens/order_screens/order_more/order_delivery_screen.dart';
-import 'package:restaurants_app/screens/order_screens/order_more/take_away_widget.dart';
+
+import 'package:restaurants_app/screens/order_screens/order_more/order_checkout_widget.dart';
 
 class OrderScreenHome extends StatefulWidget {
   const OrderScreenHome({super.key});
@@ -86,7 +86,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
           children: [
             Expanded(
               child: Container(
-                alignment: Alignment.bottomCenter,
+                // alignment: Alignment.bottomCenter,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -138,7 +138,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                             InkWell(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => TakeAwayWidget()));
+                                    builder: (context) => OrderCheckOut()));
                               },
                               child: Container(
                                   decoration: BoxDecoration(
@@ -179,7 +179,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) =>
-                                        const OrderDeliveryScreen()));
+                                        OrderCheckOut()));
                               },
                               child: Container(
                                   decoration: BoxDecoration(

@@ -11,7 +11,16 @@ class DashBoardScreen extends StatefulWidget {
 }
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
-  String? name;
+
+  double totalSale = 0.0;
+  double cash = 0.0;
+  double bkash = 0.0;
+  double card = 0.0;
+
+  double dineInValue = 0.0;
+  double takeAwayValue = 0.0;
+  double deliverValue = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +56,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setState(() {
-                      name = 'Today Sale';
-                      popUpShowMessage(name.toString());
+                      totalSale = 4000.0; 
+                      cash = 2000.0; 
+                      bkash = 1500.0; 
+                      card = 500.0;
+                      dineInValue = 20000.0;
+                      takeAwayValue = 25000.0;
+                      deliverValue = 5000.0;
                     });
                   },
                   child: Column(
@@ -90,8 +104,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setState(() {
-                      name = 'Weekly Sale';
-                      popUpShowMessage(name.toString());
+                      totalSale = 30000.0;
+                      cash = 15000.0; // change value
+                      bkash = 10500.0; // change value
+                      card = 5500.0;
+                      dineInValue = 25000.0;
+                      takeAwayValue = 30000.0;
+                      deliverValue = 7000.0;
                     });
                   },
                   child: Column(
@@ -133,10 +152,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setState(() {
-                      // name = 'Monthly Sale';
-                      // popUpShowMessage(
-                      //   name,
-                      // );
+                      totalSale = 40000.0;
+                      cash = 20000.0; // change value
+                      bkash = 15000.0; // change value
+                      card = 5000.0;
+                      dineInValue = 30000.0;
+                      takeAwayValue = 35000.0;
+                      deliverValue = 20000.0;
                     });
                   },
                   child: Column(
@@ -178,10 +200,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setState(() {
-                      // name = 'Yearly Sale';
-                      // popUpShowMessage(
-                      //   name,
-                      // );
+                      totalSale = 50000.0;
+                      cash = 25000.0; // change value
+                      bkash = 10000.0; // change value
+                      card = 15000.0;
+                      dineInValue = 35000.0;
+                      takeAwayValue = 40000.0;
+                      deliverValue = 30000.0;
                     });
                   },
                   child: Column(
@@ -223,10 +248,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setState(() {
-                      // name = 'Total Sale';
-                      // popUpShowMessage(
-                      //   name,
-                      // );
+                      totalSale = 70000.0;
+                      cash = 40000.0; // change value
+                      bkash = 10000.0; // change value
+                      card = 20000.0;
+                      dineInValue = 40000.0;
+                      takeAwayValue = 45000.0;
+                      deliverValue = 40000.0;
                     });
                   },
                   child: Column(
@@ -291,7 +319,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 children: [
                   customContainer(
                       'Total Sales',
-                      0.0,
+                      totalSale,
                       const Color(0xff815F53),
                       const Color(0xffFFFFFF),
                       Icons.point_of_sale_outlined,
@@ -301,7 +329,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                   ),
                   customContainer(
                       'Cash',
-                      0.0,
+                      cash,
                       const Color(0xff9D29B0),
                       const Color(0xffFFFFFF),
                       Icons.account_balance_wallet_rounded,
@@ -315,7 +343,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 children: [
                   customContainer(
                       'Bkash',
-                      0.0,
+                      bkash,
                       const Color(0xffFF5925),
                       const Color(0xffFFFFFF),
                       Icons.account_balance_wallet_outlined,
@@ -325,7 +353,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                   ),
                   customContainer(
                       'Card',
-                      0.0,
+                      card,
                       const Color(0xff4FB053),
                       const Color(0xffFFFFFF),
                       Icons.payment_outlined,
@@ -370,7 +398,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                         children: [
                           customSideContainer(
                               'Dine In',
-                              0.0,
+                              dineInValue,
                               Image.asset(
                                 'assets/images/dine_in.png',
                                 height: 30.h,
@@ -378,7 +406,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                               )),
                           customSideContainer(
                               'Take Away',
-                              0.0,
+                              takeAwayValue,
                               Image.asset(
                                 'assets/images/take_away.png',
                                 height: 30.h,
@@ -386,7 +414,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                               )),
                           customSideContainer(
                               'Delivery',
-                              0.0,
+                              deliverValue,
                               Image.asset(
                                 'assets/images/delivery.png',
                                 height: 30.h,
@@ -404,33 +432,6 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       ),
     );
   }
-
-  popUpShowMessage(String title) {
-    switch (title) {
-      case 'Today Sale':
-        return Text('');
-        // ignore: dead_code
-
-      // ignore: dead_code
-      case 'Weekly Sale':
-        return Text('');
-        // ignore: dead_code
-
-      case 'Monthly Sale':
-      // return monthlySaleWidget();
-
-      case 'Yearly Sale':
-      // return yearlySaleWidget();
-
-      case 'Total Sale':
-      // return totalSaleWidget();
-
-      default:
-      // return customContainer(
-      //     'Total Sales', 0.0, Color(0xff815F53), Icon(Icons.arrow_back));
-    }
-  }
-
 
   Widget customContainer(String title, double amount, Color backgroundColor,
       Color textColor, IconData icon, Color iconColor) {
@@ -487,92 +488,6 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     );
   }
 
-  // Widget todaySaleWidget() => CustomCard();
-
-  // Widget weeklySaleWidget() {
-  //   return Column(
-  //     mainAxisAlignment: MainAxisAlignment.center,
-  //     children: [
-  //       Container(
-  //         height: 100.h,
-  //         width: 200.w,
-  //         decoration: BoxDecoration(boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.green.withOpacity(0.5),
-  //             spreadRadius: 5,
-  //             blurRadius: 7,
-  //             offset: const Offset(0, 3), // changes position of shadow
-  //           ),
-  //         ], borderRadius: BorderRadius.circular(12)),
-  //         child: const Center(child: Text("Weekly Sale")),
-  //       )
-  //     ],
-  //   );
-  // }
-
-  // Widget monthlySaleWidget() {
-  //   return Column(
-  //     mainAxisAlignment: MainAxisAlignment.center,
-  //     children: [
-  //       Container(
-  //         height: 100.h,
-  //         width: 200.w,
-  //         decoration: BoxDecoration(boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.green.withOpacity(0.5),
-  //             spreadRadius: 5,
-  //             blurRadius: 7,
-  //             offset: const Offset(0, 3), // changes position of shadow
-  //           ),
-  //         ], borderRadius: BorderRadius.circular(12)),
-  //         child: const Center(child: Text("Monthly Sale")),
-  //       )
-  //     ],
-  //   );
-  // }
-
-  // Widget yearlySaleWidget() {
-  //   return Column(
-  //     mainAxisAlignment: MainAxisAlignment.center,
-  //     children: [
-  //       Container(
-  //         height: 100.h,
-  //         width: 200.w,
-  //         decoration: BoxDecoration(boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.green.withOpacity(0.5),
-  //             spreadRadius: 5,
-  //             blurRadius: 7,
-  //             offset: const Offset(0, 3), // changes position of shadow
-  //           ),
-  //         ], borderRadius: BorderRadius.circular(12)),
-  //         child: const Center(child: Text("Yearly Sale")),
-  //       )
-  //     ],
-  //   );
-  // }
-
-  // Widget totalSaleWidget() {
-  //   return Column(
-  //     mainAxisAlignment: MainAxisAlignment.center,
-  //     children: [
-  //       Container(
-  //         height: 100.h,
-  //         width: 200.w,
-  //         decoration: BoxDecoration(boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.green.withOpacity(0.5),
-  //             spreadRadius: 5,
-  //             blurRadius: 7,
-  //             offset: const Offset(0, 3), // changes position of shadow
-  //           ),
-  //         ], borderRadius: BorderRadius.circular(12)),
-  //         child: const Center(child: Text("Total Sale")),
-  //       )
-  //     ],
-  //   );
-  // }
-
   Widget customSideContainer(String name, double amount, Image image) {
     return Card(
       elevation: 12,
@@ -592,7 +507,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                     style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
-                  const Text('৳0.0',
+                  Text(amount.toString(),
                       style: TextStyle(
                           color: Colors.black54, fontWeight: FontWeight.bold)),
                 ],

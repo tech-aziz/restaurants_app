@@ -1,25 +1,24 @@
-  import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
-AppBar buildAppBar(BuildContext context) {
-    return AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        actions: [
-          Container(),
-        ],
-        centerTitle: false,
-        flexibleSpace: Column(
-          children: [
-            // buildTopAppbar(context),
-            Text('top appbar '),
-            Container(
-              height: 1,
-              color: Colors.black54,
-            ),
-            // buildBottomAppBar(context)
-            Text('bottom appbar')
-          ],
-        ));
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Widget child;
+  final double height;
+
+  const CustomAppBar({super.key, 
+    required this.child,
+    this.height = kToolbarHeight,
+  });
+
+  @override
+  Size get preferredSize => Size.fromHeight(height);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: preferredSize.height,
+      color: Color(0xFF0E4A88),
+      alignment: Alignment.center,
+      child: child,
+    );
   }
-  
+}

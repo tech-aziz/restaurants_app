@@ -365,23 +365,42 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
       body: Padding(
         padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()
+          ),
           child: Column(
             children: [
               DropdownSearch<String>(
                 popupProps: PopupProps.menu(
                   showSelectedItems: true,
                   showSearchBox: true,
-                  disabledItemFn: (String s) => s.startsWith('I'),
+                  // disabledItemFn: (String s) => s.startsWith('I'),
                 ),
-                items: ["Brazil", "Italia (Disabled)", "Tunisia", 'Canada'],
+                items: [
+                  "Pepsi",
+                  "Apple",
+                  "Banana",
+                  'Mango',
+                  'Poteto',
+                  'Chicken',
+                  'Beef',
+                  'Drinks'
+                ],
                 dropdownDecoratorProps: DropDownDecoratorProps(
                   dropdownSearchDecoration: InputDecoration(
-                    labelText: "Menu mode",
-                    hintText: "country in menu mode",
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 15),
+                    border: OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(12.0),
+                      ),
+                    ),
+                    // labelText: "Menu mode",
+                    hintText: "Search by Category",
                   ),
                 ),
                 onChanged: print,
-                selectedItem: "Brazil",
+                selectedItem: "Pepsi",
               ),
 
               // SearchField(
@@ -429,7 +448,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                   children: [
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/pepsi.png',
                         width: 50.w,
                       ),
                       productName: 'Pepsi',
@@ -440,7 +459,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     ),
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/apple.jpg',
                         width: 50.w,
                       ),
                       productName: 'Apple',
@@ -451,7 +470,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     ),
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/banana.png',
                         width: 50.w,
                       ),
                       productName: 'Banana',
@@ -462,7 +481,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     ),
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/mango.png',
                         width: 50.w,
                       ),
                       productName: 'Mango',
@@ -473,7 +492,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     ),
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/potato.png',
                         width: 50.w,
                       ),
                       productName: 'Poteto',
@@ -484,7 +503,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     ),
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/chicken.png',
                         width: 50.w,
                       ),
                       productName: 'Chicken',
@@ -495,7 +514,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     ),
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/beef.png',
                         width: 50.w,
                       ),
                       productName: 'Beef',
@@ -506,7 +525,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     ),
                     CustomCard(
                       image: Image.asset(
-                        'assets/images/item.png',
+                        'assets/images/coca_cola.png',
                         width: 50.w,
                       ),
                       productName: 'Drinks',
@@ -529,9 +548,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     Container(
                       height: 30.h,
                       decoration: BoxDecoration(
-                          border: Border(
-                              // right:
-                              //     BorderSide(width: 1, color: Colors.black26),
+                          border: const Border(
                               bottom:
                                   BorderSide(width: 1, color: Colors.black26))),
                       child: Row(
@@ -539,7 +556,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                         children: [
                           Text('Product Name'),
                           Container(
-                              height: 30,
+                              height: 35,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -547,7 +564,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                               )),
                           Text('Unit Price'),
                           Container(
-                              height: 30,
+                              height: 35,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -555,7 +572,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                               )),
                           Text('Qty'),
                           Container(
-                              height: 30,
+                              height: 35,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -563,7 +580,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                               )),
                           Text('SD'),
                           Container(
-                              height: 30,
+                              height: 35,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -571,7 +588,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                               )),
                           Text('VAT'),
                           Container(
-                              height: 30,
+                              height: 35,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -579,7 +596,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                               )),
                           Text('Disc'),
                           Container(
-                              height: 30,
+                              height: 35,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:

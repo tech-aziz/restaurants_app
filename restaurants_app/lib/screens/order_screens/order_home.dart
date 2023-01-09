@@ -11,7 +11,7 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  String defalutValue = '';
+  String defalutValue = 'New';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,6 +206,8 @@ class _OrderScreenState extends State<OrderScreen> {
 
       case 'Hold':
         return orderHoldWidget();
+      default:
+        return newOrderWidget();
     }
   }
 

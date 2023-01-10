@@ -67,7 +67,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                   Column(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Icon(Icons.discount_rounded),
+                      const Icon(Icons.shopping_cart_outlined),
                       SizedBox(
                         height: 2.h,
                       ),

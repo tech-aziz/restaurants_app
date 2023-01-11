@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/screens/home_page.dart';
@@ -17,8 +19,77 @@ class OrderCheckOut extends StatefulWidget {
 
 class _OrderCheckOutState extends State<OrderCheckOut> {
   String defalutValue = 'Customers';
+
+  List<Map<String, dynamic>> item = [
+    {
+      "id": 1,
+      "name": "Category1",
+      "data": [
+        {
+          "id": 1,
+          "name": "Apple",
+          "image": 'assets/images/apple.jpg',
+          "price": 23
+        },
+        {
+          "id": 2,
+          "name": "Banana",
+          "image": 'assets/images/banana.png',
+          "price": 25
+        },
+        {
+          "id": 3,
+          "name": "Beef",
+          "image": 'assets/images/beef.png',
+          "price": 25
+        },
+        {
+          "id": 4,
+          "name": "Chicken",
+          "image": 'assets/images/chicken.png',
+          "price": 27
+        },
+        {
+          "id": 5,
+          "name": "CocaCola",
+          "image": 'assets/images/coca_cola.png',
+          "price": 29
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Category2",
+      "data": [
+        {"id": 1, "name": "Apple", "image": 'imagelink1'},
+        {"id": 2, "name": "Mango", "image": 'imagelink2'},
+        {"id": 3, "name": "product3", "image": 'imagelink3'},
+        {"id": 4, "name": "product4", "image": 'imagelink4'},
+        {"id": 1, "name": "product1", "image": 'imagelink1'}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Category3",
+      "data": [
+        {"id": 1, "name": "Tomato", "image": 'imagelink1'},
+        {"id": 2, "name": "Ladies Finger", "image": 'imagelink2'},
+        {"id": 3, "name": "product3", "image": 'imagelink3'},
+        {"id": 4, "name": "product4", "image": 'imagelink4'},
+        {"id": 1, "name": "product1", "image": 'imagelink1'}
+      ]
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
+    // setState(() {
+    // var newObj =  myMap.entries.map((e) {
+    //     return e.key;
+    //   }).toList();
+    //   print(newObj);
+    // });
+
     return Scaffold(
       //Custom Appbar
       appBar: CustomAppBar(
@@ -365,15 +436,13 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
       body: Padding(
         padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics()
-          ),
           child: Column(
             children: [
               DropdownSearch<String>(
                 popupProps: PopupProps.menu(
                   showSelectedItems: true,
                   showSearchBox: true,
+
                   // disabledItemFn: (String s) => s.startsWith('I'),
                 ),
                 items: [
@@ -403,31 +472,8 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 selectedItem: "Pepsi",
               ),
 
-              // SearchField(
-              //     hint: 'Search Category Here...',
-              //     searchInputDecoration: InputDecoration(
-              //         enabledBorder: OutlineInputBorder(
-              //             borderSide: BorderSide(
-              //                 color: Colors.blueGrey.shade200, width: 1),
-              //             borderRadius: BorderRadius.circular(12)),
-              //         focusedBorder: OutlineInputBorder(
-              //             borderSide: BorderSide(
-              //                 color: Colors.blue.withOpacity(0.8), width: 2),
-              //             borderRadius: BorderRadius.circular(12))),
-              //     suggestions: [
-              //       SearchFieldListItem(
-              //         'Soft-Drinks',
-              //       ),
-              //       SearchFieldListItem('Soft-Drinks'),
-              //       SearchFieldListItem('Soft-Drinks'),
-              //       SearchFieldListItem('Soft-Drinks'),
-              //       SearchFieldListItem('Soft-Drinks'),
-              //       SearchFieldListItem('Soft-Drinks'),
-              //       SearchFieldListItem('Beef'),
-              //       SearchFieldListItem('Soft-Drinks'),
-              //     ]),
               SizedBox(
-                height: 12.h,
+                height: 8.h,
               ),
               TextField(
                   decoration: InputDecoration(
@@ -438,7 +484,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 prefixIcon: const Icon(Icons.search),
               )),
               SizedBox(
-                height: 12.h,
+                height: 5.h,
               ),
               SingleChildScrollView(
                 physics: BouncingScrollPhysics(
@@ -446,6 +492,13 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
+                    // ListView.builder(
+                    //   itemCount: item.length,
+                    //   itemBuilder: (context, index) {
+                    //     return Text(item[index]['id'].toString());
+                    //   },
+                    // ),
+
                     CustomCard(
                       image: Image.asset(
                         'assets/images/pepsi.png',
@@ -454,94 +507,91 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                       productName: 'Pepsi',
                       productPrice: 20.0,
                     ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/apple.jpg',
-                        width: 50.w,
-                      ),
-                      productName: 'Apple',
-                      productPrice: 25.0,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/banana.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Banana',
-                      productPrice: 30.0,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/mango.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Mango',
-                      productPrice: 30.0,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/potato.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Poteto',
-                      productPrice: 30.0,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/chicken.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Chicken',
-                      productPrice: 30.0,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/beef.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Beef',
-                      productPrice: 30.0,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/coca_cola.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Drinks',
-                      productPrice: 30.0,
-                    )
+                    // SizedBox(
+                    //   width: 8.w,
+                    // ),
+                    // CustomCard(
+                    //   image: Image.asset(
+                    //     'assets/images/apple.jpg',
+                    //     width: 50.w,
+                    //   ),
+                    //   productName: 'Apple',
+                    //   productPrice: 25.0,
+                    // ),
+                    // SizedBox(
+                    //   width: 8.w,
+                    // ),
+                    // CustomCard(
+                    //   image: Image.asset(
+                    //     'assets/images/banana.png',
+                    //     width: 50.w,
+                    //   ),
+                    //   productName: 'Banana',
+                    //   productPrice: 30.0,
+                    // ),
+                    // SizedBox(
+                    //   width: 8.w,
+                    // ),
+                    // CustomCard(
+                    //   image: Image.asset(
+                    //     'assets/images/mango.png',
+                    //     width: 50.w,
+                    //   ),
+                    //   productName: 'Mango',
+                    //   productPrice: 30.0,
+                    // ),
+                    // SizedBox(
+                    //   width: 8.w,
+                    // ),
+                    // CustomCard(
+                    //   image: Image.asset(
+                    //     'assets/images/potato.png',
+                    //     width: 50.w,
+                    //   ),
+                    //   productName: 'Poteto',
+                    //   productPrice: 30.0,
+                    // ),
+                    // SizedBox(
+                    //   width: 8.w,
+                    // ),
+                    // CustomCard(
+                    //   image: Image.asset(
+                    //     'assets/images/chicken.png',
+                    //     width: 50.w,
+                    //   ),
+                    //   productName: 'Chicken',
+                    //   productPrice: 30.0,
+                    // ),
+                    // SizedBox(
+                    //   width: 8.w,
+                    // ),
+                    // CustomCard(
+                    //   image: Image.asset(
+                    //     'assets/images/beef.png',
+                    //     width: 50.w,
+                    //   ),
+                    //   productName: 'Beef',
+                    //   productPrice: 30.0,
+                    // ),
+                    // SizedBox(
+                    //   width: 8.w,
+                    // ),
+                    // CustomCard(
+                    //   image: Image.asset(
+                    //     'assets/images/coca_cola.png',
+                    //     width: 50.w,
+                    //   ),
+                    //   productName: 'Drinks',
+                    //   productPrice: 30.0,
+                    // )
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 12.h,
               ),
 
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.black12, width: 1)),
-                height: 320.h,
+                height: 350.h,
                 width: double.infinity,
                 child: Column(
                   children: [
@@ -606,6 +656,19 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                         ],
                       ),
                     ),
+
+
+                    
+                    ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: item.length,
+                        itemBuilder: (context, index) {
+                          return Text(
+                              item[index]['data'][2]['name'].toString());
+                        }),
+
+
+
                     Spacer(),
                     Container(
                       decoration: BoxDecoration(

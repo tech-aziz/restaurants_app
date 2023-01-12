@@ -20,66 +20,66 @@ class OrderCheckOut extends StatefulWidget {
 class _OrderCheckOutState extends State<OrderCheckOut> {
   String defalutValue = 'Customers';
 
-  List<Map<String, dynamic>> item = [
-    {
-      "id": 1,
-      "name": "Category1",
-      "data": [
-        {
-          "id": 1,
-          "name": "Apple",
-          "image": 'assets/images/apple.jpg',
-          "price": 23
-        },
-        {
-          "id": 2,
-          "name": "Banana",
-          "image": 'assets/images/banana.png',
-          "price": 25
-        },
-        {
-          "id": 3,
-          "name": "Beef",
-          "image": 'assets/images/beef.png',
-          "price": 25
-        },
-        {
-          "id": 4,
-          "name": "Chicken",
-          "image": 'assets/images/chicken.png',
-          "price": 27
-        },
-        {
-          "id": 5,
-          "name": "CocaCola",
-          "image": 'assets/images/coca_cola.png',
-          "price": 29
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Category2",
-      "data": [
-        {"id": 1, "name": "Apple", "image": 'imagelink1'},
-        {"id": 2, "name": "Mango", "image": 'imagelink2'},
-        {"id": 3, "name": "product3", "image": 'imagelink3'},
-        {"id": 4, "name": "product4", "image": 'imagelink4'},
-        {"id": 1, "name": "product1", "image": 'imagelink1'}
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Category3",
-      "data": [
-        {"id": 1, "name": "Tomato", "image": 'imagelink1'},
-        {"id": 2, "name": "Ladies Finger", "image": 'imagelink2'},
-        {"id": 3, "name": "product3", "image": 'imagelink3'},
-        {"id": 4, "name": "product4", "image": 'imagelink4'},
-        {"id": 1, "name": "product1", "image": 'imagelink1'}
-      ]
-    },
-  ];
+  // List<Map<String, dynamic>> item = [
+  //   {
+  //     "id": 1,
+  //     "name": "Category1",
+  //     "data": [
+  //       {
+  //         "id": 1,
+  //         "name": "Apple",
+  //         "image": 'assets/images/apple.jpg',
+  //         "price": 23
+  //       },
+  //       {
+  //         "id": 2,
+  //         "name": "Banana",
+  //         "image": 'assets/images/banana.png',
+  //         "price": 25
+  //       },
+  //       {
+  //         "id": 3,
+  //         "name": "Beef",
+  //         "image": 'assets/images/beef.png',
+  //         "price": 25
+  //       },
+  //       {
+  //         "id": 4,
+  //         "name": "Chicken",
+  //         "image": 'assets/images/chicken.png',
+  //         "price": 27
+  //       },
+  //       {
+  //         "id": 5,
+  //         "name": "CocaCola",
+  //         "image": 'assets/images/coca_cola.png',
+  //         "price": 29
+  //       }
+  //     ]
+  //   },
+  //   {
+  //     "id": 2,
+  //     "name": "Category2",
+  //     "data": [
+  //       {"id": 1, "name": "Apple", "image": 'imagelink1'},
+  //       {"id": 2, "name": "Mango", "image": 'imagelink2'},
+  //       {"id": 3, "name": "product3", "image": 'imagelink3'},
+  //       {"id": 4, "name": "product4", "image": 'imagelink4'},
+  //       {"id": 1, "name": "product1", "image": 'imagelink1'}
+  //     ]
+  //   },
+  //   {
+  //     "id": 3,
+  //     "name": "Category3",
+  //     "data": [
+  //       {"id": 1, "name": "Tomato", "image": 'imagelink1'},
+  //       {"id": 2, "name": "Ladies Finger", "image": 'imagelink2'},
+  //       {"id": 3, "name": "product3", "image": 'imagelink3'},
+  //       {"id": 4, "name": "product4", "image": 'imagelink4'},
+  //       {"id": 1, "name": "product1", "image": 'imagelink1'}
+  //     ]
+  //   },
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -659,13 +659,13 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
 
 
                     
-                    ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: item.length,
-                        itemBuilder: (context, index) {
-                          return Text(
-                              item[index]['data'][2]['name'].toString());
-                        }),
+                    // ListView.builder(
+                    //     shrinkWrap: true,
+                    //     itemCount: item.length,
+                    //     itemBuilder: (context, index) {
+                    //       return Text(
+                    //           item[index]['data'][2]['name'].toString());
+                    //     }),
 
 
 

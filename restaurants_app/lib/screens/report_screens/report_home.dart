@@ -311,7 +311,7 @@ class _ReportHomeState extends State<ReportHome> {
                 child: Column(
                   children: [
                     Container(
-                      height: 60.h,
+                      height: 59.h,
                       decoration: const BoxDecoration(
                           border: Border(
                               bottom:
@@ -335,7 +335,7 @@ class _ReportHomeState extends State<ReportHome> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
-                              height: 65,
+                              height: 72,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -345,7 +345,7 @@ class _ReportHomeState extends State<ReportHome> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
-                              height: 65,
+                              height: 72,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -355,7 +355,7 @@ class _ReportHomeState extends State<ReportHome> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
-                              height: 65,
+                              height: 72,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -365,7 +365,7 @@ class _ReportHomeState extends State<ReportHome> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
-                              height: 65,
+                              height: 72,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -375,7 +375,7 @@ class _ReportHomeState extends State<ReportHome> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
-                              height: 65,
+                              height: 72,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -385,7 +385,7 @@ class _ReportHomeState extends State<ReportHome> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
-                              height: 65,
+                              height: 72,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:
@@ -395,7 +395,7 @@ class _ReportHomeState extends State<ReportHome> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
-                              height: 65,
+                              height: 72,
                               width: 1,
                               decoration: BoxDecoration(
                                 border:

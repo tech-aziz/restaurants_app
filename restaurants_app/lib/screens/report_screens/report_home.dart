@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/widget/custom_check_out_button.dart';
 import 'dart:async';
-import 'package:intl/intl.dart';
+
 
 class ReportHome extends StatefulWidget {
   const ReportHome({super.key});
@@ -16,6 +15,7 @@ class _ReportHomeState extends State<ReportHome> {
   DateTime selectedStartDate = DateTime.now();
   DateTime selectedEndDate = DateTime.now();
 
+  // ignore: non_constant_identifier_names
   Future<void> _StartDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
@@ -29,6 +29,7 @@ class _ReportHomeState extends State<ReportHome> {
     }
   }
 
+  // ignore: non_constant_identifier_names
   Future<void> _EndDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
@@ -267,17 +268,17 @@ class _ReportHomeState extends State<ReportHome> {
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
-                  Text(
+                  const Text(
                     'To',
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Expanded(
@@ -289,8 +290,8 @@ class _ReportHomeState extends State<ReportHome> {
                               borderRadius: BorderRadius.circular(12)),
                           hintText:
                               "${selectedEndDate.toLocal()}".split(' ')[0],
-                          hintStyle: TextStyle(color: Colors.black),
-                          prefixIcon: Icon(Icons.keyboard)),
+                          hintStyle: const TextStyle(color: Colors.black),
+                          prefixIcon: const Icon(Icons.keyboard)),
                       focusNode: AlwaysDisabledFocusNode(),
                       onTap: () {
                         _EndDate(context);
@@ -299,7 +300,7 @@ class _ReportHomeState extends State<ReportHome> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Container(
@@ -311,14 +312,14 @@ class _ReportHomeState extends State<ReportHome> {
                   children: [
                     Container(
                       height: 60.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
+                      decoration: const BoxDecoration(
+                          border: Border(
                               bottom:
                                   BorderSide(width: 1, color: Colors.black26))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             'Invoice\nNo',
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.bold),
@@ -330,7 +331,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Item\nCode',
+                          const Text('Item\nCode',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
@@ -340,7 +341,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Item\nName',
+                          const Text('Item\nName',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
@@ -350,7 +351,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Item\nAmount',
+                          const Text('Item\nAmount',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
@@ -360,7 +361,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Service\nCharge',
+                          const Text('Service\nCharge',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
@@ -370,7 +371,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Discount\nAmount',
+                          const Text('Discount\nAmount',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
@@ -380,7 +381,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('SRV\nCharge\nVat',
+                          const Text('SRV\nCharge\nVat',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
@@ -390,7 +391,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Vat',
+                          const Text('Vat',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                           Container(
@@ -400,7 +401,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Net\nAmount',
+                          const Text('Net\nAmount',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold)),
                         ],
@@ -408,16 +409,16 @@ class _ReportHomeState extends State<ReportHome> {
                     ),
                     Container(
                       height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
+                      decoration: const BoxDecoration(
+                          border: Border(
                               bottom:
                                   BorderSide(width: 1, color: Colors.black26))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                               width: 36.w,
-                              child: Text(
+                              child: const Text(
                                 '',
                                 style: TextStyle(fontSize: 12),
                               )),
@@ -428,7 +429,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 27.w,
                               child: Text('', style: TextStyle(fontSize: 12))),
                           Container(
@@ -438,7 +439,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 30.w,
                               child: Text('', style: TextStyle(fontSize: 12))),
                           Container(
@@ -448,7 +449,7 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
                               child: Text('', style: TextStyle(fontSize: 12))),
                           Container(
@@ -458,9 +459,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -468,9 +469,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -478,9 +479,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -488,9 +489,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -498,7 +499,497 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 50.h,
+                      decoration: const BoxDecoration(
+                          border: Border(
+                              bottom:
+                                  BorderSide(width: 1, color: Colors.black26))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                              width: 36.w,
+                              child: const Text(
+                                '',
+                                style: TextStyle(fontSize: 12),
+                              )),
                           Container(
+                              height: 200,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 27.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 30.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 45.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 38.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 18.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 50.h,
+                      decoration: const BoxDecoration(
+                          border: Border(
+                              bottom:
+                                  BorderSide(width: 1, color: Colors.black26))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                              width: 36.w,
+                              child: const Text(
+                                '',
+                                style: TextStyle(fontSize: 12),
+                              )),
+                          Container(
+                              height: 200,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 27.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 30.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 45.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 38.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 18.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 50.h,
+                      decoration: const BoxDecoration(
+                          border: Border(
+                              bottom:
+                                  BorderSide(width: 1, color: Colors.black26))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                              width: 36.w,
+                              child: const Text(
+                                '',
+                                style: TextStyle(fontSize: 12),
+                              )),
+                          Container(
+                              height: 200,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 27.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 30.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 45.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 38.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 18.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 50.h,
+                      decoration: const BoxDecoration(
+                          border: Border(
+                              bottom:
+                                  BorderSide(width: 1, color: Colors.black26))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                              width: 36.w,
+                              child: const Text(
+                                '',
+                                style: TextStyle(fontSize: 12),
+                              )),
+                          Container(
+                              height: 200,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 27.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 30.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 45.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 38.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 18.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 50.h,
+                      decoration: const BoxDecoration(
+                          border: Border(
+                              bottom:
+                                  BorderSide(width: 1, color: Colors.black26))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                              width: 36.w,
+                              child: const Text(
+                                '',
+                                style: TextStyle(fontSize: 12),
+                              )),
+                          Container(
+                              height: 200,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 27.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 30.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 39.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 45.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 38.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
+                              width: 18.w,
+                              child: const Text('', style: TextStyle(fontSize: 12))),
+                          Container(
+                              height: 65,
+                              width: 1,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black26, width: 1),
+                              )),
+                          SizedBox(
                               width: 39.w,
                               child: Text('', style: TextStyle(fontSize: 12))),
                         ],
@@ -506,16 +997,16 @@ class _ReportHomeState extends State<ReportHome> {
                     ),
                     Container(
                       height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
+                      decoration: const BoxDecoration(
+                          border: Border(
                               bottom:
                                   BorderSide(width: 1, color: Colors.black26))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                               width: 36.w,
-                              child: Text(
+                              child: const Text(
                                 '',
                                 style: TextStyle(fontSize: 12),
                               )),
@@ -526,9 +1017,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -536,9 +1027,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -546,9 +1037,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -556,9 +1047,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -566,9 +1057,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -576,9 +1067,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -586,9 +1077,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -596,24 +1087,24 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                         ],
                       ),
                     ),
                     Container(
                       height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
+                      decoration: const BoxDecoration(
+                          border: Border(
                               bottom:
                                   BorderSide(width: 1, color: Colors.black26))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                               width: 36.w,
-                              child: Text(
+                              child: const Text(
                                 '',
                                 style: TextStyle(fontSize: 12),
                               )),
@@ -624,9 +1115,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -634,9 +1125,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -644,9 +1135,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -654,9 +1145,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -664,9 +1155,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -674,9 +1165,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -684,9 +1175,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -694,24 +1185,24 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                         ],
                       ),
                     ),
                     Container(
                       height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
+                      decoration: const BoxDecoration(
+                          border: Border(
                               bottom:
                                   BorderSide(width: 1, color: Colors.black26))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                               width: 36.w,
-                              child: Text(
+                              child: const Text(
                                 '',
                                 style: TextStyle(fontSize: 12),
                               )),
@@ -722,9 +1213,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -732,9 +1223,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -742,9 +1233,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -752,9 +1243,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -762,9 +1253,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -772,9 +1263,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -782,9 +1273,9 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                           Container(
                               height: 65,
                               width: 1,
@@ -792,503 +1283,13 @@ class _ReportHomeState extends State<ReportHome> {
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Container(
+                          SizedBox(
                               width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
+                              child: const Text('', style: TextStyle(fontSize: 12))),
                         ],
                       ),
                     ),
-                    Container(
-                      height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
-                              bottom:
-                                  BorderSide(width: 1, color: Colors.black26))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              width: 36.w,
-                              child: Text(
-                                '',
-                                style: TextStyle(fontSize: 12),
-                              )),
-                          Container(
-                              height: 200,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
-                              bottom:
-                                  BorderSide(width: 1, color: Colors.black26))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              width: 36.w,
-                              child: Text(
-                                '',
-                                style: TextStyle(fontSize: 12),
-                              )),
-                          Container(
-                              height: 200,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
-                              bottom:
-                                  BorderSide(width: 1, color: Colors.black26))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              width: 36.w,
-                              child: Text(
-                                '',
-                                style: TextStyle(fontSize: 12),
-                              )),
-                          Container(
-                              height: 200,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
-                              bottom:
-                                  BorderSide(width: 1, color: Colors.black26))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              width: 36.w,
-                              child: Text(
-                                '',
-                                style: TextStyle(fontSize: 12),
-                              )),
-                          Container(
-                              height: 200,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 50.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
-                              bottom:
-                                  BorderSide(width: 1, color: Colors.black26))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              width: 36.w,
-                              child: Text(
-                                '',
-                                style: TextStyle(fontSize: 12),
-                              )),
-                          Container(
-                              height: 200,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 27.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 30.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 45.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 38.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 18.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                          Container(
-                              height: 65,
-                              width: 1,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          Container(
-                              width: 39.w,
-                              child: Text('', style: TextStyle(fontSize: 12))),
-                        ],
-                      ),
-                    ),
-                    Spacer(),
+                    const Spacer(),
                     CheckOutButton(checkOutButtonName: 'Download Report'),
                   ],
                 ),

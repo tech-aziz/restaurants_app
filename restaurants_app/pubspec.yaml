@@ -40,6 +40,7 @@ dependencies:
   url_launcher: ^6.1.7
   # searchfield: ^0.7.2
   dropdown_search: ^5.0.5
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:

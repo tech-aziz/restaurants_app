@@ -4,6 +4,7 @@ import 'package:restaurants_app/helpers/url_helpers.dart';
 import 'package:restaurants_app/screens/dashboard_screens/dashboard_home.dart';
 import 'package:restaurants_app/screens/order_screens/order_details.dart';
 import 'package:restaurants_app/screens/order_screens/order_home.dart';
+import 'package:restaurants_app/screens/report_screens/report_home.dart';
 import 'package:restaurants_app/screens/setup_screens/setup_home.dart';
 
 class HomePage extends StatefulWidget {
@@ -217,10 +218,10 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       InkWell(
                                         onTap: () {
-                                          // Navigator.of(context).push(
-                                          //     MaterialPageRoute(
-                                          //         builder: (context) =>
-                                          //             SetUpPage()));
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ReportHome()));
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(

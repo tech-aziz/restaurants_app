@@ -492,12 +492,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    // ListView.builder(
-                    //   itemCount: item.length,
-                    //   itemBuilder: (context, index) {
-                    //     return Text(item[index]['id'].toString());
-                    //   },
-                    // ),
 
                     CustomCard(
                       image: Image.asset(
@@ -507,83 +501,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                       productName: 'Pepsi',
                       productPrice: 20.0,
                     ),
-                    // SizedBox(
-                    //   width: 8.w,
-                    // ),
-                    // CustomCard(
-                    //   image: Image.asset(
-                    //     'assets/images/apple.jpg',
-                    //     width: 50.w,
-                    //   ),
-                    //   productName: 'Apple',
-                    //   productPrice: 25.0,
-                    // ),
-                    // SizedBox(
-                    //   width: 8.w,
-                    // ),
-                    // CustomCard(
-                    //   image: Image.asset(
-                    //     'assets/images/banana.png',
-                    //     width: 50.w,
-                    //   ),
-                    //   productName: 'Banana',
-                    //   productPrice: 30.0,
-                    // ),
-                    // SizedBox(
-                    //   width: 8.w,
-                    // ),
-                    // CustomCard(
-                    //   image: Image.asset(
-                    //     'assets/images/mango.png',
-                    //     width: 50.w,
-                    //   ),
-                    //   productName: 'Mango',
-                    //   productPrice: 30.0,
-                    // ),
-                    // SizedBox(
-                    //   width: 8.w,
-                    // ),
-                    // CustomCard(
-                    //   image: Image.asset(
-                    //     'assets/images/potato.png',
-                    //     width: 50.w,
-                    //   ),
-                    //   productName: 'Poteto',
-                    //   productPrice: 30.0,
-                    // ),
-                    // SizedBox(
-                    //   width: 8.w,
-                    // ),
-                    // CustomCard(
-                    //   image: Image.asset(
-                    //     'assets/images/chicken.png',
-                    //     width: 50.w,
-                    //   ),
-                    //   productName: 'Chicken',
-                    //   productPrice: 30.0,
-                    // ),
-                    // SizedBox(
-                    //   width: 8.w,
-                    // ),
-                    // CustomCard(
-                    //   image: Image.asset(
-                    //     'assets/images/beef.png',
-                    //     width: 50.w,
-                    //   ),
-                    //   productName: 'Beef',
-                    //   productPrice: 30.0,
-                    // ),
-                    // SizedBox(
-                    //   width: 8.w,
-                    // ),
-                    // CustomCard(
-                    //   image: Image.asset(
-                    //     'assets/images/coca_cola.png',
-                    //     width: 50.w,
-                    //   ),
-                    //   productName: 'Drinks',
-                    //   productPrice: 30.0,
-                    // )
                   ],
                 ),
               ),

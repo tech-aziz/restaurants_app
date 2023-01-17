@@ -3,11 +3,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/screens/home_page.dart';
-import 'package:restaurants_app/screens/order_screens/order_home.dart';
-import 'package:restaurants_app/screens/order_screens/order_more/dine_in_widget.dart';
-import 'package:restaurants_app/widget/custom_app_bar.dart';
-import 'package:restaurants_app/widget/custom_check_out_button.dart';
-import 'package:restaurants_app/widget/custom_product_card.dart';
+import 'package:restaurants_app/screens/order_home.dart';
+import 'package:restaurants_app/screens/dine_in_widget.dart';
+import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
+import 'package:restaurants_app/ui_elements/custom_check_out_button.dart';
+import 'package:restaurants_app/ui_elements/custom_product_card.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 class OrderCheckOut extends StatefulWidget {
@@ -493,6 +493,22 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 child: Row(
                   children: [
 
+                    CustomCard(
+                      image: Image.asset(
+                        'assets/images/pepsi.png',
+                        width: 50.w,
+                      ),
+                      productName: 'Pepsi',
+                      productPrice: 20.0,
+                    ),
+                    CustomCard(
+                      image: Image.asset(
+                        'assets/images/pepsi.png',
+                        width: 50.w,
+                      ),
+                      productName: 'Pepsi',
+                      productPrice: 20.0,
+                    ),
                     CustomCard(
                       image: Image.asset(
                         'assets/images/pepsi.png',

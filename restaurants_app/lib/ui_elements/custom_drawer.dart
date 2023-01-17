@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/all_charges.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/category.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/employes.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/items.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/manage.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/payment_method.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/restaurent_info.dart';
-import 'package:restaurants_app/screens/setup_screens/setup_drawer/tables.dart';
+import 'package:restaurants_app/screens/all_charges.dart';
+import 'package:restaurants_app/screens/category.dart';
+import 'package:restaurants_app/screens/employes.dart';
+import 'package:restaurants_app/screens/items.dart';
+import 'package:restaurants_app/screens/manage.dart';
+import 'package:restaurants_app/screens/payment_method.dart';
+import 'package:restaurants_app/screens/restaurent_info.dart';
+import 'package:restaurants_app/screens/tables.dart';
 import '../helpers/url_helpers.dart';
-import '../screens/setup_screens/setup_home.dart';
+import '../screens/setup_home.dart';
 
 class DrawerWidget extends StatelessWidget {
   DrawerWidget({super.key});

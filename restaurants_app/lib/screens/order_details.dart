@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
 import 'package:restaurants_app/screens/home_page.dart';
-import 'package:restaurants_app/screens/order_screens/order_home.dart';
-import 'package:restaurants_app/screens/order_screens/order_more/dine_in_widget.dart';
+import 'package:restaurants_app/screens/order_home.dart';
+import 'package:restaurants_app/screens/dine_in_widget.dart';
 
-import 'package:restaurants_app/screens/order_screens/order_more/order_checkout_widget.dart';
+import 'package:restaurants_app/screens/order_checkout_widget.dart';
 
 class OrderScreenHome extends StatefulWidget {
   const OrderScreenHome({super.key});

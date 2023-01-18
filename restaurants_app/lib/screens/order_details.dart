@@ -138,7 +138,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                             InkWell(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => OrderCheckOut()));
+                                    builder: (context) => OrderCheckOut(selectedTakeAwayValue: 1,)));
                               },
                               child: Container(
                                   decoration: BoxDecoration(
@@ -179,7 +179,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) =>
-                                        OrderCheckOut()));
+                                        OrderCheckOut(selectedDeliveryValue: 2,)));
                               },
                               child: Container(
                                   decoration: BoxDecoration(

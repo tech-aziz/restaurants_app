@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/screens/home_page.dart';
+import 'package:restaurants_app/screens/order_details.dart';
 import 'package:restaurants_app/screens/order_home.dart';
 import 'package:restaurants_app/screens/dine_in_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
@@ -11,7 +12,13 @@ import 'package:restaurants_app/ui_elements/custom_product_card.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 class OrderCheckOut extends StatefulWidget {
-  const OrderCheckOut({super.key});
+  int? selectedDineInValue, selectedTakeAwayValue, selectedDeliveryValue;
+
+  OrderCheckOut(
+      {super.key,
+      this.selectedDineInValue,
+      this.selectedTakeAwayValue,
+      this.selectedDeliveryValue});
 
   @override
   State<OrderCheckOut> createState() => _OrderCheckOutState();
@@ -19,6 +26,7 @@ class OrderCheckOut extends StatefulWidget {
 
 class _OrderCheckOutState extends State<OrderCheckOut> {
   String defalutValue = 'Customers';
+  String? deliveryText;
 
   // List<Map<String, dynamic>> item = [
   //   {
@@ -93,55 +101,50 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
     return Scaffold(
       //Custom Appbar
       appBar: CustomAppBar(
-        height: 115.h,
+        height: 110.h,
         child: Padding(
           padding: const EdgeInsets.only(
-            top: 45,
+            top: 24,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: InkWell(
-                  splashColor: Colors.amber,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HomePage()));
-                  },
-                  child: Expanded(
-                    flex: 1,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            const Icon(
-                              Icons.home_outlined,
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            const Text(
-                              'Home',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(elevation: 0),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage()));
+                },
+                child: Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.home_outlined,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      const Text(
+                        'Home',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const DineInWidget()));
-                  },
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    elevation: 0, backgroundColor: Colors.transparent),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  color: widget.selectedDineInValue == 0
+                      ? Colors.white10
+                      : Colors.transparent,
                   child: Expanded(
                     flex: 1,
                     child: Column(
@@ -169,13 +172,19 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const OrderCheckOut()));
-                  },
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.transparent,),
+                onPressed: () {
+                  setState(
+                    () {},
+                  );
+                },
+                child: Container(
+                  color: widget.selectedTakeAwayValue == 1
+                      ? Colors.white10
+                      : Colors.transparent,
                   child: Expanded(
                     flex: 1,
                     child: Column(
@@ -203,13 +212,20 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const OrderCheckOut()));
-                  },
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    elevation: 0, backgroundColor: Colors.transparent),
+                onPressed: () {
+                  setState(
+                    () {
+                      deliveryText = 'Delivery\nCharge: ';
+                    },
+                  );
+                },
+                child: Container(
+                  color: widget.selectedDeliveryValue == 2
+                      ? Colors.white10
+                      : Colors.transparent,
                   child: Expanded(
                     flex: 1,
                     child: Column(
@@ -237,8 +253,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                   ),
                 ),
               ),
-
-              //More button implementation here
               Padding(
                 padding: const EdgeInsets.only(left: 0, right: 3),
                 child: InkWell(
@@ -492,7 +506,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-
                     CustomCard(
                       image: Image.asset(
                         'assets/images/pepsi.png',
@@ -590,8 +603,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                       ),
                     ),
 
-
-                    
                     // ListView.builder(
                     //     shrinkWrap: true,
                     //     itemCount: item.length,
@@ -599,8 +610,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     //       return Text(
                     //           item[index]['data'][2]['name'].toString());
                     //     }),
-
-
 
                     Spacer(),
                     Container(
@@ -649,18 +658,48 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(left: 5),
-                                  child: RichText(
-                                    text: TextSpan(
-                                        text: 'Items: ',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black54),
-                                        children: [
-                                          TextSpan(
-                                              text: '0',
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 5),
+                                        child: RichText(
+                                          text: TextSpan(
+                                              text: 'Items: ',
                                               style: TextStyle(
-                                                  color: Colors.black))
-                                        ]),
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black54),
+                                              children: [
+                                                TextSpan(
+                                                    text: '0',
+                                                    style: TextStyle(
+                                                        color: Colors.black))
+                                              ]),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 5),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 5),
+                                          child: RichText(
+                                            text: TextSpan(
+                                                text: deliveryText,
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black54),
+                                                children: [
+                                                  TextSpan(
+                                                      text: '0',
+                                                      style: TextStyle(
+                                                          color: Colors.black))
+                                                ]),
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
                                   // child: Text(
                                   //   'Items: 0',
@@ -791,6 +830,24 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
       //   return CustomerWidget();
     }
   }
+
+  // showSelectedWidget(int value) {
+  //   switch (value) {
+  //     case 0:
+  //       return Container();
+  //     case 1:
+  //       return Container();
+
+  //     case 2:
+  //     return employes();
+
+  //     case 3:
+  //     return tables();
+
+  //     default:
+  //     return items();
+  //   }
+  // }
 
   // Widget CustomerWidget() {
   //   return Column(

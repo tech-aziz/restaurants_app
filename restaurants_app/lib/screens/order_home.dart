@@ -1,7 +1,6 @@
-import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurants_app/screens/order_details.dart';
+
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
@@ -222,7 +221,7 @@ class _OrderScreenState extends State<OrderScreen> {
           title: const Text('Table Name: T-1',
               style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: .2)),
           subtitle: const Text('BDT 20.0'),
-          trailing: payNowButton('Pay Now', Color(0xFF0E4A88)),
+          trailing: payNowButton('Pay Now', const Color(0xFF0E4A88)),
         ),
         const Divider(
           indent: 70,
@@ -246,7 +245,7 @@ class _OrderScreenState extends State<OrderScreen> {
               color: Colors.green.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
           child: const Center(child: Text("Completed Order")),
@@ -267,7 +266,7 @@ class _OrderScreenState extends State<OrderScreen> {
               color: Colors.green.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12)),
           child: const Center(child: Text("Hold")),

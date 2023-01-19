@@ -9,6 +9,9 @@ class CustomTable extends StatefulWidget {
 }
 
 class _CustomTableState extends State<CustomTable> {
+
+  int tableNumber = 1;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,10 +20,15 @@ class _CustomTableState extends State<CustomTable> {
       width: double.infinity,
       alignment: Alignment.topCenter,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          setState(() {
+            tableNumber++;
+          });
+
+        },
         child: Card(
           color: const Color.fromARGB(255, 233, 239, 245),
-          shadowColor: Color(0xFF0E4A88),
+          shadowColor: const Color(0xFF0E4A88),
           elevation: 12.sp,
           shape: RoundedRectangleBorder(
             side: const BorderSide(color: Color(0xFF0E4A88), width: .9),
@@ -38,8 +46,9 @@ class _CustomTableState extends State<CustomTable> {
               SizedBox(
                 height: 10.h,
               ),
-              Text(
-                'T-1',
+              // ignore: prefer_interpolation_to_compose_strings
+              Text('T-'+
+                tableNumber.toString(),
                 style: TextStyle(
                     fontSize: 20.sp,
                     // fontWeight: FontWeight.bold,

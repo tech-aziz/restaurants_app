@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: camel_case_types
 class Restaurent_Info extends StatefulWidget {
   const Restaurent_Info({super.key});
 
@@ -8,6 +9,7 @@ class Restaurent_Info extends StatefulWidget {
   State<Restaurent_Info> createState() => _Restaurent_InfoState();
 }
 
+// ignore: camel_case_types
 class _Restaurent_InfoState extends State<Restaurent_Info> {
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();

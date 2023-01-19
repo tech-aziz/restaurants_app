@@ -156,8 +156,8 @@ class _ItemsState extends State<Items> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                     hintText: 'Item Name',
-                    hintStyle: TextStyle(color: Colors.black),
-                    prefixIcon: Icon(Icons.keyboard)),
+                    hintStyle: const TextStyle(color: Colors.black),
+                    prefixIcon: const Icon(Icons.keyboard)),
               ),
               const SizedBox(
                 height: 2,

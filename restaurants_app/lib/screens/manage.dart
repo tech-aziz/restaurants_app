@@ -117,7 +117,7 @@ class _ManageState extends State<Manage> {
                   }),
               const Text('Expire Date Manage Allowed',
                   style: TextStyle(fontWeight: FontWeight.bold)),
-              Spacer(),
+              const Spacer(),
               UpdateButton(
                 updateButtonName: 'Update',
               ),

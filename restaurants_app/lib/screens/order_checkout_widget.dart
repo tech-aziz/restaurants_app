@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/screens/home_page.dart';
-import 'package:restaurants_app/screens/order_details.dart';
 import 'package:restaurants_app/screens/order_home.dart';
 import 'package:restaurants_app/screens/dine_in_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
@@ -11,14 +8,15 @@ import 'package:restaurants_app/ui_elements/custom_check_out_button.dart';
 import 'package:restaurants_app/ui_elements/custom_product_card.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
+// ignore: must_be_immutable
 class OrderCheckOut extends StatefulWidget {
-  int? selectedDineInValue, selectedTakeAwayValue, selectedDeliveryValue;
-
-  OrderCheckOut(
-      {super.key,
-      this.selectedDineInValue,
-      this.selectedTakeAwayValue,
-      this.selectedDeliveryValue});
+  // int? selectedDineInValue, selectedTakeAwayValue, selectedDeliveryValue;
+  int orderTypeId;
+  OrderCheckOut({super.key, required this.orderTypeId
+      // this.selectedDineInValue,
+      // this.selectedTakeAwayValue,
+      // this.selectedDeliveryValue
+      });
 
   @override
   State<OrderCheckOut> createState() => _OrderCheckOutState();
@@ -26,7 +24,6 @@ class OrderCheckOut extends StatefulWidget {
 
 class _OrderCheckOutState extends State<OrderCheckOut> {
   String defalutValue = 'Customers';
-  String? deliveryText;
 
   // List<Map<String, dynamic>> item = [
   //   {
@@ -139,10 +136,14 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 style: ElevatedButton.styleFrom(
                     elevation: 0, backgroundColor: Colors.transparent),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  setState(() {
+                    widget.orderTypeId = 0;
+                  });
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const DineInWidget()));
                 },
                 child: Container(
-                  color: widget.selectedDineInValue == 0
+                  color: widget.orderTypeId == 0
                       ? Colors.white10
                       : Colors.transparent,
                   child: Expanded(
@@ -174,15 +175,16 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Colors.transparent,),
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                ),
                 onPressed: () {
-                  setState(
-                    () {},
-                  );
+                  setState(() {
+                    widget.orderTypeId = 1;
+                  });
                 },
                 child: Container(
-                  color: widget.selectedTakeAwayValue == 1
+                  color: widget.orderTypeId == 1
                       ? Colors.white10
                       : Colors.transparent,
                   child: Expanded(
@@ -216,14 +218,12 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 style: ElevatedButton.styleFrom(
                     elevation: 0, backgroundColor: Colors.transparent),
                 onPressed: () {
-                  setState(
-                    () {
-                      deliveryText = 'Delivery\nCharge: ';
-                    },
-                  );
+                  setState(() {
+                    widget.orderTypeId = 2;
+                  });
                 },
                 child: Container(
-                  color: widget.selectedDeliveryValue == 2
+                  color: widget.orderTypeId == 2
                       ? Colors.white10
                       : Colors.transparent,
                   child: Expanded(
@@ -453,13 +453,13 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
           child: Column(
             children: [
               DropdownSearch<String>(
-                popupProps: PopupProps.menu(
+                popupProps: const PopupProps.menu(
                   showSelectedItems: true,
                   showSearchBox: true,
 
                   // disabledItemFn: (String s) => s.startsWith('I'),
                 ),
-                items: [
+                items: const [
                   "Pepsi",
                   "Apple",
                   "Banana",
@@ -469,13 +469,13 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                   'Beef',
                   'Drinks'
                 ],
-                dropdownDecoratorProps: DropDownDecoratorProps(
+                dropdownDecoratorProps: const DropDownDecoratorProps(
                   dropdownSearchDecoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 15),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 15),
                     border: OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(12.0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(12.0),
                       ),
                     ),
                     // labelText: "Menu mode",
@@ -501,7 +501,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 height: 5.h,
               ),
               SingleChildScrollView(
-                physics: BouncingScrollPhysics(
+                physics: const BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics()),
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -537,68 +537,68 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.black12, width: 1)),
-                height: 350.h,
+                height: 362.h,
                 width: double.infinity,
                 child: Column(
                   children: [
                     Container(
                       height: 30.h,
-                      decoration: BoxDecoration(
-                          border: const Border(
+                      decoration: const BoxDecoration(
+                          border: Border(
                               bottom:
                                   BorderSide(width: 1, color: Colors.black26))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text('Product Name'),
+                          const Text('Product Name'),
                           Container(
-                              height: 35,
-                              width: 1,
+                              height: 35.h,
+                              width: 1.w,
                               decoration: BoxDecoration(
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Unit Price'),
+                          const Text('Unit Price'),
                           Container(
-                              height: 35,
-                              width: 1,
+                              height: 35.h,
+                              width: 1.w,
                               decoration: BoxDecoration(
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Qty'),
+                          const Text('Qty'),
                           Container(
-                              height: 35,
-                              width: 1,
+                              height: 35.h,
+                              width: 1.w,
                               decoration: BoxDecoration(
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('SD'),
+                          const Text('SD'),
                           Container(
-                              height: 35,
-                              width: 1,
+                              height: 35.h,
+                              width: 1.w,
                               decoration: BoxDecoration(
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('VAT'),
+                          const Text('VAT'),
                           Container(
-                              height: 35,
-                              width: 1,
+                              height: 35.h,
+                              width: 1.w,
                               decoration: BoxDecoration(
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Disc'),
+                          const Text('Disc'),
                           Container(
-                              height: 35,
-                              width: 1,
+                              height: 35.h,
+                              width: 1.w,
                               decoration: BoxDecoration(
                                 border:
                                     Border.all(color: Colors.black26, width: 1),
                               )),
-                          Text('Sub Total')
+                          const Text('Sub Total')
                         ],
                       ),
                     ),
@@ -611,16 +611,16 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     //           item[index]['data'][2]['name'].toString());
                     //     }),
 
-                    Spacer(),
+                    const Spacer(),
                     Container(
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.black26, width: 1)),
-                      height: 60.h,
+                      height: 65.h,
                       child: Row(
                         children: [
                           Container(
                             width: 130.w,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 border: Border(
                                     right: BorderSide(
                                         width: 1, color: Colors.black26))),
@@ -632,14 +632,14 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Text('Discrount: ',
+                                    const Text('Discrount: ',
                                         style: TextStyle(
                                             fontSize: 15,
                                             color: Colors.black87,
                                             fontWeight: FontWeight.bold)),
                                     Container(
-                                      height: 30,
-                                      width: 50,
+                                      height: 30.h,
+                                      width: 50.w,
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(5),
@@ -649,7 +649,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                           child: Text(
                                         '0.0',
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 18.sp,
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold),
                                       )),
@@ -665,7 +665,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                       Padding(
                                         padding: const EdgeInsets.only(left: 5),
                                         child: RichText(
-                                          text: TextSpan(
+                                          text: const TextSpan(
                                               text: 'Items: ',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
@@ -681,22 +681,23 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(right: 5),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 5),
-                                          child: RichText(
-                                            text: TextSpan(
-                                                text: deliveryText,
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black54),
-                                                children: [
-                                                  TextSpan(
-                                                      text: '0',
-                                                      style: TextStyle(
-                                                          color: Colors.black))
-                                                ]),
-                                          ),
+                                        child: RichText(
+                                          text: TextSpan(
+                                              text: widget.orderTypeId == 2
+                                                  ? 'Delivery\nCharge: '
+                                                  : '',
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black54),
+                                              children: [
+                                                TextSpan(
+                                                    text:
+                                                        widget.orderTypeId == 2
+                                                            ? '0'
+                                                            : '',
+                                                    style: const TextStyle(
+                                                        color: Colors.black))
+                                              ]),
                                         ),
                                       )
                                     ],
@@ -710,7 +711,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                               ],
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: 211.w,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -719,13 +720,14 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
+                                  // ignore: prefer_const_literals_to_create_immutables
                                   children: [
-                                    Text('Total:',
+                                    const Text('Total:',
                                         style: TextStyle(
                                             fontSize: 15,
                                             color: Colors.black87,
                                             fontWeight: FontWeight.bold)),
-                                    Container(
+                                    const SizedBox(
                                       height: 30,
                                       width: 50,
                                       child: Center(
@@ -746,7 +748,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                     Padding(
                                       padding: const EdgeInsets.only(left: 5),
                                       child: RichText(
-                                        text: TextSpan(
+                                        text: const TextSpan(
                                             text: 'SD: ',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
@@ -760,7 +762,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                       ),
                                     ),
                                     RichText(
-                                      text: TextSpan(
+                                      text: const TextSpan(
                                           text: 'VAT: ',
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
@@ -778,7 +780,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                         padding:
                                             const EdgeInsets.only(right: 5),
                                         child: RichText(
-                                          text: TextSpan(
+                                          text: const TextSpan(
                                               text: 'Service\nCharge: ',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,

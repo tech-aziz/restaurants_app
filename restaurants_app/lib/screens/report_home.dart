@@ -258,8 +258,8 @@ class _ReportHomeState extends State<ReportHome> {
                         ),
                         hintText:
                             "${selectedStartDate.toLocal()}".split(' ')[0],
-                        hintStyle: TextStyle(color: Colors.black),
-                        prefixIcon: Icon(Icons.keyboard),
+                        hintStyle: const TextStyle(color: Colors.black),
+                        prefixIcon: const Icon(Icons.keyboard),
                       ),
                       focusNode: AlwaysDisabledFocusNode(),
                       onTap: () {

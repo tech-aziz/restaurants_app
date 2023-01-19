@@ -38,7 +38,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           ),
         ),
         title: Padding(
-          padding: EdgeInsets.only(left: 0),
+          padding: const EdgeInsets.only(left: 0),
           child: Text(
             'Dashboard',
             style: TextStyle(fontSize: 19.sp),
@@ -508,7 +508,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   Text(amount.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black54, fontWeight: FontWeight.bold)),
                 ],
               ),

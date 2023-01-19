@@ -63,8 +63,8 @@ class _Payment_MethodState extends State<Payment_Method> {
                 width: 50,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(width: 2, color: Color(0xFF0E4A88))),
-                    child: Icon(Icons.payments_rounded,color: Color(0xFF0E4A88),size: 35,),
+                    border: Border.all(width: 2, color: const Color(0xFF0E4A88))),
+                    child: const Icon(Icons.payments_rounded,color: Color(0xFF0E4A88),size: 35,),
               ),
             ),
             title: const Text('Bkash'),

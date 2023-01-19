@@ -18,7 +18,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0E4A88),
+      backgroundColor: const Color(0xFF0E4A88),
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -26,7 +26,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
         leading: InkWell(
           onTap: () {
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => HomePage()));
+                MaterialPageRoute(builder: (context) => const HomePage()));
           },
           child: Padding(
             padding: const EdgeInsets.only(left: 12, top: 12),
@@ -58,7 +58,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) =>
                       // OrderScreen()
-                      OrderScreen()));
+                      const OrderScreen()));
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 12, top: 12),
@@ -85,139 +85,135 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
         child: Column(
           children: [
             Expanded(
-              child: Container(
-                // alignment: Alignment.bottomCenter,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => DineInWidget()));
-                              },
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    // color: Colors.white,
-                                    border: Border.all(
-                                      color: Colors.white,
-                                      width: 2.w,
-                                    ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const DineInWidget()));
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  // color: Colors.white,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 2.w,
                                   ),
+                                ),
+                                // ignore: prefer_const_constructors
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
                                   // ignore: prefer_const_constructors
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    // ignore: prefer_const_constructors
-                                    child: Image.asset(
-                                        'assets/images/dine_in.png',
-                                        width: 60.w,
-                                        height: 60.h,
-                                        fit: BoxFit.cover),
-                                  )),
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Text(
-                              'Dine In',
-                              style: TextStyle(
-                                  letterSpacing: .1,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15.sp,
-                                  color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => OrderCheckOut(selectedTakeAwayValue: 1,)));
-                              },
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    // color: Colors.white,
-                                    border: Border.all(
-                                      color: Colors.white,
-                                      width: 2.w,
-                                    ),
+                                  child: Image.asset(
+                                      'assets/images/dine_in.png',
+                                      width: 60.w,
+                                      height: 60.h,
+                                      fit: BoxFit.cover),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Text(
+                            'Dine In',
+                            style: TextStyle(
+                                letterSpacing: .1,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.sp,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => OrderCheckOut(orderTypeId: 1,)));
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  // color: Colors.white,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 2.w,
                                   ),
+                                ),
+                                // ignore: prefer_const_constructors
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
                                   // ignore: prefer_const_constructors
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    // ignore: prefer_const_constructors
-                                    child: Image.asset(
-                                        'assets/images/take_away.png',
-                                        height: 60.h,
-                                        width: 60.w,
-                                        fit: BoxFit.cover),
-                                  )),
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Text(
-                              'Take Away',
-                              style: TextStyle(
-                                  letterSpacing: .1,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15.sp,
-                                  color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        OrderCheckOut(selectedDeliveryValue: 2,)));
-                              },
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    // color: Colors.white,
-                                    border: Border.all(
-                                      color: Colors.white,
-                                      width: 2.w,
-                                    ),
+                                  child: Image.asset(
+                                      'assets/images/take_away.png',
+                                      height: 60.h,
+                                      width: 60.w,
+                                      fit: BoxFit.cover),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Text(
+                            'Take Away',
+                            style: TextStyle(
+                                letterSpacing: .1,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.sp,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => OrderCheckOut(orderTypeId: 2,)));
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  // color: Colors.white,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 2.w,
                                   ),
+                                ),
+                                // ignore: prefer_const_constructors
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
                                   // ignore: prefer_const_constructors
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    // ignore: prefer_const_constructors
-                                    child: Image.asset(
-                                        'assets/images/delivery.png',
-                                        height: 60.h,
-                                        width: 60.w,
-                                        fit: BoxFit.cover),
-                                  )),
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Text(
-                              'Delivery',
-                              style: TextStyle(
-                                  letterSpacing: .1,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15.sp,
-                                  color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                                  child: Image.asset(
+                                      'assets/images/delivery.png',
+                                      height: 60.h,
+                                      width: 60.w,
+                                      fit: BoxFit.cover),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Text(
+                            'Delivery',
+                            style: TextStyle(
+                                letterSpacing: .1,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.sp,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
             Expanded(

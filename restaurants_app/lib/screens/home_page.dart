@@ -220,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      ReportHome()));
+                                                      const ReportHome()));
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(

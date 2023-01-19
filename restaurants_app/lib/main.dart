@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
                   primary: const Color(0xFF0E4A88),
                 ),
           ),
-          home: HomePage()); // const HomePage());
+          home: const HomePage()); // const HomePage());
     }));
   }
 }

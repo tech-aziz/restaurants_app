@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/screens/order_checkout_widget.dart';
@@ -15,8 +13,6 @@ class DineInWidget extends StatefulWidget {
 class _DineInWidgetState extends State<DineInWidget> {
   final _formKey = GlobalKey<FormState>();
   String? selectedWaiter;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +39,10 @@ class _DineInWidgetState extends State<DineInWidget> {
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           child: SingleChildScrollView(
             physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -124,7 +120,8 @@ class _DineInWidgetState extends State<DineInWidget> {
                   // log(selectedWaiter.toString());
                 });
               },
-              validator: (value) => value == null ? 'Please Choose a Waiter' : null,
+              validator: (value) =>
+                  value == null ? 'Please Choose a Waiter' : null,
             ),
           ),
           SizedBox(
@@ -136,8 +133,8 @@ class _DineInWidgetState extends State<DineInWidget> {
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                 hintText: 'Number of Guest',
-                hintStyle: TextStyle(color: Colors.black),
-                prefixIcon: Icon(Icons.people_rounded)),
+                hintStyle: const TextStyle(color: Colors.black),
+                prefixIcon: const Icon(Icons.people_rounded)),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Please Select Guest';
@@ -154,22 +151,17 @@ class _DineInWidgetState extends State<DineInWidget> {
               borderRadius: BorderRadius.circular(12),
               color: const Color(0xFF0E4A88),
             ),
-
-
             child: ElevatedButton(
               child: const Text('NEXT'),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => OrderCheckOut(selectedDineInValue: 0)));
+                      MaterialPageRoute(builder: (context) => OrderCheckOut(orderTypeId: 0,)));
                 } else {
                   return;
                 }
               },
             ),
-
-
-
           ),
         ],
       ),

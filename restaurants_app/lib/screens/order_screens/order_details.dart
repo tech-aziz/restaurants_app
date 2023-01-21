@@ -53,6 +53,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
             child: Image.asset('assets/images/app_icon.png'),
           ),
         ),
+
         actions: [
           InkWell(
             onTap: () {

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
 import 'package:restaurants_app/screens/home_page.dart';
-import 'package:restaurants_app/screens/order_home.dart';
-import 'package:restaurants_app/screens/dine_in_widget.dart';
+import 'package:restaurants_app/screens/order/order_home.dart';
+import 'package:restaurants_app/screens/order/dine_in_widget.dart';
 
-import 'package:restaurants_app/screens/order_checkout_widget.dart';
+import 'package:restaurants_app/screens/order/order_checkout_widget.dart';
 
 class OrderScreenHome extends StatefulWidget {
   const OrderScreenHome({super.key});
@@ -136,7 +136,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                           InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => OrderCheckOut(orderTypeId: 1,)));
+                                  builder: (context) => OrderCheckOut(orderTypeId: 2,)));
                             },
                             child: Container(
                                 decoration: BoxDecoration(
@@ -176,7 +176,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                           InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => OrderCheckOut(orderTypeId: 2,)));
+                                  builder: (context) => OrderCheckOut(orderTypeId: 3,)));
                             },
                             child: Container(
                                 decoration: BoxDecoration(

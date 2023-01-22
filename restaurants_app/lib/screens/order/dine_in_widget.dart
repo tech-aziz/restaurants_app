@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/screens/order_checkout_widget.dart';
+import 'package:restaurants_app/screens/order/order_checkout_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_table.dart';
 
 class DineInWidget extends StatefulWidget {
@@ -41,8 +41,8 @@ class _DineInWidgetState extends State<DineInWidget> {
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: SingleChildScrollView(
-            physics:
-                const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -122,6 +122,13 @@ class _DineInWidgetState extends State<DineInWidget> {
               },
               validator: (value) =>
                   value == null ? 'Please Choose a Waiter' : null,
+
+              // {
+              // if(value!.isEmpty){
+              //   return 'Please Choose a Waiter';
+              // }
+
+              // }
             ),
           ),
           SizedBox(
@@ -155,8 +162,10 @@ class _DineInWidgetState extends State<DineInWidget> {
               child: const Text('NEXT'),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => OrderCheckOut(orderTypeId: 0,)));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => OrderCheckOut(
+                            orderTypeId: 0,
+                          )));
                 } else {
                   return;
                 }

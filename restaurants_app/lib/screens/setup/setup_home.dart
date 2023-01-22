@@ -2,15 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/screens/all_charges.dart';
-import 'package:restaurants_app/screens/category.dart';
-import 'package:restaurants_app/screens/employes.dart';
-import 'package:restaurants_app/screens/items.dart';
-import 'package:restaurants_app/screens/manage.dart';
-import 'package:restaurants_app/screens/payment_method.dart';
-import 'package:restaurants_app/screens/restaurent_info.dart';
-import 'package:restaurants_app/screens/tables.dart';
-import '../ui_elements/custom_drawer.dart';
+import 'package:restaurants_app/screens/setup/all_charges.dart';
+import 'package:restaurants_app/screens/setup/category.dart';
+import 'package:restaurants_app/screens/setup/employes.dart';
+import 'package:restaurants_app/screens/setup/items.dart';
+import 'package:restaurants_app/screens/setup/manage.dart';
+import 'package:restaurants_app/screens/setup/payment_method.dart';
+import 'package:restaurants_app/screens/setup/restaurent_info.dart';
+import 'package:restaurants_app/screens/setup/tables.dart';
+import '../../ui_elements/custom_drawer.dart';
 
 class SetUpPage extends StatefulWidget {
   String? name;

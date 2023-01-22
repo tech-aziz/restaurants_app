@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/screens/home_page.dart';
-import 'package:restaurants_app/screens/order_home.dart';
-import 'package:restaurants_app/screens/dine_in_widget.dart';
+import 'package:restaurants_app/screens/order/order_home.dart';
+import 'package:restaurants_app/screens/order/dine_in_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
 import 'package:restaurants_app/ui_elements/custom_check_out_button.dart';
 import 'package:restaurants_app/ui_elements/custom_product_card.dart';
@@ -106,14 +108,18 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(elevation: 0),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage()));
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const HomePage()));
+                    widget.orderTypeId = 0;
+                  });
                 },
-                child: Expanded(
-                  flex: 1,
+                child: Container(
+                  color: widget.orderTypeId == 0
+                      ? Colors.white10
+                      : Colors.transparent,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -132,92 +138,44 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                   ),
                 ),
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    elevation: 0, backgroundColor: Colors.transparent),
-                onPressed: () {
-                  setState(() {
-                    widget.orderTypeId = 0;
-                  });
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const DineInWidget()));
-                },
-                child: Container(
-                  color: widget.orderTypeId == 0
-                      ? Colors.white10
-                      : Colors.transparent,
-                  child: Expanded(
-                    flex: 1,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            Image.asset(
-                              'assets/images/dine_in.png',
-                              height: 30.h,
-                              width: 30.w,
-                            ),
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            const Text(
-                              'Dine In',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  backgroundColor: Colors.transparent,
-                ),
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   setState(() {
                     widget.orderTypeId = 1;
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const DineInWidget()));
                   });
                 },
                 child: Container(
                   color: widget.orderTypeId == 1
                       ? Colors.white10
                       : Colors.transparent,
-                  child: Expanded(
-                    flex: 1,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            Image.asset(
-                              'assets/images/take_away.png',
-                              height: 30.h,
-                              width: 30.w,
-                            ),
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            const Text(
-                              'Take Away',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Image.asset(
+                            'assets/images/dine_in.png',
+                            height: 30.h,
+                            width: 30.w,
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          const Text(
+                            'Dine In',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    elevation: 0, backgroundColor: Colors.transparent),
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   setState(() {
                     widget.orderTypeId = 2;
                   });
@@ -226,67 +184,150 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                   color: widget.orderTypeId == 2
                       ? Colors.white10
                       : Colors.transparent,
-                  child: Expanded(
-                    flex: 1,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            Image.asset(
-                              'assets/images/delivery.png',
-                              height: 30.h,
-                              width: 30.w,
-                            ),
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            const Text(
-                              'Delivery',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Image.asset(
+                            'assets/images/take_away.png',
+                            height: 30.h,
+                            width: 30.w,
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          const Text(
+                            'Take Away',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0, right: 3),
-                child: InkWell(
-                  onTap: () {},
-                  child: Expanded(
-                    flex: 1,
-                    child: PopupMenuButton<String>(
-                      elevation: 10,
-                      offset: const Offset(0, 55),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      itemBuilder: (context) => [
-                        PopupMenuItem<String>(
-                          value: 'Customers',
-                          onTap: () {
-                            setState(() {
-                              defalutValue = 'Customers';
-                              showOrderMessage(defalutValue);
-                            });
-                          },
-                          child: Column(
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    widget.orderTypeId = 3;
+                  });
+                },
+                child: Container(
+                  color: widget.orderTypeId == 3
+                      ? Colors.white10
+                      : Colors.transparent,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Image.asset(
+                            'assets/images/delivery.png',
+                            height: 30.h,
+                            width: 30.w,
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          const Text(
+                            'Delivery',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: PopupMenuButton<String>(
+                  elevation: 10,
+                  offset: const Offset(0, 55),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  itemBuilder: (context) => [
+                    PopupMenuItem<String>(
+                      value: 'Customers',
+                      onTap: () {
+                        // addNewCustomer();
+                        setState(() {
+                          Navigator.of(context).pop();
+                          log('message');
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                height: 20,
+                                width: 20,
+                                color: Colors.amber,
+                              );
+                            },
+                          );
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.person_add_alt,
+                                color: Colors.black,
+                                size: 22.sp,
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              const Text(
+                                'Customers',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Divider(
+                            height: 1.h,
+                            indent: 12,
+                            color: Colors.black12,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'Reset',
+                      onTap: () {
+                        setState(() {
+                          defalutValue = 'Reset';
+                          // showOrderMessage(defalutValue);
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Column(
                             children: [
                               Row(
+                                // ignore: prefer_const_literals_to_create_immutables
                                 children: [
-                                  Icon(
-                                    Icons.person_add_alt,
+                                  Image.asset(
+                                    'assets/images/new.png',
+                                    height: 22.h,
+                                    width: 22.w,
                                     color: Colors.black,
-                                    size: 22.sp,
                                   ),
                                   SizedBox(
                                     width: 5.w,
                                   ),
                                   const Text(
-                                    'Customers',
+                                    'Reset',
                                     style: TextStyle(
                                       color: Colors.black,
                                     ),
@@ -305,141 +346,94 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                               ),
                             ],
                           ),
-                        ),
-                        PopupMenuItem<String>(
-                          value: 'Reset',
-                          onTap: () {
-                            setState(() {
-                              defalutValue = 'Reset';
-                              showOrderMessage(defalutValue);
-                            });
-                          },
-                          child: Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Row(
-                                    // ignore: prefer_const_literals_to_create_immutables
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/new.png',
-                                        height: 22.h,
-                                        width: 22.w,
-                                        color: Colors.black,
-                                      ),
-                                      SizedBox(
-                                        width: 5.w,
-                                      ),
-                                      const Text(
-                                        'Reset',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5.h,
-                                  ),
-                                  Divider(
-                                    height: 1.h,
-                                    indent: 12,
-                                    color: Colors.black12,
-                                    endIndent: 12,
-                                    thickness: 1,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        PopupMenuItem<String>(
-                          value: 'Hold',
-                          onTap: () {
-                            setState(() {
-                              defalutValue = 'Hold';
-                              showOrderMessage(defalutValue);
-                            });
-                          },
-                          child: Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.pause_circle_rounded,
-                                        color: Colors.black,
-                                        size: 22.sp,
-                                      ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      const Text(
-                                        'Hold',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5.h,
-                                  ),
-                                  Divider(
-                                    height: 1.h,
-                                    indent: 12,
-                                    color: Colors.black12,
-                                    endIndent: 12,
-                                    thickness: 1,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        PopupMenuItem<String>(
-                          value: 'Orders',
-                          onTap: () {
-                            setState(() {
-                              defalutValue = 'Orders';
-                              showOrderMessage(defalutValue);
-                            });
-                          },
-                          child: Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.shopping_cart_outlined,
-                                        color: Colors.black,
-                                        size: 22.sp,
-                                      ),
-                                      SizedBox(
-                                        width: 5.w,
-                                      ),
-                                      const Text(
-                                        'Orders',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                      child: Icon(
-                        Icons.more_vert,
-                        color: Colors.white,
-                        size: 28.sp,
+                        ],
                       ),
                     ),
+                    PopupMenuItem<String>(
+                      value: 'Hold',
+                      onTap: () {
+                        setState(() {
+                          defalutValue = 'Hold';
+                          // showOrderMessage(defalutValue);
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.pause_circle_rounded,
+                                    color: Colors.black,
+                                    size: 22.sp,
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  const Text(
+                                    'Hold',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              Divider(
+                                height: 1.h,
+                                indent: 12,
+                                color: Colors.black12,
+                                endIndent: 12,
+                                thickness: 1,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'Orders',
+                      onTap: () {
+                        setState(() {
+                          defalutValue = 'Orders';
+                          // showOrderMessage(defalutValue);
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.shopping_cart_outlined,
+                                    color: Colors.black,
+                                    size: 22.sp,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  const Text(
+                                    'Orders',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                  child: Icon(
+                    Icons.more_vert,
+                    color: Colors.white,
+                    size: 28.sp,
                   ),
                 ),
               )
@@ -683,7 +677,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                             const EdgeInsets.only(right: 5),
                                         child: RichText(
                                           text: TextSpan(
-                                              text: widget.orderTypeId == 2
+                                              text: widget.orderTypeId == 3
                                                   ? 'Delivery\nCharge: '
                                                   : '',
                                               style: const TextStyle(
@@ -692,7 +686,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                               children: [
                                                 TextSpan(
                                                     text:
-                                                        widget.orderTypeId == 2
+                                                        widget.orderTypeId == 3
                                                             ? '0'
                                                             : '',
                                                     style: const TextStyle(
@@ -814,24 +808,94 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
     );
   }
 
-  showOrderMessage(String defalutValue) {
-    switch (defalutValue) {
-      case 'Customers':
-      // return CustomerWidget();
+  // showOrderMessage(String defalutValue) {
+  //   switch (defalutValue) {
+  //     case 'Customers':
+  //       return addNewCustomer();
 
-      case 'Reset':
-      // return ResetWidget();
+  //     case 'Reset':
+  //     // return ResetWidget();
 
-      case 'Hold':
-      // return HoldWidget();
+  //     case 'Hold':
+  //     // return HoldWidget();
 
-      case 'Orders':
-        return OrderScreen();
+  //     case 'Orders':
+  //     // return OrderScreen();
 
-      // default:
-      //   return CustomerWidget();
-    }
+  //     // default:
+  //     //   return CustomerWidget();
+  //   }
+  // }
+
+  // Future<void> addNewCustomer() async {
+  //   print('workinghhh');
+  //   return showDialog<void>(
+  //       context: context,
+  //       builder: ((context) {
+  //         return const AlertDialog(
+  //           title: Text('Title'),
+  //           content: Text('Content'),
+  //           // title: _title(),
+  //           // content: _body(),
+  //         );
+  //       }));
+  // }
+
+  void addNewCustomer() {
+    print('Working');
+    showDialog(
+        context: context,
+        builder: ((context) {
+          return AlertDialog(
+            title: Text('Hello'),
+            content: Text('Bangladesh'),
+          );
+        }));
   }
+
+  // Widget _title() {
+  //   return Row(
+  //     children: [
+  //       const Text('Add Customer to Ticket'),
+  //       const Spacer(),
+  //       InkWell(
+  //         child: Icon(
+  //           Icons.cancel_outlined,
+  //           color: Colors.red.shade300,
+  //           size: 20.sp,
+  //         ),
+  //         onTap: () {
+  //           // Get.back();
+  //           Navigator.of(context).pop();
+  //         },
+  //       )
+  //     ],
+  //   );
+  // }
+
+  // Widget _body() {
+  //   return SizedBox(
+  //     height: MediaQuery.of(context).size.height,
+  //     width: MediaQuery.of(context).size.width,
+  //     child: SingleChildScrollView(
+  //         physics: const BouncingScrollPhysics(
+  //             parent: AlwaysScrollableScrollPhysics()),
+  //         child: Column(
+  //           children: [
+  //             const TextField(
+  //               maxLength: 15,
+  //               decoration: InputDecoration(
+  //                   hintText: 'Search Customer Here',
+  //                   hintStyle: TextStyle(color: Colors.black),
+  //                   prefixIcon: Icon(Icons.search)),
+  //             ),
+  //             SizedBox(
+  //               height: 2.h,
+  //             ),
+  //           ],
+  //         )),
+  //   );
+  // }
 
   // showSelectedWidget(int value) {
   //   switch (value) {

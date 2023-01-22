@@ -68,6 +68,7 @@ class _ReportHomeState extends State<ReportHome> {
       
         actions: [
           Padding(
+<<<<<<< HEAD
             padding: const EdgeInsets.only(left: 0, right: 3),
             child: InkWell(
               onTap: () {},
@@ -239,6 +240,173 @@ class _ReportHomeState extends State<ReportHome> {
                     size: 28.sp,
                   ),
                 ),
+=======
+            padding: const EdgeInsets.only(left: 0, right: 10),
+            child: PopupMenuButton<String>(
+              elevation: 10,
+              offset: const Offset(0, 55),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+              itemBuilder: (context) => [
+                PopupMenuItem<String>(
+                  value: 'Invoice Sales Report',
+                  onTap: () {},
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.person_add_alt,
+                            color: Colors.black,
+                            size: 22.sp,
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          const Text(
+                            'Invoice Sales Report',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Divider(
+                        height: 1.h,
+                        indent: 12,
+                        color: Colors.black12,
+                        endIndent: 12,
+                        thickness: 1,
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem<String>(
+                  value: 'Date Wise Sales Report',
+                  onTap: () {
+                    // setState(() {
+                    //   defalutValue = 'Reset';
+                    //   showOrderMessage(defalutValue);
+                    // });
+                  },
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Image.asset(
+                                'assets/images/new.png',
+                                height: 22.h,
+                                width: 22.w,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              const Text(
+                                'Date Wise Sales Report',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Divider(
+                            height: 1.h,
+                            indent: 12,
+                            color: Colors.black12,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem<String>(
+                  value: 'Product Wise Sales Report',
+                  onTap: () {},
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.pause_circle_rounded,
+                                color: Colors.black,
+                                size: 22.sp,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const Text(
+                                'Product Wise Sales Report',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Divider(
+                            height: 1.h,
+                            indent: 12,
+                            color: Colors.black12,
+                            endIndent: 12,
+                            thickness: 1,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem<String>(
+                  value: 'Delivery Wise Sales Report',
+                  onTap: () {},
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Colors.black,
+                                size: 22.sp,
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              const Text(
+                                'Delivery Wise Sales Report',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ],
+              child: Icon(
+                Icons.more_vert,
+                color: Colors.white,
+                size: 28.sp,
+>>>>>>> 3137b28f32a0c0af08e15deb8de1730d13057e92
               ),
             ),
           )

@@ -266,6 +266,6 @@ class _PortraitHomeState extends State<PortraitHome> {
         ],
       ),
     );
-    ;
+    
   }
 }

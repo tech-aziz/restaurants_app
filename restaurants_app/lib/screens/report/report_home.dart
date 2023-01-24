@@ -65,7 +65,6 @@ class _ReportHomeState extends State<ReportHome> {
           'Reports',
           style: TextStyle(fontSize: 19),
         ),
-      
         actions: [
           Padding(
             padding: const EdgeInsets.only(left: 0, right: 3),
@@ -247,225 +246,261 @@ class _ReportHomeState extends State<ReportHome> {
 
       body: Padding(
         padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
+        child: Stack( 
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
                 children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.symmetric(vertical: 12),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                  Positioned(
+                    top: 0,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              contentPadding:
+                                  const EdgeInsets.symmetric(vertical: 12),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              hintText: "${selectedStartDate.toLocal()}"
+                                  .split(' ')[0],
+                              hintStyle: const TextStyle(color: Colors.black),
+                              prefixIcon: const Icon(Icons.keyboard),
+                            ),
+                            focusNode: AlwaysDisabledFocusNode(),
+                            onTap: () {
+                              _StartDate(context);
+                            },
+                          ),
                         ),
-                        hintText:
-                            "${selectedStartDate.toLocal()}".split(' ')[0],
-                        hintStyle: const TextStyle(color: Colors.black),
-                        prefixIcon: const Icon(Icons.keyboard),
-                      ),
-                      focusNode: AlwaysDisabledFocusNode(),
-                      onTap: () {
-                        _StartDate(context);
-                      },
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Text(
+                          'To',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                                contentPadding:
+                                    const EdgeInsets.symmetric(vertical: 12),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12)),
+                                hintText: "${selectedEndDate.toLocal()}"
+                                    .split(' ')[0],
+                                hintStyle:
+                                    const TextStyle(color: Colors.black),
+                                prefixIcon: const Icon(Icons.keyboard)),
+                            focusNode: AlwaysDisabledFocusNode(),
+                            onTap: () {
+                              _EndDate(context);
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(
-                    width: 8,
+                    height: 8,
                   ),
-                  const Text(
-                    'To',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.symmetric(vertical: 12),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12)),
-                          hintText:
-                              "${selectedEndDate.toLocal()}".split(' ')[0],
-                          hintStyle: const TextStyle(color: Colors.black),
-                          prefixIcon: const Icon(Icons.keyboard)),
-                      focusNode: AlwaysDisabledFocusNode(),
-                      onTap: () {
-                        _EndDate(context);
-                      },
-                    ),
+                  SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: DataTable(
+                        dividerThickness: 1,
+                        border: TableBorder.all(
+                          width: 1.0,
+                          color: Colors.black12,
+                        ),
+                        // Datatable widget that have the property columns and rows.
+                        // ignore: prefer_const_literals_to_create_immutables
+                        columns: [
+                          // Set the name of the column
+                          const DataColumn(
+                            label: Text('Invoice No'),
+                          ),
+                          // ignore: prefer_const_constructors
+                          const DataColumn(
+                            label: Text('Item Code'),
+                          ),
+                          const DataColumn(
+                            label: Text('Item Name'),
+                          ),
+                          const DataColumn(
+                            label: Text('Item Amount'),
+                          ),
+                          const DataColumn(
+                            label: Text('Service Charge'),
+                          ),
+                          const DataColumn(
+                            label: Text('Discount Amount'),
+                          ),
+                          const DataColumn(
+                            label: Text('SRV Charge Vat'),
+                          ),
+                          const DataColumn(
+                            label: Text('Vat'),
+                          ),
+                          const DataColumn(
+                            label: Text('Net Amount'),
+                          ),
+                        ],
+                        // ignore: prefer_const_literals_to_create_immutables
+                        rows: [
+                          // Set the values to the columns
+                          // ignore: prefer_const_literals_to_create_immutables
+                          const DataRow(cells: [
+                            DataCell(Text("1")),
+                            DataCell(Text("001")),
+                            DataCell(Text("Drinks")),
+                            DataCell(Text("100")),
+                            DataCell(Text("5")),
+                            DataCell(Text(".5")),
+                            DataCell(Text("3")),
+                            DataCell(Text("2")),
+                            DataCell(Text("118")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("2")),
+                            DataCell(Text("002")),
+                            DataCell(Text("Bananas")),
+                            DataCell(Text("150")),
+                            DataCell(Text("10")),
+                            DataCell(Text("5")),
+                            DataCell(Text("7")),
+                            DataCell(Text("3")),
+                            DataCell(Text("110")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("3")),
+                            DataCell(Text("003")),
+                            DataCell(Text("Strawberries")),
+                            DataCell(Text("150")),
+                            DataCell(Text("10")),
+                            DataCell(Text("5")),
+                            DataCell(Text("7")),
+                            DataCell(Text("3")),
+                            DataCell(Text("110")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("4")),
+                            DataCell(Text("004")),
+                            DataCell(Text("Grapes")),
+                            DataCell(Text("150")),
+                            DataCell(Text("10")),
+                            DataCell(Text("5")),
+                            DataCell(Text("7")),
+                            DataCell(Text("3")),
+                            DataCell(Text("110")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("5")),
+                            DataCell(Text("005")),
+                            DataCell(Text("Apples")),
+                            DataCell(Text("150")),
+                            DataCell(Text("10")),
+                            DataCell(Text("5")),
+                            DataCell(Text("7")),
+                            DataCell(Text("3")),
+                            DataCell(Text("110")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("6")),
+                            DataCell(Text("006")),
+                            DataCell(Text("Watermelon")),
+                            DataCell(Text("176")),
+                            DataCell(Text("54")),
+                            DataCell(Text("12")),
+                            DataCell(Text("8")),
+                            DataCell(Text("7")),
+                            DataCell(Text("320")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("7")),
+                            DataCell(Text("007")),
+                            DataCell(Text("Oranges")),
+                            DataCell(Text("190")),
+                            DataCell(Text("40")),
+                            DataCell(Text("90")),
+                            DataCell(Text("65")),
+                            DataCell(Text("3")),
+                            DataCell(Text("890")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("8")),
+                            DataCell(Text("008")),
+                            DataCell(Text("Blueberries")),
+                            DataCell(Text("190")),
+                            DataCell(Text("50")),
+                            DataCell(Text("10")),
+                            DataCell(Text("6")),
+                            DataCell(Text("0")),
+                            DataCell(Text("760")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("9")),
+                            DataCell(Text("009")),
+                            DataCell(Text("Lemons")),
+                            DataCell(Text("150")),
+                            DataCell(Text("40")),
+                            DataCell(Text("9")),
+                            DataCell(Text("7")),
+                            DataCell(Text("6")),
+                            DataCell(Text("410")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("10")),
+                            DataCell(Text("010")),
+                            DataCell(Text("Tomatoes")),
+                            DataCell(Text("150")),
+                            DataCell(Text("20")),
+                            DataCell(Text("9")),
+                            DataCell(Text("32")),
+                            DataCell(Text("6")),
+                            DataCell(Text("210")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("11")),
+                            DataCell(Text("012")),
+                            DataCell(Text("Tomatoes")),
+                            DataCell(Text("150")),
+                            DataCell(Text("20")),
+                            DataCell(Text("9")),
+                            DataCell(Text("32")),
+                            DataCell(Text("6")),
+                            DataCell(Text("210")),
+                          ]),
+                          const DataRow(cells: [
+                            DataCell(Text("12")),
+                            DataCell(Text("012")),
+                            DataCell(Text("Tomatoes")),
+                            DataCell(Text("150")),
+                            DataCell(Text("20")),
+                            DataCell(Text("9")),
+                            DataCell(Text("32")),
+                            DataCell(Text("6")),
+                            DataCell(Text("210")),
+                          ]),
+                        ]),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: DataTable(
-                    dividerThickness: 1,
-                    border: TableBorder.all(
-                      width: 1.0,
-                      color: Colors.black12,
-                    ),
-                    // Datatable widget that have the property columns and rows.
-                    // ignore: prefer_const_literals_to_create_immutables
-                    columns: [
-                      // Set the name of the column
-                      const DataColumn(
-                        label: Text('Invoice No'),
-                      ),
-                      // ignore: prefer_const_constructors
-                      const DataColumn(
-                        label: Text('Item Code'),
-                      ),
-                      const DataColumn(
-                        label: Text('Item Name'),
-                      ),
-                      const DataColumn(
-                        label: Text('Item Amount'),
-                      ),
-                      const DataColumn(
-                        label: Text('Service Charge'),
-                      ),
-                      const DataColumn(
-                        label: Text('Discount Amount'),
-                      ),
-                      const DataColumn(
-                        label: Text('SRV Charge Vat'),
-                      ),
-                      const DataColumn(
-                        label: Text('Vat'),
-                      ),
-                      const DataColumn(
-                        label: Text('Net Amount'),
-                      ),
-                    ],
-                    // ignore: prefer_const_literals_to_create_immutables
-                    rows: [
-                      // Set the values to the columns
-                      // ignore: prefer_const_literals_to_create_immutables
-                      const DataRow(cells: [
-                        DataCell(Text("1")),
-                        DataCell(Text("001")),
-                        DataCell(Text("Drinks")),
-                        DataCell(Text("100")),
-                        DataCell(Text("5")),
-                        DataCell(Text(".5")),
-                        DataCell(Text("3")),
-                        DataCell(Text("2")),
-                        DataCell(Text("118")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("2")),
-                        DataCell(Text("002")),
-                        DataCell(Text("Bananas")),
-                        DataCell(Text("150")),
-                        DataCell(Text("10")),
-                        DataCell(Text("5")),
-                        DataCell(Text("7")),
-                        DataCell(Text("3")),
-                        DataCell(Text("110")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("3")),
-                        DataCell(Text("003")),
-                        DataCell(Text("Strawberries")),
-                        DataCell(Text("150")),
-                        DataCell(Text("10")),
-                        DataCell(Text("5")),
-                        DataCell(Text("7")),
-                        DataCell(Text("3")),
-                        DataCell(Text("110")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("4")),
-                        DataCell(Text("004")),
-                        DataCell(Text("Grapes")),
-                        DataCell(Text("150")),
-                        DataCell(Text("10")),
-                        DataCell(Text("5")),
-                        DataCell(Text("7")),
-                        DataCell(Text("3")),
-                        DataCell(Text("110")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("5")),
-                        DataCell(Text("005")),
-                        DataCell(Text("Apples")),
-                        DataCell(Text("150")),
-                        DataCell(Text("10")),
-                        DataCell(Text("5")),
-                        DataCell(Text("7")),
-                        DataCell(Text("3")),
-                        DataCell(Text("110")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("6")),
-                        DataCell(Text("006")),
-                        DataCell(Text("Watermelon")),
-                        DataCell(Text("176")),
-                        DataCell(Text("54")),
-                        DataCell(Text("12")),
-                        DataCell(Text("8")),
-                        DataCell(Text("7")),
-                        DataCell(Text("320")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("7")),
-                        DataCell(Text("007")),
-                        DataCell(Text("Oranges")),
-                        DataCell(Text("190")),
-                        DataCell(Text("40")),
-                        DataCell(Text("90")),
-                        DataCell(Text("65")),
-                        DataCell(Text("3")),
-                        DataCell(Text("890")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("8")),
-                        DataCell(Text("008")),
-                        DataCell(Text("Blueberries")),
-                        DataCell(Text("190")),
-                        DataCell(Text("50")),
-                        DataCell(Text("10")),
-                        DataCell(Text("6")),
-                        DataCell(Text("0")),
-                        DataCell(Text("760")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("9")),
-                        DataCell(Text("009")),
-                        DataCell(Text("Lemons")),
-                        DataCell(Text("150")),
-                        DataCell(Text("40")),
-                        DataCell(Text("9")),
-                        DataCell(Text("7")),
-                        DataCell(Text("6")),
-                        DataCell(Text("410")),
-                      ]),
-                      const DataRow(cells: [
-                        DataCell(Text("10")),
-                        DataCell(Text("010")),
-                        DataCell(Text("Tomatoes")),
-                        DataCell(Text("150")),
-                        DataCell(Text("20")),
-                        DataCell(Text("9")),
-                        DataCell(Text("32")),
-                        DataCell(Text("6")),
-                        DataCell(Text("210")),
-                      ]),
-                    ]),
-              ),
-              CheckOutButton(checkOutButtonName: 'Download Report'),
-            ],
-          ),
+            ),
+            Positioned(
+              bottom: 0,
+              child: CheckOutButton(checkOutButtonName: 'Download Report'),
+            )
+          ],
         ),
       ),
     );

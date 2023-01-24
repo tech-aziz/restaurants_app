@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/screens/home_page.dart';
+import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:restaurants_app/screens/order/dine_in_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
 import 'package:restaurants_app/ui_elements/custom_check_out_button.dart';

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/services.dart';
-import 'package:restaurants_app/screens/home_page.dart';
+import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
-  await ScreenUtil.ensureScreenSize();
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations(
-    [DeviceOrientation.portraitUp],
-  );
+  // await ScreenUtil.ensureScreenSize();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await SystemChrome.setPreferredOrientations(
+  //   [DeviceOrientation.portraitUp],
+  // );
   runApp(const MyApp());
 }
 

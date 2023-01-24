@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
-import 'package:restaurants_app/screens/home_page.dart';
+import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:restaurants_app/screens/order/order_home.dart';
 import 'package:restaurants_app/screens/order/dine_in_widget.dart';
 

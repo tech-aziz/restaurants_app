@@ -11,6 +11,10 @@ class Payment_Method extends StatefulWidget {
 }
 
 class _Payment_MethodState extends State<Payment_Method> {
+  TextEditingController paymentController = TextEditingController();
+ 
+  String ? paymentType;
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +59,7 @@ class _Payment_MethodState extends State<Payment_Method> {
       padding: const EdgeInsets.only(top: 8),
       child: SizedBox(
         // height: 70,
-        child: ListTile(
+        child: ListTile( 
             minVerticalPadding: 10,
             leading: Expanded(
               child: Container(
@@ -63,11 +67,16 @@ class _Payment_MethodState extends State<Payment_Method> {
                 width: 50,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(width: 2, color: const Color(0xFF0E4A88))),
-                    child: const Icon(Icons.payments_rounded,color: Color(0xFF0E4A88),size: 35,),
+                    border:
+                        Border.all(width: 2, color: const Color(0xFF0E4A88))),
+                child: const Icon(
+                  Icons.payments_rounded,
+                  color: Color(0xFF0E4A88),
+                  size: 35,
+                ),
               ),
             ),
-            title: const Text('Bkash'),
+            title:  Text(paymentType.toString()),
             trailing: IconButton(
               onPressed: () {},
               icon: Icon(
@@ -75,7 +84,8 @@ class _Payment_MethodState extends State<Payment_Method> {
                 color: Colors.red,
                 size: 30.sp,
               ),
-            )),
+            )
+            ),
       ),
     );
   }
@@ -111,6 +121,7 @@ class _Payment_MethodState extends State<Payment_Method> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
+                controller: paymentController,
                 maxLength: 10,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -132,7 +143,12 @@ class _Payment_MethodState extends State<Payment_Method> {
                 child: ElevatedButton(
                   child: const Text('ADD'),
                   onPressed: () {
-                    // Navigator.of(context).pop();
+                   setState(() {
+                       paymentType = paymentController.text; 
+                       Navigator.of(context).pop();
+                   });
+                   
+                    // print(paymentName);
                   },
                 ),
               ),

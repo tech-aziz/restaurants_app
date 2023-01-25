@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurants_app/database/sql_helper.dart';
 import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:restaurants_app/screens/order/dine_in_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
@@ -22,6 +23,7 @@ class OrderCheckOut extends StatefulWidget {
 }
 
 class _OrderCheckOutState extends State<OrderCheckOut> {
+  // List<Map<String, dynamic>> _customerList = [];
 
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
@@ -29,7 +31,57 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
   TextEditingController addressController = TextEditingController();
 
   String defalutValue = 'Customers';
-  
+
+  bool _isLoading = true;
+
+  // void _getCustomerInfo() async {
+  //   final data = await SQLHelper.getItems();
+  //   setState(() {
+  //     _customerList = data;
+  //     _isLoading = false;
+  //   });
+  // }
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   _getCustomerInfo();
+  //   print('number of items ${_customerList.length}');
+  // }
+
+  // Future<void> _addItem() async {
+  //   await SQLHelper.createItem(nameController.text, numberController.text,
+  //       emailController.text, addressController.text);
+  //   _getCustomerInfo();
+  //   print('number of items ${_customerList.length}');
+  // }
+
+  // Future<void> _updateItem(int id) async {
+  //   await SQLHelper.updateItem(id, nameController.text, numberController.text,
+  //       emailController.text, addressController.text);
+  //   _getCustomerInfo();
+  // }
+
+  // void _deleteItem(int id) async {
+  //   await SQLHelper.deleteItem(id);
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(content: Text('Successfully deleted a customer')));
+  //   _getCustomerInfo();
+  // }
+
+  // void showForm(int? id) async{
+  //   if (id != null) {
+  //     final existingCustomer =
+  //         _customerList.firstWhere((element) => element['id'] == id);
+  //         nameController.text = existingCustomer['name'];
+  //         numberController.text = existingCustomer['number'];
+  //         emailController.text = existingCustomer['email'];
+  //         addressController.text = existingCustomer['address'];
+
+  //   }
+
+  // }
 
   // List<Map<String, dynamic>> item = [
   //   {
@@ -910,21 +962,40 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
               SizedBox(
                 height: 5.h,
               ),
-              ListTile(
-                leading: const CircleAvatar(
-                  child: Icon(Icons.person),
-                ),
-                title: Text('Customer Name',
-                    style: TextStyle(
-                        fontSize: 15.sp, fontWeight: FontWeight.bold)),
-                subtitle: const Text('01789398972',
-                    style: TextStyle(
-                      color: Colors.black,
-                    )),
-                trailing: const Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(parent: BouncingScrollPhysics()),
+                itemCount: 20,
+                itemBuilder: ((context, index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.green.shade50, width: 2),
+                        borderRadius: BorderRadius.circular(15)),
+                    elevation: 15,
+                    child: ListTile(
+                        title: Text('Name'),
+                        subtitle: Text('SubTitle'),
+                        trailing: SizedBox(
+                          width: 100,
+                          child: Row(
+                            children: [
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.edit_rounded,
+                                    color: Colors.green,
+                                  )),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.delete_rounded,
+                                    color: Colors.red,
+                                  ))
+                            ],
+                          ),
+                        )),
+                  );
+                }),
               )
             ],
           )),
@@ -1000,7 +1071,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     prefixIcon: const Icon(Icons.person)),
               ),
               SizedBox(
-               height: 15.h,
+                height: 15.h,
               ),
               TextField(
                 controller: numberController,
@@ -1013,7 +1084,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     prefixIcon: const Icon(Icons.phone_android)),
               ),
               SizedBox(
-               height: 15.h,
+                height: 15.h,
               ),
               TextField(
                 controller: emailController,
@@ -1026,7 +1097,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     prefixIcon: const Icon(Icons.mail)),
               ),
               SizedBox(
-               height: 15.h,
+                height: 15.h,
               ),
               TextField(
                 controller: addressController,
@@ -1038,7 +1109,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                     hintStyle: const TextStyle(color: Colors.black),
                     prefixIcon: const Icon(Icons.location_on_sharp)),
               ),
-
               SizedBox(
                 height: 30.h,
               ),
@@ -1060,6 +1130,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
           )),
     );
   }
+}
 //End create customer
 
   // showSelectedWidget(int value) {
@@ -1163,4 +1234,4 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
   //     ],
   //   );
   // }
-}
+

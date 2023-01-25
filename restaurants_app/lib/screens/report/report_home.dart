@@ -249,71 +249,69 @@ class _ReportHomeState extends State<ReportHome> {
             SizedBox(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            contentPadding:
-                                const EdgeInsets.symmetric(vertical: 12),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            hintText:
-                                "${selectedStartDate.toLocal()}".split(' ')[0],
-                            hintStyle: const TextStyle(color: Colors.black),
-                            prefixIcon: const Icon(Icons.keyboard),
-                          ),
-                          focusNode: AlwaysDisabledFocusNode(),
-                          onTap: () {
-                            _StartDate(context);
-                          },
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      const Text(
-                        'To',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
                               contentPadding:
                                   const EdgeInsets.symmetric(vertical: 12),
                               border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12)),
-                              hintText:
-                                  "${selectedEndDate.toLocal()}".split(' ')[0],
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              hintText: "${selectedStartDate.toLocal()}"
+                                  .split(' ')[0],
                               hintStyle: const TextStyle(color: Colors.black),
-                              prefixIcon: const Icon(Icons.keyboard)),
-                          focusNode: AlwaysDisabledFocusNode(),
-                          onTap: () {
-                            _EndDate(context);
-                          },
+                              prefixIcon: const Icon(Icons.keyboard),
+                            ),
+                            focusNode: AlwaysDisabledFocusNode(),
+                            onTap: () {
+                              _StartDate(context);
+                            },
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  ListView(
-                    primary: false,
-                    shrinkWrap: true,
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      DataTable(
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Text(
+                          'To',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                                contentPadding:
+                                    const EdgeInsets.symmetric(vertical: 12),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12)),
+                                hintText: "${selectedEndDate.toLocal()}"
+                                    .split(' ')[0],
+                                hintStyle: const TextStyle(color: Colors.black),
+                                prefixIcon: const Icon(Icons.keyboard)),
+                            focusNode: AlwaysDisabledFocusNode(),
+                            onTap: () {
+                              _EndDate(context);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: DataTable(
                           dividerThickness: 1,
                           border: TableBorder.all(
                             width: 1.0,
@@ -489,9 +487,9 @@ class _ReportHomeState extends State<ReportHome> {
                               DataCell(Text("210")),
                             ]),
                           ]),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
             Positioned(

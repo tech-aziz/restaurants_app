@@ -4,8 +4,8 @@ import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
-  // await ScreenUtil.ensureScreenSize();
-  // WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
+  WidgetsFlutterBinding.ensureInitialized();
   // await SystemChrome.setPreferredOrientations(
   //   [DeviceOrientation.portraitUp],
   // );

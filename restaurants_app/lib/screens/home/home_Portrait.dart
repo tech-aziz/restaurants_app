@@ -14,10 +14,13 @@ class PortraitHome extends StatefulWidget {
 }
 
 class _PortraitHomeState extends State<PortraitHome> {
+
   @override
   Widget build(BuildContext context) {
+      // var height= MediaQuery.of(context).size.height;
+      // var widget = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
+    
       child: Column(
         children: [
           SizedBox(

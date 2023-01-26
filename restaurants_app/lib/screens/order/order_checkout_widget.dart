@@ -1,5 +1,8 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurants_app/database/createCustomerModel.dart';
+import 'package:restaurants_app/database/customer_helper.dart';
 import 'package:restaurants_app/database/sql_helper.dart';
 import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:restaurants_app/screens/order/dine_in_widget.dart';
@@ -29,6 +32,8 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
   TextEditingController numberController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController addressController = TextEditingController();
+
+  final Random _random = Random();
 
   String defalutValue = 'Customers';
 
@@ -1121,8 +1126,15 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 ),
                 child: ElevatedButton(
                   child: const Text('ADD'),
-                  onPressed: () {
-                    // customerList.add(nameController.toString());
+                  onPressed: () async {
+                    final createCustomer = CustomersModel(
+                        id: _random.nextInt(100),
+                        name: nameController.text,
+                        mobile: numberController.text,
+                        email: emailController.text,
+                        address: addressController.text);
+                    await DatabaseHelper.instance.addCustomer(createCustomer);
+                    print(createCustomer);
                   },
                 ),
               ),

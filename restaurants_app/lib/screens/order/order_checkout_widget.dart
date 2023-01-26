@@ -1,9 +1,5 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/database/createCustomerModel.dart';
-import 'package:restaurants_app/database/customer_helper.dart';
-import 'package:restaurants_app/database/sql_helper.dart';
 import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:restaurants_app/screens/order/dine_in_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
@@ -26,67 +22,19 @@ class OrderCheckOut extends StatefulWidget {
 }
 
 class _OrderCheckOutState extends State<OrderCheckOut> {
-  // List<Map<String, dynamic>> _customerList = [];
+
 
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController addressController = TextEditingController();
 
-  final Random _random = Random();
+  // final Random _random = Random();
 
   String defalutValue = 'Customers';
 
   bool _isLoading = true;
 
-  // void _getCustomerInfo() async {
-  //   final data = await SQLHelper.getItems();
-  //   setState(() {
-  //     _customerList = data;
-  //     _isLoading = false;
-  //   });
-  // }
-
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   _getCustomerInfo();
-  //   print('number of items ${_customerList.length}');
-  // }
-
-  // Future<void> _addItem() async {
-  //   await SQLHelper.createItem(nameController.text, numberController.text,
-  //       emailController.text, addressController.text);
-  //   _getCustomerInfo();
-  //   print('number of items ${_customerList.length}');
-  // }
-
-  // Future<void> _updateItem(int id) async {
-  //   await SQLHelper.updateItem(id, nameController.text, numberController.text,
-  //       emailController.text, addressController.text);
-  //   _getCustomerInfo();
-  // }
-
-  // void _deleteItem(int id) async {
-  //   await SQLHelper.deleteItem(id);
-  //   ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(content: Text('Successfully deleted a customer')));
-  //   _getCustomerInfo();
-  // }
-
-  // void showForm(int? id) async{
-  //   if (id != null) {
-  //     final existingCustomer =
-  //         _customerList.firstWhere((element) => element['id'] == id);
-  //         nameController.text = existingCustomer['name'];
-  //         numberController.text = existingCustomer['number'];
-  //         emailController.text = existingCustomer['email'];
-  //         addressController.text = existingCustomer['address'];
-
-  //   }
-
-  // }
 
   // List<Map<String, dynamic>> item = [
   //   {
@@ -970,7 +918,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
               ListView.builder(
                 shrinkWrap: true,
                 physics: BouncingScrollPhysics(parent: BouncingScrollPhysics()),
-                itemCount: 20,
+                itemCount: 1,
                 itemBuilder: ((context, index) {
                   return Card(
                     shape: RoundedRectangleBorder(
@@ -1127,14 +1075,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 child: ElevatedButton(
                   child: const Text('ADD'),
                   onPressed: () async {
-                    final createCustomer = CustomersModel(
-                        id: _random.nextInt(100),
-                        name: nameController.text,
-                        mobile: numberController.text,
-                        email: emailController.text,
-                        address: addressController.text);
-                    await DatabaseHelper.instance.addCustomer(createCustomer);
-                    print(createCustomer);
+
                   },
                 ),
               ),

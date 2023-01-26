@@ -14,13 +14,12 @@ class PortraitHome extends StatefulWidget {
 }
 
 class _PortraitHomeState extends State<PortraitHome> {
-
   @override
   Widget build(BuildContext context) {
-      // var height= MediaQuery.of(context).size.height;
-      // var widget = MediaQuery.of(context).size.width;
+    // var height= MediaQuery.of(context).size.height;
+    // var widget = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
-    
+      physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       child: Column(
         children: [
           SizedBox(
@@ -48,7 +47,8 @@ class _PortraitHomeState extends State<PortraitHome> {
                             InkWell(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const DashBoardScreen()));
+                                    builder: (context) =>
+                                        const DashBoardScreen()));
                               },
                               child: Container(
                                   decoration: BoxDecoration(
@@ -153,7 +153,8 @@ class _PortraitHomeState extends State<PortraitHome> {
                             InkWell(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const OrderScreenHome()));
+                                    builder: (context) =>
+                                        const OrderScreenHome()));
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -269,6 +270,5 @@ class _PortraitHomeState extends State<PortraitHome> {
         ],
       ),
     );
-    
   }
 }

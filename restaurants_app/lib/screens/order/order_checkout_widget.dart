@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurants_app/database/database_helper.dart';
+import 'package:restaurants_app/models/customer_model.dart';
 import 'package:restaurants_app/screens/home/home_page.dart';
 import 'package:restaurants_app/screens/order/dine_in_widget.dart';
 import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
@@ -22,8 +24,6 @@ class OrderCheckOut extends StatefulWidget {
 }
 
 class _OrderCheckOutState extends State<OrderCheckOut> {
-
-
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -34,7 +34,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
   String defalutValue = 'Customers';
 
   bool _isLoading = true;
-
 
   // List<Map<String, dynamic>> item = [
   //   {
@@ -860,6 +859,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: SingleChildScrollView(
+          primary: false,
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),
           child: Column(
@@ -915,41 +915,76 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
               SizedBox(
                 height: 5.h,
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: BouncingScrollPhysics(parent: BouncingScrollPhysics()),
-                itemCount: 1,
-                itemBuilder: ((context, index) {
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.green.shade50, width: 2),
-                        borderRadius: BorderRadius.circular(15)),
-                    elevation: 15,
-                    child: ListTile(
-                        title: Text('Name'),
-                        subtitle: Text('SubTitle'),
-                        trailing: SizedBox(
-                          width: 100,
-                          child: Row(
-                            children: [
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.edit_rounded,
-                                    color: Colors.green,
-                                  )),
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.delete_rounded,
-                                    color: Colors.red,
-                                  ))
-                            ],
-                          ),
-                        )),
-                  );
-                }),
+
+              SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: FutureBuilder<List<Customer>>(
+                  future: DatabaseHelper.instance.getCustomer(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return snapshot.data!.isEmpty
+                        ? const Center(
+                            child: Text('No Customer in List'),
+                          )
+                        : ListView(
+                            physics: const BouncingScrollPhysics(
+                                parent: AlwaysScrollableScrollPhysics()),
+                            children: snapshot.data!.map((customer) {
+                              return Center(
+                                child: Card(
+                                  elevation: 12,
+                                  child: ListTile(
+                                    leading: const CircleAvatar(
+                                      backgroundImage: NetworkImage('https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
+                                    ),
+                                    title: Text(customer.name),
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          );
+                  },
+                ),
               )
+              // ListView.builder(
+              //   shrinkWrap: true,
+              //   physics: BouncingScrollPhysics(parent: BouncingScrollPhysics()),
+              //   itemCount: 1,
+              //   itemBuilder: ((context, index) {
+              //     return Card(
+              //       shape: RoundedRectangleBorder(
+              //           side: BorderSide(color: Colors.green.shade50, width: 2),
+              //           borderRadius: BorderRadius.circular(15)),
+              //       elevation: 15,
+              //       child: ListTile(
+              //           title: Text('Name'),
+              //           subtitle: Text('SubTitle'),
+              //           trailing: SizedBox(
+              //             width: 100,
+              //             child: Row(
+              //               children: [
+              //                 IconButton(
+              //                     onPressed: () {},
+              //                     icon: Icon(
+              //                       Icons.edit_rounded,
+              //                       color: Colors.green,
+              //                     )),
+              //                 IconButton(
+              //                     onPressed: () {},
+              //                     icon: Icon(
+              //                       Icons.delete_rounded,
+              //                       color: Colors.red,
+              //                     ))
+              //               ],
+              //             ),
+              //           )),
+              //     );
+              //   }),
+              // )
             ],
           )),
     );
@@ -1075,7 +1110,14 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 child: ElevatedButton(
                   child: const Text('ADD'),
                   onPressed: () async {
-
+                    await DatabaseHelper.instance.add(
+                      Customer(name: nameController.text),
+                    );
+                    setState(() {
+                      nameController.clear();
+                    });
+                    // ignore: use_build_context_synchronously
+                    Navigator.of(context).pop();
                   },
                 ),
               ),

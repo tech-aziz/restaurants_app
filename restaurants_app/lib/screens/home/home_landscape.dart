@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
 import 'package:restaurants_app/screens/dashboard/dashboard_home.dart';
-import 'package:restaurants_app/screens/order_screens/order_details.dart';
+import 'package:restaurants_app/screens/order/order_details.dart';
+
 import 'package:restaurants_app/screens/report/report_home.dart';
 import 'package:restaurants_app/screens/setup/setup_home.dart';
 

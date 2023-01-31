@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/ui_elements/custom_check_out_button.dart';
+import 'package:get/get.dart';
+import 'package:restaurants_app/view/ui_elements/custom_check_out_button.dart';
 import 'dart:async';
 
 class ReportHome extends StatefulWidget {
@@ -54,7 +55,7 @@ class _ReportHomeState extends State<ReportHome> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Get.back();
           },
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,

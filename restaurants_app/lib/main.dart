@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:restaurants_app/screens/home/home_page.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:restaurants_app/view/screens/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(builder: ((context, child) {
-      return MaterialApp(
+      return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'restaurants app',
           theme: Theme.of(context).copyWith(

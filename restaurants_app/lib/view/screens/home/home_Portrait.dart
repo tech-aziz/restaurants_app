@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
-import 'package:restaurants_app/screens/dashboard/dashboard_home.dart';
-import 'package:restaurants_app/screens/order/order_details.dart';
+import 'package:restaurants_app/view/screens/dashboard/dashboard_home.dart';
+import 'package:restaurants_app/view/screens/order/order_details.dart';
 
-import 'package:restaurants_app/screens/report/report_home.dart';
-import 'package:restaurants_app/screens/setup/setup_home.dart';
+import 'package:restaurants_app/view/screens/report/report_home.dart';
+import 'package:restaurants_app/view/screens/setup/setup_home.dart';
 
 class PortraitHome extends StatefulWidget {
   const PortraitHome({super.key});
@@ -47,9 +48,7 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        const DashBoardScreen()));
+                                Get.to(const DashBoardScreen());
                               },
                               child: Container(
                                   decoration: BoxDecoration(
@@ -91,10 +90,9 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => SetUpPage(
-                                          name: '',
-                                        )));
+                                Get.to(SetUpPage(
+                                  name: '',
+                                ));
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -153,9 +151,7 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        const OrderScreenHome()));
+                                Get.to(const OrderScreenHome());
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -202,8 +198,7 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const ReportHome()));
+                                Get.to(const ReportHome());
                               },
                               child: Container(
                                 decoration: BoxDecoration(

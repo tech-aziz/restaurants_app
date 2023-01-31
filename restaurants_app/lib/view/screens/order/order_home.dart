@@ -1,5 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class OrderScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _OrderScreenState extends State<OrderScreen> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Get.back();
           },
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,

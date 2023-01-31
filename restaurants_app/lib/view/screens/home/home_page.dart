@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurants_app/screens/home/home_Portrait.dart';
-import 'package:restaurants_app/screens/home/home_landscape.dart';
+import 'package:restaurants_app/view/screens/home/home_Portrait.dart';
+import 'package:restaurants_app/view/screens/home/home_landscape.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

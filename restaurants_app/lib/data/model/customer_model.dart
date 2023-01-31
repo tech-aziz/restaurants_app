@@ -9,7 +9,6 @@ class Customer {
   }
 
   factory Customer.fromMap(Map<String, dynamic> json) =>
-      Customer(id: json['id'], name: json['name']);
-      
+      Customer(id: json['id'], name: json['name']);   
 }
 

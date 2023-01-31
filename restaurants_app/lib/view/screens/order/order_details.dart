@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:restaurants_app/helpers/url_helpers.dart';
-import 'package:restaurants_app/screens/home/home_page.dart';
-import 'package:restaurants_app/screens/order/order_home.dart';
-import 'package:restaurants_app/screens/order/dine_in_widget.dart';
+import 'package:restaurants_app/view/screens/home/home_page.dart';
+import 'package:restaurants_app/view/screens/order/order_home.dart';
+import 'package:restaurants_app/view/screens/order/dine_in_widget.dart';
 
-import 'package:restaurants_app/screens/order/order_checkout_widget.dart';
+import 'package:restaurants_app/view/screens/order/order_checkout_widget.dart';
 
 class OrderScreenHome extends StatefulWidget {
   const OrderScreenHome({super.key});
@@ -25,8 +26,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
         backgroundColor: Colors.transparent,
         leading: InkWell(
           onTap: () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const HomePage()));
+            Get.to(const HomePage());
           },
           child: Padding(
             padding: const EdgeInsets.only(left: 12, top: 12),
@@ -55,10 +55,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) =>
-                      // OrderScreen()
-                      const OrderScreen()));
+              Get.to(const OrderScreen());
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 12, top: 12),
@@ -95,8 +92,7 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const DineInWidget()));
+                              Get.to(const DineInWidget());
                             },
                             child: Container(
                                 decoration: BoxDecoration(
@@ -135,8 +131,9 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => OrderCheckOut(orderTypeId: 2,)));
+                              Get.to(OrderCheckOut(
+                                orderTypeId: 2,
+                              ));
                             },
                             child: Container(
                                 decoration: BoxDecoration(
@@ -175,8 +172,9 @@ class _OrderScreenHomeState extends State<OrderScreenHome> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => OrderCheckOut(orderTypeId: 3,)));
+                              Get.to(OrderCheckOut(
+                                orderTypeId: 3,
+                              ));
                             },
                             child: Container(
                                 decoration: BoxDecoration(

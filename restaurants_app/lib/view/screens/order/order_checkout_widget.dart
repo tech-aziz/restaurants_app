@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:restaurants_app/database/database_helper.dart';
-import 'package:restaurants_app/models/customer_model.dart';
-import 'package:restaurants_app/screens/home/home_page.dart';
-import 'package:restaurants_app/screens/order/dine_in_widget.dart';
-import 'package:restaurants_app/ui_elements/custom_app_bar.dart';
-import 'package:restaurants_app/ui_elements/custom_check_out_button.dart';
-import 'package:restaurants_app/ui_elements/custom_product_card.dart';
+import 'package:restaurants_app/data/model/customer_model.dart';
+import 'package:restaurants_app/view/screens/home/home_page.dart';
+import 'package:restaurants_app/view/screens/order/dine_in_widget.dart';
+import 'package:restaurants_app/view/ui_elements/custom_app_bar.dart';
+import 'package:restaurants_app/view/ui_elements/custom_check_out_button.dart';
+import 'package:restaurants_app/view/ui_elements/custom_product_card.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 // ignore: must_be_immutable
@@ -24,6 +25,7 @@ class OrderCheckOut extends StatefulWidget {
 }
 
 class _OrderCheckOutState extends State<OrderCheckOut> {
+
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -119,8 +121,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
               InkWell(
                 onTap: () {
                   setState(() {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HomePage()));
+                    Get.to(const HomePage());
                     widget.orderTypeId = 0;
                   });
                 },
@@ -150,8 +151,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                 onTap: () {
                   setState(() {
                     widget.orderTypeId = 1;
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const DineInWidget()));
+                    Get.to(const DineInWidget());
                   });
                 },
                 child: Container(

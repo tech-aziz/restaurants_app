@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/ui_elements/custom_table.dart';
+import 'package:restaurants_app/view/ui_elements/custom_table.dart';
 
 class Tables extends StatefulWidget {
   const Tables({super.key});

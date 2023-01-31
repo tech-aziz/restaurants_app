@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/screens/order/order_checkout_widget.dart';
-import 'package:restaurants_app/ui_elements/custom_table.dart';
+import 'package:get/get.dart';
+import 'package:restaurants_app/view/screens/order/order_checkout_widget.dart';
+import 'package:restaurants_app/view/ui_elements/custom_table.dart';
 
 class DineInWidget extends StatefulWidget {
   const DineInWidget({super.key});
@@ -22,7 +23,7 @@ class _DineInWidgetState extends State<DineInWidget> {
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Get.back();
             },
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
@@ -162,10 +163,9 @@ class _DineInWidgetState extends State<DineInWidget> {
               child: const Text('NEXT'),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => OrderCheckOut(
-                            orderTypeId: 0,
-                          )));
+                  Get.to(OrderCheckOut(
+                    orderTypeId: 0,
+                  ));
                 } else {
                   return;
                 }

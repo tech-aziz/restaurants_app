@@ -2,14 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/screens/setup/all_charges.dart';
-import 'package:restaurants_app/screens/setup/category.dart';
-import 'package:restaurants_app/screens/setup/employes.dart';
-import 'package:restaurants_app/screens/setup/items.dart';
-import 'package:restaurants_app/screens/setup/manage.dart';
-import 'package:restaurants_app/screens/setup/payment_method.dart';
-import 'package:restaurants_app/screens/setup/restaurent_info.dart';
-import 'package:restaurants_app/screens/setup/tables.dart';
+import 'package:get/get.dart';
+import 'package:restaurants_app/view/screens/setup/all_charges.dart';
+import 'package:restaurants_app/view/screens/setup/category.dart';
+import 'package:restaurants_app/view/screens/setup/employes.dart';
+import 'package:restaurants_app/view/screens/setup/items.dart';
+import 'package:restaurants_app/view/screens/setup/manage.dart';
+import 'package:restaurants_app/view/screens/setup/payment_method.dart';
+import 'package:restaurants_app/view/screens/setup/restaurent_info.dart';
+import 'package:restaurants_app/view/screens/setup/tables.dart';
 import '../../ui_elements/custom_drawer.dart';
 
 class SetUpPage extends StatefulWidget {
@@ -31,7 +32,7 @@ class _SetUpPageState extends State<SetUpPage> {
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Get.back();
             },
             icon:  Icon(
               Icons.arrow_back_ios_new_rounded,

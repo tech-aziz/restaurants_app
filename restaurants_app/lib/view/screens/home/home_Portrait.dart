@@ -48,7 +48,7 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.to(const DashBoardScreen());
+                                Get.toNamed('/DashBoardScreen');
                               },
                               child: Container(
                                   decoration: BoxDecoration(
@@ -90,6 +90,7 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
+                                // Get.toNamed('/SetUpPage/${''})');
                                 Get.to(SetUpPage(
                                   name: '',
                                 ));
@@ -151,7 +152,7 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.to(const OrderScreenHome());
+                                Get.toNamed('/OrderScreenHome');
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -198,7 +199,7 @@ class _PortraitHomeState extends State<PortraitHome> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.to(const ReportHome());
+                                Get.toNamed('/ReportHome');
                               },
                               child: Container(
                                 decoration: BoxDecoration(

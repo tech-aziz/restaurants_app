@@ -41,9 +41,10 @@ class DrawerWidget extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Get.to(SetUpPage(
-                  name: 'Items',
-                ));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => SetUpPage(
+                          name: 'Items',
+                        )));
               },
               child: itemList(
                 const Icon(

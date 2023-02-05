@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Items extends StatefulWidget {
   const Items({super.key});
@@ -37,16 +38,25 @@ class _ItemsState extends State<Items> {
             SizedBox(
               height: 5.h,
             ),
-            customWidget(),
-            // const SizedBox(
-            //   height: 10,
-            // ),
-            Divider(
-              height: 0.h,
-              indent: 54,
-              color: Colors.black12,
-              endIndent: 50,
-              thickness: 1,
+            SingleChildScrollView(
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()
+              ),
+              child: Column(
+                children: [
+                  customWidget(),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              Divider(
+                height: 0.h,
+                indent: 54,
+                color: Colors.black12,
+                endIndent: 50,
+                thickness: 1,
+              )
+                ],
+              ),
             )
           ],
         ),
@@ -67,7 +77,45 @@ class _ItemsState extends State<Items> {
           title: const Text('Pepsi'),
           subtitle: const Text('Category: Soft-drinks'),
           trailing: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (_) {
+                    return AlertDialog(          
+                      title: const Text('Wanna Delete?'),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pop(context, false), // passing false
+                          child: const Text('No'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pop(context, true), // passing true
+                          child: const Text('Yes'),
+                        ),
+                      ],
+                    );
+                  }).then((exit) {
+                if (exit == null) return;
+
+                if (exit) {
+                  // user pressed Yes button
+                  Get.snackbar(
+                    'Delete Item', 'Successfully',
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.deepOrange,
+                    );
+                } else {
+                  // user pressed No button
+                  Get.snackbar(
+                    'Item not deleted', 'There were some problem',
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.deepOrange,
+                    );
+                }
+              });
+            },
             icon: Icon(
               Icons.delete,
               color: Colors.red,
@@ -113,8 +161,8 @@ class _ItemsState extends State<Items> {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: SingleChildScrollView(
-          physics:
-              const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+          physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
           child: Column(
             children: [
               Container(

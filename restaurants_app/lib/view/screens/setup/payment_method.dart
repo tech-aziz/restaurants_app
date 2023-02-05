@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Payment_Method extends StatefulWidget {
   const Payment_Method({super.key});
@@ -28,17 +29,22 @@ class _Payment_MethodState extends State<Payment_Method> {
           color: Colors.white,
         ),
       ),
-      body: Column(
-        children: [
-          customWidget(),
-          Divider(
-            height: 0.h,
-            indent: 54,
-            color: Colors.black12,
-            endIndent: 50,
-            thickness: 1,
-          )
-        ],
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics()
+        ),
+        child: Column(
+          children: [
+            customWidget(),
+            Divider(
+              height: 0.h,
+              indent: 54,
+              color: Colors.black12,
+              endIndent: 50,
+              thickness: 1,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -78,7 +84,46 @@ class _Payment_MethodState extends State<Payment_Method> {
             ),
             title:  Text(paymentType.toString()),
             trailing: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (_) {
+                    return AlertDialog(
+                    
+                      title: const Text('Wanna Delete?'),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pop(context, false), // passing false
+                          child: const Text('No'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pop(context, true), // passing true
+                          child: const Text('Yes'),
+                        ),
+                      ],
+                    );
+                  }).then((exit) {
+                if (exit == null) return;
+
+                if (exit) {
+                  // user pressed Yes button
+                  Get.snackbar(
+                    'Delete Item', 'Successfully',
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.deepOrange,
+                    );
+                } else {
+                  // user pressed No button
+                  Get.snackbar(
+                    'Item not deleted', 'There were some problem',
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.deepOrange,
+                    );
+                }
+              });
+              },
               icon: Icon(
                 Icons.delete,
                 color: Colors.red,

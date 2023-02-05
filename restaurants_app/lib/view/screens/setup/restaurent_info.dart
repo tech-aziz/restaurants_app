@@ -11,6 +11,7 @@ class Restaurent_Info extends StatefulWidget {
 
 // ignore: camel_case_types
 class _Restaurent_InfoState extends State<Restaurent_Info> {
+
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -21,7 +22,9 @@ class _Restaurent_InfoState extends State<Restaurent_Info> {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics()
+        ),
         child: Column(
           children: [
             Padding(

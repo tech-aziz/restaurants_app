@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../widgets/input_field.dart';
+
 class Payment_Method extends StatefulWidget {
   const Payment_Method({super.key});
 
@@ -165,16 +167,16 @@ class _Payment_MethodState extends State<Payment_Method> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
+
+              InputField(
                 controller: paymentController,
+                hintText: 'Method Name',
+                icon: const Icon(Icons.payment),
                 maxLength: 10,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Method Name',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.payment)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
+
               SizedBox(
                 height: 25.h,
               ),

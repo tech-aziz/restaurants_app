@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/view/ui_elements/custom_update_button.dart';
+import 'package:restaurants_app/view/widgets/custom_update_button.dart';
+
+import '../../widgets/input_field.dart';
 
 class All_Charge extends StatefulWidget {
   const All_Charge({super.key});
@@ -12,7 +14,12 @@ class All_Charge extends StatefulWidget {
 
 // ignore: camel_case_types
 class _All_ChargeState extends State<All_Charge> {
+  TextEditingController deliveryChargeController = TextEditingController();
+  TextEditingController sdController = TextEditingController();
+  TextEditingController vatController = TextEditingController();
+  TextEditingController serviceChargeController = TextEditingController();
   bool? isCheck = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,18 +38,17 @@ class _All_ChargeState extends State<All_Charge> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 12),
-                        child: TextField(
-                          maxLength: 4,
-                          decoration: InputDecoration(
-                              hintText: '0.0',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12)),
-                              labelText: 'Delivery Charge(TK)',
-                              hintStyle: const TextStyle(color: Colors.black),
-                              prefixIcon: const Icon(Icons.keyboard)),
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(top: 12),
+                          child: InputField(
+                            controller: deliveryChargeController,
+                            hintText: '0.0',
+                            labelText: 'Delivery Charge(TK)',
+                            icon: const Icon(Icons.keyboard),
+                            maxLength: 4,
+                            hintStyle: const TextStyle(color: Colors.black),
+                            contentPadding:
+                                const EdgeInsets.symmetric(vertical: 18),
+                          )),
                       UpdateButton(
                         updateButtonName: 'Update',
                       ),
@@ -56,16 +62,15 @@ class _All_ChargeState extends State<All_Charge> {
                       SizedBox(
                         height: 2.h,
                       ),
-                      TextField(
+                      InputField(
+                        controller: sdController,
+                        hintText: '0.0',
+                        labelText: 'SD(%)',
+                        icon: const Icon(Icons.keyboard),
                         maxLength: 4,
-                        decoration: InputDecoration(
-                            hintText: '0.0',
-                            border: OutlineInputBorder(
-                              
-                                borderRadius: BorderRadius.circular(12)),
-                            labelText: 'SD(%)',
-                            hintStyle: const TextStyle(color: Colors.black),
-                            prefixIcon: const Icon(Icons.keyboard)),
+                        hintStyle: const TextStyle(color: Colors.black),
+                        contentPadding:
+                            const EdgeInsets.symmetric(vertical: 18),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -96,15 +101,15 @@ class _All_ChargeState extends State<All_Charge> {
                       SizedBox(
                         height: 2.h,
                       ),
-                      TextField(
+                      InputField(
+                        controller: sdController,
+                        hintText: '0.0',
+                        labelText: 'VAT(%)',
+                        icon: const Icon(Icons.keyboard),
                         maxLength: 4,
-                        decoration: InputDecoration(
-                            hintText: '0.0',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12)),
-                            labelText: 'VAT(%)',
-                            hintStyle: const TextStyle(color: Colors.black),
-                            prefixIcon: const Icon(Icons.keyboard)),
+                        hintStyle: const TextStyle(color: Colors.black),
+                        contentPadding:
+                            const EdgeInsets.symmetric(vertical: 18),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -132,16 +137,18 @@ class _All_ChargeState extends State<All_Charge> {
                       SizedBox(
                         height: 2.h,
                       ),
-                      TextField(
+
+                        InputField(
+                        controller: sdController,
+                        hintText: '0.0',
+                        labelText: 'Service Charge(%)',
+                        icon: const Icon(Icons.keyboard),
                         maxLength: 4,
-                        decoration: InputDecoration(
-                            hintText: '0.0',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12)),
-                            labelText: 'Service Charge(%)',
-                            hintStyle: const TextStyle(color: Colors.black),
-                            prefixIcon: const Icon(Icons.keyboard)),
+                        hintStyle: const TextStyle(color: Colors.black),
+                        contentPadding:
+                            const EdgeInsets.symmetric(vertical: 18),
                       ),
+                      
                       const Divider(
                         thickness: 1,
                         color: Colors.black12,

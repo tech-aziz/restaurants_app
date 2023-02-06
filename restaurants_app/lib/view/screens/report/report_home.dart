@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:restaurants_app/view/ui_elements/custom_check_out_button.dart';
+import 'package:restaurants_app/view/widgets/custom_check_out_button.dart';
 import 'dart:async';
 
 class ReportHome extends StatefulWidget {

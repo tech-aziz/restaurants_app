@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/view/ui_elements/custom_update_button.dart';
+import 'package:restaurants_app/view/widgets/custom_update_button.dart';
 
 class Manage extends StatefulWidget {
   const Manage({super.key});

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../widgets/input_field.dart';
+
 class Emplyes extends StatefulWidget {
   const Emplyes({super.key});
 
@@ -10,6 +12,12 @@ class Emplyes extends StatefulWidget {
 }
 
 class _EmplyesState extends State<Emplyes> {
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+
   bool? isCheck = false;
 
   @override
@@ -154,28 +162,30 @@ class _EmplyesState extends State<Emplyes> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
+
+                InputField(
+                controller: nameController,
+                hintText: 'Name',
+                icon: const Icon(Icons.person),
                 maxLength: 20,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Name',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.person)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
+
               SizedBox(
                 height: 2.h,
               ),
-              TextField(
+
+              InputField(
+                controller: nameController,
+                hintText: 'Mobile Number',
+                icon: const Icon(Icons.phone),
                 maxLength: 11,
-                decoration: InputDecoration(
-                    hintMaxLines: 10,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Mobile Number',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.phone)),
+                hintMaxLines: 10,
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
+
               TextField(
                 maxLength: 50,
                 decoration: InputDecoration(
@@ -184,20 +194,26 @@ class _EmplyesState extends State<Emplyes> {
                         borderRadius: BorderRadius.circular(12)),
                     hintText: 'Email',
                     hintStyle: const TextStyle(color: Colors.black),
+                     contentPadding: const EdgeInsets.symmetric(vertical: 18),
                     prefixIcon: const Icon(Icons.email)),
               ),
               SizedBox(
                 height: 2.h,
               ),
+
               TextField(
+                maxLength: 50,
                 decoration: InputDecoration(
                     hintMaxLines: 10,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12)),
                     hintText: 'Address',
                     hintStyle: const TextStyle(color: Colors.black),
+                     contentPadding: const EdgeInsets.symmetric(vertical: 18),
                     prefixIcon: const Icon(Icons.location_on)),
               ),
+
+
               // CheckboxListTile(
               //   title: Text('Waiter'),
               //   value: isCheck,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:restaurants_app/view/widgets/input_field.dart';
 
 class Items extends StatefulWidget {
   const Items({super.key});
@@ -10,6 +11,13 @@ class Items extends StatefulWidget {
 }
 
 class _ItemsState extends State<Items> {
+  
+  TextEditingController searchItemController = TextEditingController();
+  TextEditingController itemNameController = TextEditingController();
+  TextEditingController itemPriceController = TextEditingController();
+  TextEditingController sdController = TextEditingController();
+  TextEditingController vatController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,34 +35,31 @@ class _ItemsState extends State<Items> {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            TextField(
-                decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(vertical: 12),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+            InputField(
+              controller: searchItemController,
               hintText: 'Search Item Here...',
-              prefixIcon: const Icon(Icons.search),
-            )),
+              icon: const Icon(Icons.search),
+              contentPadding: const EdgeInsets.symmetric(vertical: 18),
+            ),
             SizedBox(
               height: 5.h,
             ),
             SingleChildScrollView(
               physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics()
-              ),
+                  parent: AlwaysScrollableScrollPhysics()),
               child: Column(
                 children: [
                   customWidget(),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              Divider(
-                height: 0.h,
-                indent: 54,
-                color: Colors.black12,
-                endIndent: 50,
-                thickness: 1,
-              )
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  Divider(
+                    height: 0.h,
+                    indent: 54,
+                    color: Colors.black12,
+                    endIndent: 50,
+                    thickness: 1,
+                  )
                 ],
               ),
             )
@@ -81,7 +86,7 @@ class _ItemsState extends State<Items> {
               showDialog(
                   context: context,
                   builder: (_) {
-                    return AlertDialog(          
+                    return AlertDialog(
                       title: const Text('Wanna Delete?'),
                       actions: [
                         ElevatedButton(
@@ -102,17 +107,19 @@ class _ItemsState extends State<Items> {
                 if (exit) {
                   // user pressed Yes button
                   Get.snackbar(
-                    'Delete Item', 'Successfully',
+                    'Delete Item',
+                    'Successfully',
                     snackPosition: SnackPosition.BOTTOM,
                     backgroundColor: Colors.deepOrange,
-                    );
+                  );
                 } else {
                   // user pressed No button
                   Get.snackbar(
-                    'Item not deleted', 'There were some problem',
+                    'Item not deleted',
+                    'There were some problem',
                     snackPosition: SnackPosition.BOTTOM,
                     backgroundColor: Colors.deepOrange,
-                    );
+                  );
                 }
               });
             },
@@ -167,7 +174,7 @@ class _ItemsState extends State<Items> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: Colors.black54)),
@@ -198,66 +205,59 @@ class _ItemsState extends State<Items> {
               SizedBox(
                 height: 17.h,
               ),
-              TextField(
+              InputField(
+                controller: itemNameController,
+                hintText: 'Item Name',
+                icon: const Icon(Icons.keyboard),
                 maxLength: 15,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Item Name',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.keyboard)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
               const SizedBox(
                 height: 2,
               ),
-              TextField(
+              InputField(
+                controller: itemNameController,
+                hintText: 'Short Name',
+                icon: const Icon(Icons.keyboard),
                 maxLength: 10,
-                decoration: InputDecoration(
-                    hintMaxLines: 10,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Short Name',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.keyboard)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
               SizedBox(
                 height: 2.h,
               ),
-              TextField(
+              InputField(
+                controller: itemPriceController,
+                hintText: 'Item Price',
+                icon: const Icon(Icons.keyboard),
                 maxLength: 4,
-                decoration: InputDecoration(
-                    hintMaxLines: 10,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Item Price',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.keyboard)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
               SizedBox(
                 height: 2.h,
               ),
-              TextField(
+              InputField(
+                controller: sdController,
+                hintText: '0.0',
+                labelText: 'SD(%)',
+                icon: const Icon(Icons.keyboard),
                 maxLength: 4,
-                decoration: InputDecoration(
-                    hintText: '0.0',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    labelText: 'SD(%)',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.keyboard)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
               SizedBox(
                 height: 2.h,
               ),
-              TextField(
+              InputField(
+                controller: vatController,
+                hintText: '0.0',
+                labelText: 'VAT(%)',
+                icon: const Icon(Icons.keyboard),
                 maxLength: 4,
-                decoration: InputDecoration(
-                    hintText: '0.0',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    labelText: 'VAT(%)',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.keyboard)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
               SizedBox(
                 height: 25.h,

@@ -11,7 +11,7 @@ import 'package:restaurants_app/view/screens/setup/manage.dart';
 import 'package:restaurants_app/view/screens/setup/payment_method.dart';
 import 'package:restaurants_app/view/screens/setup/restaurent_info.dart';
 import 'package:restaurants_app/view/screens/setup/tables.dart';
-import '../../ui_elements/custom_drawer.dart';
+import '../../widgets/custom_drawer.dart';
 
 class SetUpPage extends StatefulWidget {
   String? name;

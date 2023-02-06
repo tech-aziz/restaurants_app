@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../widgets/input_field.dart';
+
 class Category extends StatefulWidget {
   const Category({super.key});
 
@@ -11,6 +13,10 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
+
+  TextEditingController categoryNameController = TextEditingController();
+  TextEditingController shortNameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,28 +164,30 @@ class _CategoryState extends State<Category> {
               parent: AlwaysScrollableScrollPhysics()),
           child: Column(
             children: [
-              TextField(
+
+              InputField(
+                controller: categoryNameController,
+                keyboardType: TextInputType.name,
+                hintText: 'Category Name',
+                icon: const Icon(Icons.category),
                 maxLength: 15,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Category Name',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.category)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
+              
               SizedBox(
                 height: 2.h,
               ),
-              TextField(
+
+              InputField(
+                controller: shortNameController,
+                hintText: 'Short Name',
+                icon: const Icon(Icons.category),
                 maxLength: 10,
-                decoration: InputDecoration(
-                    hintMaxLines: 10,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Short Name',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.category)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
+
               SizedBox(
                 height: 25.h,
               ),
@@ -193,12 +201,27 @@ class _CategoryState extends State<Category> {
                 child: ElevatedButton(
                   child: const Text('ADD'),
                   onPressed: () {
-                    // Navigator.of(context).pop();
+                    _validateData();
                   },
                 ),
               ),
             ],
           )),
     );
+  }
+
+
+  _validateData(){
+    if(categoryNameController.text.isNotEmpty && shortNameController.text.isNotEmpty){
+      // add to database
+      Get.back();
+    }
+    else if(categoryNameController.text.isNotEmpty || shortNameController.text.isNotEmpty){
+      Get.snackbar('Required', 'All fields are required !',
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: Colors.white,
+      icon: const Icon(Icons.warning_amber_rounded)
+      );
+    }
   }
 }

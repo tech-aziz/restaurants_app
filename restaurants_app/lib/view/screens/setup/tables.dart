@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurants_app/view/ui_elements/custom_table.dart';
+import 'package:restaurants_app/view/widgets/custom_table.dart';
+
+import '../../widgets/input_field.dart';
 
 class Tables extends StatefulWidget {
   const Tables({super.key});
@@ -10,6 +12,7 @@ class Tables extends StatefulWidget {
 }
 
 class _TablesState extends State<Tables> {
+  TextEditingController tableNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,14 +71,13 @@ class _TablesState extends State<Tables> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
+              InputField(
+                controller: tableNameController,
+                hintText: 'Table Name',
+                icon: const Icon(Icons.table_restaurant_sharp),
                 maxLength: 10,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    hintText: 'Table Name',
-                    hintStyle: const TextStyle(color: Colors.black),
-                    prefixIcon: const Icon(Icons.table_restaurant_sharp)),
+                hintStyle: const TextStyle(color: Colors.black),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
               SizedBox(
                 height: 25.h,

@@ -5,9 +5,9 @@ import 'package:restaurants_app/database/database_helper.dart';
 import 'package:restaurants_app/data/model/customer_model.dart';
 import 'package:restaurants_app/view/screens/home/home_page.dart';
 import 'package:restaurants_app/view/screens/order/dine_in_widget.dart';
-import 'package:restaurants_app/view/ui_elements/custom_app_bar.dart';
-import 'package:restaurants_app/view/ui_elements/custom_check_out_button.dart';
-import 'package:restaurants_app/view/ui_elements/custom_product_card.dart';
+import 'package:restaurants_app/view/widgets/custom_app_bar.dart';
+import 'package:restaurants_app/view/widgets/custom_check_out_button.dart';
+import 'package:restaurants_app/view/widgets/custom_product_card.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 // ignore: must_be_immutable

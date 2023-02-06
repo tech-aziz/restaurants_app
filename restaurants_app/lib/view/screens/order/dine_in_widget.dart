@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:restaurants_app/view/screens/order/order_checkout_widget.dart';
-import 'package:restaurants_app/view/ui_elements/custom_table.dart';
+import 'package:restaurants_app/view/widgets/custom_table.dart';
 
 class DineInWidget extends StatefulWidget {
   const DineInWidget({super.key});

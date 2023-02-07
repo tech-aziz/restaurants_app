@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:restaurants_app/data/model/customer_model.dart';
+import 'package:restaurants_app/model/customer_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:io';
 import 'package:path/path.dart';

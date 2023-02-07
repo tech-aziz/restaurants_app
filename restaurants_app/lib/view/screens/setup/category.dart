@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:restaurants_app/controller/add_category_controller.dart';
+import 'package:restaurants_app/model/add_category_model.dart';
 
 import '../../widgets/input_field.dart';
 
@@ -14,8 +16,10 @@ class Category extends StatefulWidget {
 
 class _CategoryState extends State<Category> {
 
+  final AddCategoryController _addCategoryController = Get.put(AddCategoryController());
   TextEditingController categoryNameController = TextEditingController();
   TextEditingController shortNameController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +205,9 @@ class _CategoryState extends State<Category> {
                 child: ElevatedButton(
                   child: const Text('ADD'),
                   onPressed: () {
+                  setState(() {
                     _validateData();
+                  });
                   },
                 ),
               ),
@@ -214,14 +220,25 @@ class _CategoryState extends State<Category> {
   _validateData(){
     if(categoryNameController.text.isNotEmpty && shortNameController.text.isNotEmpty){
       // add to database
+      addCategoryToDb();
       Get.back();
     }
-    else if(categoryNameController.text.isNotEmpty || shortNameController.text.isNotEmpty){
+    else if(categoryNameController.text.isEmpty || shortNameController.text.isEmpty){
       Get.snackbar('Required', 'All fields are required !',
       snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: Colors.white,
-      icon: const Icon(Icons.warning_amber_rounded)
+      backgroundColor: const Color(0xFF0E4A88),
+      colorText: Colors.white,
+      icon: const Icon(Icons.warning_amber_rounded,color: Colors.white,)
       );
     }
+  }
+  
+  addCategoryToDb() {
+    _addCategoryController.addCategory(
+      category : AddCategory(
+        categoryName: categoryNameController.text,
+        shortName: shortNameController.text
+      )
+    );
   }
 }

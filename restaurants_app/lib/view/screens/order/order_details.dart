@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:restaurants_app/helpers/url_helpers.dart';
+import 'package:restaurants_app/view/widgets/helpers/url_helpers.dart';
 import 'package:restaurants_app/view/screens/home/home_page.dart';
 import 'package:restaurants_app/view/screens/order/order_home.dart';
 import 'package:restaurants_app/view/screens/order/dine_in_widget.dart';

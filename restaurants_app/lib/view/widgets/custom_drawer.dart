@@ -9,7 +9,7 @@ import 'package:restaurants_app/view/screens/setup/manage.dart';
 import 'package:restaurants_app/view/screens/setup/payment_method.dart';
 import 'package:restaurants_app/view/screens/setup/restaurent_info.dart';
 import 'package:restaurants_app/view/screens/setup/tables.dart';
-import '../../helpers/url_helpers.dart';
+import 'helpers/url_helpers.dart';
 import '../screens/setup/setup_home.dart';
 
 class DrawerWidget extends StatelessWidget {

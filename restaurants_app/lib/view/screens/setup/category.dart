@@ -16,7 +16,8 @@ class Category extends StatefulWidget {
 
 class _CategoryState extends State<Category> {
 
-  final AddCategoryController _addCategoryController = Get.put(AddCategoryController());
+  // final AddCategoryController _addCategoryController = Get.put(AddCategoryController());
+
   TextEditingController categoryNameController = TextEditingController();
   TextEditingController shortNameController = TextEditingController();
 
@@ -217,10 +218,10 @@ class _CategoryState extends State<Category> {
   }
 
 
-  _validateData(){
+  _validateData(){ 
     if(categoryNameController.text.isNotEmpty && shortNameController.text.isNotEmpty){
       // add to database
-      addCategoryToDb();
+      // addCategoryToDb();
       Get.back();
     }
     else if(categoryNameController.text.isEmpty || shortNameController.text.isEmpty){
@@ -233,12 +234,14 @@ class _CategoryState extends State<Category> {
     }
   }
   
-  addCategoryToDb() {
-    _addCategoryController.addCategory(
-      category : AddCategory(
-        categoryName: categoryNameController.text,
-        shortName: shortNameController.text
-      )
-    );
-  }
+  // addCategoryToDb()async {
+  // int value =  await _addCategoryController.addCategory(
+  //     category: AddCategory(
+  //       categoryName: categoryNameController.text,
+  //       shortName: shortNameController.text
+  //     )
+  //    );
+
+  //    print("My id is "+"$value");
+  // }
 }

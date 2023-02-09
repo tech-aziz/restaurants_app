@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:restaurants_app/db/add_category_db_helper.dart';
 import 'package:restaurants_app/view/screens/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,10 +9,13 @@ import 'view/screens/dashboard/dashboard_home.dart';
 import 'view/screens/order/order_details.dart';
 import 'view/screens/report/report_home.dart';
 import 'view/screens/setup/setup_home.dart';
+import 'package:get_storage/get_storage.dart';
 
 void main() async {
   await ScreenUtil.ensureScreenSize();
   WidgetsFlutterBinding.ensureInitialized();
+  // await DBHelper.initDb;
+  await GetStorage.init();
   // await SystemChrome.setPreferredOrientations(
   //   [DeviceOrientation.portraitUp],
   // );

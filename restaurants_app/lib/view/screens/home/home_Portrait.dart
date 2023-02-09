@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:restaurants_app/helpers/url_helpers.dart';
+import 'package:restaurants_app/view/widgets/helpers/url_helpers.dart';
 import 'package:restaurants_app/view/screens/setup/setup_home.dart';
 
 class PortraitHome extends StatefulWidget {

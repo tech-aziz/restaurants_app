@@ -5,6 +5,7 @@ import 'package:restaurants_app/db/add_category_db_helper.dart';
 import 'package:restaurants_app/view/screens/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'view/screens/auth_screens/splash_screen.dart';
 import 'view/screens/dashboard/dashboard_home.dart';
 import 'view/screens/order/order_details.dart';
 import 'view/screens/report/report_home.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
                 primary: const Color(0xFF0E4A88),
               ),
         ),
-        home: const HomePage(),
+        home: const SplashScreen(),
         // List of Name Routing of GetX
         getPages: [
           GetPage(name: '/DashBoardScreen', page: (() => const DashBoardScreen())),

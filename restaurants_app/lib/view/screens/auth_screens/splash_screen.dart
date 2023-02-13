@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import '../home/home_page.dart';
 import 'login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -42,6 +43,7 @@ class SplashScreenState extends State<SplashScreen> {
   }
 
   void whereToGo() async {
+    
     var sharedPref = await SharedPreferences.getInstance();
     var isLoggedIn = sharedPref.getBool(KEYLOGIN);
     var getEmail = sharedPref.getString(EMAIL);
@@ -50,15 +52,12 @@ class SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 2), () {
       if (isLoggedIn != null && getEmail != null && getPassword != null) {
         if (isLoggedIn) {
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const HomePage()));
+          Get.offAll(const HomePage());
         } else {
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const LoginScreen()));
+          Get.offAll(const LoginScreen());
         }
       } else {
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const LoginScreen()));
+        Get.offAll(const LoginScreen());
       }
     });
   }

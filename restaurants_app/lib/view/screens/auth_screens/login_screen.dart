@@ -16,6 +16,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -96,14 +97,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       addButtonName: '',
                       button: ElevatedButton(
                           onPressed: () async {
-                            var sharedPref =
-                                await SharedPreferences.getInstance();
-                            sharedPref.setBool(
-                                SplashScreenState.KEYLOGIN, true);
-                            sharedPref.setString(
-                                SplashScreenState.EMAIL, emailController.text);
-                            sharedPref.setString(SplashScreenState.PASSWORD,
-                                passwordController.text);
+                            var sharedPref = await SharedPreferences.getInstance();
+                            sharedPref.setBool( SplashScreenState.KEYLOGIN, true);
+                            sharedPref.setString( SplashScreenState.EMAIL, emailController.text);
+                            sharedPref.setString(SplashScreenState.PASSWORD, passwordController.text);
 
                             _validateLoginData();
 

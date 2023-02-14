@@ -40,7 +40,11 @@ class _LandScapeHomeState extends State<LandScapeHome> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Get.to(const DashBoardScreen());
+                            Get.toNamed('/DashBoardScreen');
+                            // Get.to(const DashBoardScreen());
+                            // Get.to( const DashBoardScreen(),
+                            //     transition: Transition.fadeIn,
+                            //     duration: const Duration(seconds: 1));
                           },
                           child: Container(
                               decoration: BoxDecoration(
@@ -85,6 +89,9 @@ class _LandScapeHomeState extends State<LandScapeHome> {
                             Get.to(SetUpPage(
                               name: '',
                             ));
+                              // Get.to( SetUpPage(name: '',),
+                              //   transition: Transition.fadeIn,
+                              //   duration: const Duration(seconds: 1));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -139,7 +146,11 @@ class _LandScapeHomeState extends State<LandScapeHome> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Get.to(const OrderScreenHome());
+                            // Get.to(const OrderScreenHome());
+                            Get.toNamed('/OrderScreenHome');
+                            // Get.to(const OrderScreenHome(),
+                            //     transition: Transition.fadeIn,
+                            //     duration: const Duration(seconds: 1));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -186,7 +197,11 @@ class _LandScapeHomeState extends State<LandScapeHome> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Get.to(const ReportHome());
+                            // Get.to(const ReportHome());
+                            Get.toNamed('/ReportHome');
+                            // Get.to(const ReportHome(),
+                            //     transition: Transition.fadeIn,
+                            //     duration: const Duration(seconds: 1));
                           },
                           child: Container(
                             decoration: BoxDecoration(

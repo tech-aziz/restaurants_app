@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:restaurants_app/db/add_category_db_helper.dart';
+import 'package:restaurants_app/routes/routes.dart';
 import 'package:restaurants_app/view/screens/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -39,14 +40,9 @@ class MyApp extends StatelessWidget {
               ),
         ),
         home: const SplashScreen(),
-        // List of Name Routing of GetX
-        getPages: [
-          GetPage(name: '/DashBoardScreen', page: (() => const DashBoardScreen())),
-          GetPage(name: '/OrderScreenHome', page: (() => const OrderScreenHome())),
-          GetPage(name: '/ReportHome', page: (() => const ReportHome())),
-          // GetPage(name: '/SetUpPage/:name', page: (() =>  SetUpPage(name: '',))),
-        ],
-      ); // const HomePage());
+        getPages: Routes.routes,
+        // initialRoute: '/',
+      ); 
     }));
   }
 }

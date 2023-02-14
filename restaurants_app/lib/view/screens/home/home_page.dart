@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:restaurants_app/view/screens/home/home_Portrait.dart';
 import 'package:restaurants_app/view/screens/home/home_landscape.dart';
 
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     final shouldPop = await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text(
+              title: const Text(
                 "Want to Exit App?",
                 style: TextStyle(
                   color: Colors.black,
@@ -45,11 +46,12 @@ class _HomePageState extends State<HomePage> {
               actions: [
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    // Navigator.of(context).pop();
+                    Get.back();
                   },
                   child: Container(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Text(
                       "Yes",
                       style: TextStyle(
                         color: Colors.red,
@@ -62,12 +64,16 @@ class _HomePageState extends State<HomePage> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                    // Navigator.of(context).push(
+                    //     MaterialPageRoute(builder: (context) => HomePage()));
+                    Get.toNamed('/HomePage',);
+                    // Get.to(const HomePage(),
+                    //     transition: Transition.fadeIn,
+                    //     duration: const Duration(seconds: 1));
                   },
                   child: Container(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Text(
                       "No",
                       style: TextStyle(
                         color: Colors.black,

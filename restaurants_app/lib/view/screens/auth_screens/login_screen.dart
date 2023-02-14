@@ -145,8 +145,9 @@ class _LoginScreenState extends State<LoginScreen> {
     if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
       // add to database
       // addCategoryToDb();
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomePage()));
+      // Navigator.of(context).pushReplacement(
+      //     MaterialPageRoute(builder: (context) => const HomePage()));
+      Get.off(const HomePage());
     } else if (emailController.text.isEmpty || emailController.text.isEmpty) {
       Get.snackbar('Required', 'Email & Password are required!',
           snackPosition: SnackPosition.BOTTOM,

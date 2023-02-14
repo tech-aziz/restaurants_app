@@ -4,6 +4,10 @@ import 'package:get/get.dart';
 import 'package:restaurants_app/view/widgets/helpers/url_helpers.dart';
 import 'package:restaurants_app/view/screens/setup/setup_home.dart';
 
+import '../dashboard/dashboard_home.dart';
+import '../order/order_details.dart';
+import '../report/report_home.dart';
+
 class PortraitHome extends StatefulWidget {
   const PortraitHome({super.key});
 
@@ -42,6 +46,9 @@ class _PortraitHomeState extends State<PortraitHome> {
                         InkWell(
                           onTap: () {
                             Get.toNamed('/DashBoardScreen');
+                            // Get.to(const DashBoardScreen(),
+                            //     transition: Transition.fadeIn,
+                            //     duration: const Duration(seconds: 1));
                           },
                           child: Container(
                               decoration: BoxDecoration(
@@ -87,6 +94,9 @@ class _PortraitHomeState extends State<PortraitHome> {
                             Get.to(SetUpPage(
                               name: '',
                             ));
+                            // Get.to( SetUpPage(name: '',),
+                            //     transition: Transition.fadeIn,
+                            //     duration: const Duration(seconds: 1));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -142,6 +152,9 @@ class _PortraitHomeState extends State<PortraitHome> {
                         InkWell(
                           onTap: () {
                             Get.toNamed('/OrderScreenHome');
+                              // Get.to( const OrderScreenHome(),
+                              //   transition: Transition.fadeIn,
+                              //   duration: const Duration(seconds: 1));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -189,6 +202,9 @@ class _PortraitHomeState extends State<PortraitHome> {
                         InkWell(
                           onTap: () {
                             Get.toNamed('/ReportHome');
+                            // Get.to( const ReportHome(),
+                            //     transition: Transition.fadeIn,
+                            //     duration: const Duration(seconds: 1));
                           },
                           child: Container(
                             decoration: BoxDecoration(

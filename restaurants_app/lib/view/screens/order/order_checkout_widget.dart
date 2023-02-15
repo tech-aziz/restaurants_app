@@ -933,7 +933,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                         : ListView(
                             physics: const BouncingScrollPhysics(
                                 parent: AlwaysScrollableScrollPhysics()),
-                            children: snapshot.data!.map((customer) {
+                            children: snapshot.data!.map(  (customer) {
                               return Center(
                                 child: Card(
                                   elevation: 12,

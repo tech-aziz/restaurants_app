@@ -30,19 +30,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(builder: ((context, child) {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'restaurants app',
-        theme: Theme.of(context).copyWith(
-          colorScheme: Theme.of(context).colorScheme.copyWith(
-                primary: const Color(0xFF0E4A88),
-              ),
-        ),
-        home: const SplashScreen(),
-        getPages: Routes.routes,
-        // initialRoute: '/',
-      ); 
-    }));
+    return ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: ((BuildContext context, child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'restaurants app',
+            theme: Theme.of(context).copyWith(
+              colorScheme: Theme.of(context).colorScheme.copyWith(
+                    primary: const Color(0xFF0E4A88),
+                  ),
+            ),
+            home: const SplashScreen(),
+            getPages: Routes.routes,
+            // initialRoute: '/',
+          );
+        }));
   }
 }

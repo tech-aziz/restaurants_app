@@ -165,7 +165,7 @@ class _ItemsState extends State<Items> {
 
   Widget _body() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * .5,
       width: MediaQuery.of(context).size.width,
       child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(

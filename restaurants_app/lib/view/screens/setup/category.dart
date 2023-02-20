@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -9,18 +10,17 @@ import '../../widgets/input_field.dart';
 
 class Category extends StatefulWidget {
   const Category({super.key});
- 
+
   @override
   State<Category> createState() => _CategoryState();
 }
 
 class _CategoryState extends State<Category> {
-
   // final AddCategoryController _addCategoryController = Get.put(AddCategoryController());
 
   TextEditingController categoryNameController = TextEditingController();
   TextEditingController shortNameController = TextEditingController();
-
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +71,16 @@ class _CategoryState extends State<Category> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Pepsi',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-                const Text('Category: drinks',style: TextStyle(fontSize: 13,)),
-                Text(
-                    'Created at: ${DateFormat.yMMMd().format(DateTime.now())}',style: const TextStyle(fontSize: 13)),
+                const Text(
+                  'Pepsi',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                const Text('Category: drinks',
+                    style: TextStyle(
+                      fontSize: 13,
+                    )),
+                Text('Created at: ${DateFormat.yMMMd().format(DateTime.now())}',
+                    style: const TextStyle(fontSize: 13)),
               ],
             ),
             trailing: IconButton(
@@ -135,7 +141,7 @@ class _CategoryState extends State<Category> {
         builder: ((context) {
           return AlertDialog(
             title: _title(),
-            content: _body(),
+            content: Form(key: _formKey, child: _body()),
           );
         }));
   }
@@ -162,37 +168,55 @@ class _CategoryState extends State<Category> {
 
   Widget _body() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * .5,
       width: MediaQuery.of(context).size.width,
       child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),
           child: Column(
             children: [
-
-              InputField(
+              TextFormField(
+                maxLength: 15,
                 controller: categoryNameController,
                 keyboardType: TextInputType.name,
-                hintText: 'Category Name',
-                icon: const Icon(Icons.category),
-                maxLength: 15,
-                hintStyle: const TextStyle(color: Colors.black),
-                contentPadding: const EdgeInsets.symmetric(vertical: 18),
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 18),
+                    border: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12)),
+                    hintText: 'Category Name',
+                    labelText: 'Category Name',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    prefixIcon: const Icon(Icons.category)),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please Add Category Name';
+                  }
+                },
               ),
-              
               SizedBox(
-                height: 2.h,
+                height: 6.h,
               ),
-
-              InputField(
-                controller: shortNameController,
-                hintText: 'Short Name',
-                icon: const Icon(Icons.category),
+              TextFormField(
                 maxLength: 10,
-                hintStyle: const TextStyle(color: Colors.black),
-                contentPadding: const EdgeInsets.symmetric(vertical: 18),
+                controller: shortNameController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 18),
+                    border: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12)),
+                    hintText: 'Short Name',
+                    errorStyle: const TextStyle(color: Colors.red),
+                    labelText: 'Short Name',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    prefixIcon: const Icon(Icons.category)),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please Add Short Name';
+                  }
+                },
               ),
-
               SizedBox(
                 height: 25.h,
               ),
@@ -206,9 +230,16 @@ class _CategoryState extends State<Category> {
                 child: ElevatedButton(
                   child: const Text('ADD'),
                   onPressed: () {
-                  setState(() {
-                    _validateData();
-                  });
+                    setState(() {
+                      if (_formKey.currentState!.validate()) {
+                        // _validateData();
+                        addCategoryToDb();
+                        categoryNameController.clear();
+                        shortNameController.clear();
+                      } else {
+                        return;
+                      }
+                    });
                   },
                 ),
               ),
@@ -217,31 +248,36 @@ class _CategoryState extends State<Category> {
     );
   }
 
-
-  _validateData(){ 
-    if(categoryNameController.text.isNotEmpty && shortNameController.text.isNotEmpty){
-      // add to database
-      // addCategoryToDb();
-      Get.back();
-    }
-    else if(categoryNameController.text.isEmpty || shortNameController.text.isEmpty){
-      Get.snackbar('Required', 'All fields are required !',
-      snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: const Color(0xFF0E4A88),
-      colorText: Colors.white,
-      icon: const Icon(Icons.warning_amber_rounded,color: Colors.white,)
-      );
-    }
-  }
-  
-  // addCategoryToDb()async {
-  // int value =  await _addCategoryController.addCategory(
-  //     category: AddCategory(
-  //       categoryName: categoryNameController.text,
-  //       shortName: shortNameController.text
-  //     )
-  //    );
-
-  //    print("My id is "+"$value");
+  // _validateData() {
+  //   if (categoryNameController.text.isNotEmpty &&
+  //       shortNameController.text.isNotEmpty) {
+  //     // add to database
+  //     // addCategoryToDb();
+  //     Get.back();
+  //   } else if (categoryNameController.text.isEmpty ||
+  //       shortNameController.text.isEmpty) {
+  //     Get.snackbar('Required', 'All fields are required !',
+  //         snackPosition: SnackPosition.BOTTOM,
+  //         // backgroundColor: const Color(0xFF0E4A88),
+  //         backgroundColor: Colors.green,
+  //         colorText: Colors.white,
+  //         icon: const Icon(
+  //           Icons.warning_amber_rounded,
+  //           color: Colors.white,
+  //         ));
+  //   }
   // }
+
+  addCategoryToDb() async {
+    // int value =  await _addCategoryController.addCategory(
+    //     category: AddCategory(
+    //       categoryName: categoryNameController.text,
+    //       shortName: shortNameController.text
+    //     )
+    //    );
+
+    //    print("My id is "+"$value");
+    // }
+    Get.back();
+  }
 }

@@ -856,7 +856,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
 
   Widget _addCustomerBody() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * .5,
       width: MediaQuery.of(context).size.width,
       child: SingleChildScrollView(
           primary: false,
@@ -1028,7 +1028,7 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
 
   Widget _createCustomerBody() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * .5,
       width: MediaQuery.of(context).size.width,
       child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(

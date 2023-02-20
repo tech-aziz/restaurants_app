@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             sharedPref.setString( SplashScreenState.EMAIL, emailController.text);
                             sharedPref.setString(SplashScreenState.PASSWORD, passwordController.text);
 
-                            _validateLoginData();
+                            // _validateLoginData();
 
                             if (_formKey.currentState!.validate()) {
                               Get.snackbar('Welcome', 'Home!',

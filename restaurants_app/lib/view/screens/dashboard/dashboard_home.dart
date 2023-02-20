@@ -366,7 +366,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           //   height: 30.h,
           // ),
           const Padding(
-            padding: EdgeInsets.only(top: 12, bottom: 15, left: 5),
+            padding: EdgeInsets.only(top: 12, bottom: 0, left: 5),
             child: Text(
               'Yearly Sale Chart',
               style:
@@ -374,7 +374,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height - 365,
+            height: MediaQuery.of(context).size.height - 371,
             width: MediaQuery.of(context).size.width,
             child: Row(
               children: [

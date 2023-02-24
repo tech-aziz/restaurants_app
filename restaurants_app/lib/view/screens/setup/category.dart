@@ -20,6 +20,7 @@ class _CategoryState extends State<Category> {
 
   final TextEditingController categoryNameController = TextEditingController();
   final TextEditingController shortNameController = TextEditingController();
+
   List<String> names = [];
   final _formKey = GlobalKey<FormState>();
 
@@ -88,7 +89,7 @@ class _CategoryState extends State<Category> {
                           onPressed: () {
                             showDialog(
                                 context: context,
-                                builder: (_) {
+                                builder: (BuildContext context) {
                                   return AlertDialog(
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(

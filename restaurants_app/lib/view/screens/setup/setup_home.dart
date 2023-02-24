@@ -25,7 +25,7 @@ class _SetUpPageState extends State<SetUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        endDrawer: DrawerWidget(),
+        endDrawer:const DrawerWidget(),
         appBar: AppBar(
           // centerTitle: true,
           titleSpacing: -5,

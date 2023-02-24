@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:restaurants_app/db/add_category_db_helper.dart';
+import 'package:restaurants_app/database/add_category_db_helper.dart';
 import 'package:restaurants_app/routes/routes.dart';
 import 'package:restaurants_app/view/screens/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

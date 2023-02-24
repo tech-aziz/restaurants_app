@@ -13,7 +13,7 @@ import 'helpers/url_helpers.dart';
 import '../screens/setup/setup_home.dart';
 
 class DrawerWidget extends StatelessWidget {
-  DrawerWidget({super.key});
+  const DrawerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

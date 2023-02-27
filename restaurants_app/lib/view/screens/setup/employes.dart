@@ -36,7 +36,7 @@ class _EmplyesState extends State<Emplyes> {
           ),
         ),
         body: SingleChildScrollView(
-          physics: BouncingScrollPhysics(
+          physics:const BouncingScrollPhysics(
             parent: AlwaysScrollableScrollPhysics()
           ),
           child: Column(
@@ -128,9 +128,12 @@ class _EmplyesState extends State<Emplyes> {
     showDialog(
         context: context,
         builder: ((context) {
-          return AlertDialog(
-            title: _title(),
-            content: _body(),
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: AlertDialog(
+              title: _title(),
+              content: _body(),
+            ),
           );
         }));
   }

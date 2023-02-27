@@ -139,9 +139,12 @@ class _ItemsState extends State<Items> {
     showDialog(
         context: context,
         builder: ((context) {
-          return AlertDialog(
-            title: _title(),
-            content: _body(),
+          return GestureDetector(
+             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: AlertDialog(
+              title: _title(),
+              content: _body(),
+            ),
           );
         }));
   }

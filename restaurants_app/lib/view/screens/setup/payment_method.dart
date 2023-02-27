@@ -34,7 +34,7 @@ class _Payment_MethodState extends State<Payment_Method> {
           ),
         ),
         body: SingleChildScrollView(
-          physics: BouncingScrollPhysics(
+          physics:const BouncingScrollPhysics(
             parent: AlwaysScrollableScrollPhysics()
           ),
           child: Column(
@@ -58,9 +58,12 @@ class _Payment_MethodState extends State<Payment_Method> {
     showDialog(
         context: context,
         builder: ((context) {
-          return AlertDialog(
-            title: _title(),
-            content: _body(),
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: AlertDialog(
+              title: _title(),
+              content: _body(),
+            ),
           );
         }));
   }

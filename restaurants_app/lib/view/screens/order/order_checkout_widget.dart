@@ -829,9 +829,12 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
     showDialog(
         context: context,
         builder: ((context) {
-          return AlertDialog(
-            title: _addCustomerTitle(),
-            content: _addCustomerBody(),
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: AlertDialog(
+              title: _addCustomerTitle(),
+              content: _addCustomerBody(),
+            ),
           );
         }));
   }

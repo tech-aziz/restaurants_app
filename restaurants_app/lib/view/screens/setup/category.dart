@@ -227,9 +227,12 @@ class _CategoryState extends State<Category> {
     showDialog(
         context: context,
         builder: ((context) {
-          return AlertDialog(
-            title: _title(),
-            content: Form(key: _formKey, child: _body()),
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: AlertDialog(
+              title: _title(),
+              content: Form(key: _formKey, child: _body()),
+            ),
           );
         }));
   }

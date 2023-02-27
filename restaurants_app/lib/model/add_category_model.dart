@@ -1,20 +1,37 @@
-class AddCategory {
-  int? id;
-  String? categoryName;
-  String? shortName;
-  AddCategory({this.id, required this.categoryName, required this.shortName});
+// To parse this JSON data, do
+//
+//     final addCategoryModel = addCategoryModelFromJson(jsonString);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['id'] = categoryName;
-    data['id'] = shortName;
-    return data;
-  }
+import 'dart:convert';
 
-  AddCategory.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    categoryName = json['categoryName'];
-    shortName = json['shortName'];
-  }
+AddCategoryModel addCategoryModelFromJson(String str) => AddCategoryModel.fromJson(json.decode(str));
+
+String addCategoryModelToJson(AddCategoryModel data) => json.encode(data.toJson());
+
+class AddCategoryModel {
+    AddCategoryModel({
+        this.categoryId,
+        this.categoryName,
+        this.shortName,
+        this.updatedBy,
+    });
+
+    int? categoryId;
+    String? categoryName;
+    String? shortName;
+    String? updatedBy;
+
+    factory AddCategoryModel.fromJson(Map<String, dynamic> json) => AddCategoryModel(
+        categoryId: json["category_id"],
+        categoryName: json["category_name"],
+        shortName: json["short_name"],
+        updatedBy: json["updated_by"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "category_id": categoryId,
+        "category_name": categoryName,
+        "short_name": shortName,
+        "updated_by": updatedBy,
+    };
 }

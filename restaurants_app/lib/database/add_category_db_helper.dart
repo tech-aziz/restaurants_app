@@ -5,17 +5,17 @@
 
 // class DBHelper{
 //   static Database ? _db;
-//   static final int _version = 1;
-//   static final String _tableName = "category";
+//   static const int _version = 1;
+//   static const String _tableName = "category";
 
 //   static Future<void> initDb() async{
 //     if(_db != null){
 //       return;
 //     }
 //     try{
-//       String _path = await getDatabasesPath() + 'category.db';
+//       String path = await getDatabasesPath() + 'category.db';
 //       _db = await openDatabase(
-//         _path,
+//         path,
 //         version: _version,
 //         onCreate: (db, version) {
 //           print('creating a new one');

@@ -35,7 +35,6 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
 
   String defalutValue = 'Customers';
 
-  bool _isLoading = true;
 
   // List<Map<String, dynamic>> item = [
   //   {
@@ -107,547 +106,632 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
     //   print(newObj);
     // });
 
-    return Scaffold(
-      //Custom Appbar
-      appBar: CustomAppBar(
-        height: 110.h,
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 24,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    Get.to(const HomePage());
-                    widget.orderTypeId = 0;
-                  });
-                },
-                child: Container(
-                  color: widget.orderTypeId == 0
-                      ? Colors.white10
-                      : Colors.transparent,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.home_outlined,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      const Text(
-                        'Home',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        //Custom Appbar
+        appBar: CustomAppBar(
+          height: 110.h,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 24,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      Get.to(const HomePage());
+                      widget.orderTypeId = 0;
+                    });
+                  },
+                  child: Container(
+                    color: widget.orderTypeId == 0
+                        ? Colors.white10
+                        : Colors.transparent,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.home_outlined,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        const Text(
+                          'Home',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    widget.orderTypeId = 1;
-                    Get.to(const DineInWidget());
-                  });
-                },
-                child: Container(
-                  color: widget.orderTypeId == 1
-                      ? Colors.white10
-                      : Colors.transparent,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          Image.asset(
-                            'assets/images/dine_in.png',
-                            height: 30.h,
-                            width: 30.w,
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          const Text(
-                            'Dine In',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ],
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      widget.orderTypeId = 1;
+                      Get.to(const DineInWidget());
+                    });
+                  },
+                  child: Container(
+                    color: widget.orderTypeId == 1
+                        ? Colors.white10
+                        : Colors.transparent,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Image.asset(
+                              'assets/images/dine_in.png',
+                              height: 30.h,
+                              width: 30.w,
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            const Text(
+                              'Dine In',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    widget.orderTypeId = 2;
-                  });
-                },
-                child: Container(
-                  color: widget.orderTypeId == 2
-                      ? Colors.white10
-                      : Colors.transparent,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          Image.asset(
-                            'assets/images/take_away.png',
-                            height: 30.h,
-                            width: 30.w,
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          const Text(
-                            'Take Away',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ],
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      widget.orderTypeId = 2;
+                    });
+                  },
+                  child: Container(
+                    color: widget.orderTypeId == 2
+                        ? Colors.white10
+                        : Colors.transparent,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Image.asset(
+                              'assets/images/take_away.png',
+                              height: 30.h,
+                              width: 30.w,
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            const Text(
+                              'Take Away',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    widget.orderTypeId = 3;
-                  });
-                },
-                child: Container(
-                  color: widget.orderTypeId == 3
-                      ? Colors.white10
-                      : Colors.transparent,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          Image.asset(
-                            'assets/images/delivery.png',
-                            height: 30.h,
-                            width: 30.w,
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          const Text(
-                            'Delivery',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ],
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      widget.orderTypeId = 3;
+                    });
+                  },
+                  child: Container(
+                    color: widget.orderTypeId == 3
+                        ? Colors.white10
+                        : Colors.transparent,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Image.asset(
+                              'assets/images/delivery.png',
+                              height: 30.h,
+                              width: 30.w,
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            const Text(
+                              'Delivery',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              PopupMenuButton<String>(
-                elevation: 10,
-                offset: const Offset(0, 55),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
-                itemBuilder: (context) => [
-                  PopupMenuItem<String>(
-                    value: 'Customers',
-                    child: InkWell(
+                PopupMenuButton<String>(
+                  elevation: 10,
+                  offset: const Offset(0, 55),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  itemBuilder: (context) => [
+                    PopupMenuItem<String>(
+                      value: 'Customers',
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            addCustomer();
+                          });
+                        },
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.person_add_alt,
+                                  color: Colors.black,
+                                  size: 22.sp,
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                const Text(
+                                  'Customers',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Divider(
+                              height: 1.h,
+                              indent: 12,
+                              color: Colors.black12,
+                              endIndent: 12,
+                              thickness: 1,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'Reset',
                       onTap: () {
                         setState(() {
-                          addCustomer();
+                          defalutValue = 'Reset';
+                          // showOrderMessage(defalutValue);
                         });
                       },
                       child: Column(
                         children: [
-                          Row(
+                          Column(
                             children: [
-                              Icon(
-                                Icons.person_add_alt,
-                                color: Colors.black,
-                                size: 22.sp,
+                              Row(
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  Image.asset(
+                                    'assets/images/new.png',
+                                    height: 22.h,
+                                    width: 22.w,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  const Text(
+                                    'Reset',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
                               ),
                               SizedBox(
-                                width: 5.w,
+                                height: 5.h,
                               ),
-                              const Text(
-                                'Customers',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              )
+                              Divider(
+                                height: 1.h,
+                                indent: 12,
+                                color: Colors.black12,
+                                endIndent: 12,
+                                thickness: 1,
+                              ),
                             ],
                           ),
-                          SizedBox(
-                            height: 5.h,
-                          ),
-                          Divider(
-                            height: 1.h,
-                            indent: 12,
-                            color: Colors.black12,
-                            endIndent: 12,
-                            thickness: 1,
+                        ],
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'Hold',
+                      onTap: () {
+                        setState(() {
+                          defalutValue = 'Hold';
+                          // showOrderMessage(defalutValue);
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.pause_circle_rounded,
+                                    color: Colors.black,
+                                    size: 22.sp,
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  const Text(
+                                    'Hold',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              Divider(
+                                height: 1.h,
+                                indent: 12,
+                                color: Colors.black12,
+                                endIndent: 12,
+                                thickness: 1,
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
-                  ),
-                  PopupMenuItem<String>(
-                    value: 'Reset',
-                    onTap: () {
-                      setState(() {
-                        defalutValue = 'Reset';
-                        // showOrderMessage(defalutValue);
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              // ignore: prefer_const_literals_to_create_immutables
-                              children: [
-                                Image.asset(
-                                  'assets/images/new.png',
-                                  height: 22.h,
-                                  width: 22.w,
-                                  color: Colors.black,
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                const Text(
-                                  'Reset',
-                                  style: TextStyle(
+                    PopupMenuItem<String>(
+                      value: 'Orders',
+                      onTap: () {
+                        setState(() {
+                          defalutValue = 'Orders';
+                          // showOrderMessage(defalutValue);
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.shopping_cart_outlined,
                                     color: Colors.black,
+                                    size: 22.sp,
                                   ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Divider(
-                              height: 1.h,
-                              indent: 12,
-                              color: Colors.black12,
-                              endIndent: 12,
-                              thickness: 1,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  const Text(
+                                    'Orders',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                  child: Icon(
+                    Icons.more_vert,
+                    color: Colors.white,
+                    size: 28.sp,
                   ),
-                  PopupMenuItem<String>(
-                    value: 'Hold',
-                    onTap: () {
-                      setState(() {
-                        defalutValue = 'Hold';
-                        // showOrderMessage(defalutValue);
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.pause_circle_rounded,
-                                  color: Colors.black,
-                                  size: 22.sp,
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  'Hold',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Divider(
-                              height: 1.h,
-                              indent: 12,
-                              color: Colors.black12,
-                              endIndent: 12,
-                              thickness: 1,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  PopupMenuItem<String>(
-                    value: 'Orders',
-                    onTap: () {
-                      setState(() {
-                        defalutValue = 'Orders';
-                        // showOrderMessage(defalutValue);
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.shopping_cart_outlined,
-                                  color: Colors.black,
-                                  size: 22.sp,
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                const Text(
-                                  'Orders',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-                child: Icon(
-                  Icons.more_vert,
-                  color: Colors.white,
-                  size: 28.sp,
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              DropdownSearch<String>(
-                popupProps: const PopupProps.menu(
-                  showSelectedItems: true,
-                  showSearchBox: true,
-
-                  // disabledItemFn: (String s) => s.startsWith('I'),
-                ),
-                items: const [
-                  "Pepsi",
-                  "Apple",
-                  "Banana",
-                  'Mango',
-                  'Poteto',
-                  'Chicken',
-                  'Beef',
-                  'Drinks'
-                ],
-                dropdownDecoratorProps: const DropDownDecoratorProps(
-                  dropdownSearchDecoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(12.0),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 4),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                DropdownSearch<String>(
+                  popupProps: const PopupProps.menu(
+                    showSelectedItems: true,
+                    showSearchBox: true,
+    
+                    // disabledItemFn: (String s) => s.startsWith('I'),
+                  ),
+                  items: const [
+                    "Pepsi",
+                    "Apple",
+                    "Banana",
+                    'Mango',
+                    'Poteto',
+                    'Chicken',
+                    'Beef',
+                    'Drinks'
+                  ],
+                  dropdownDecoratorProps: const DropDownDecoratorProps(
+                    dropdownSearchDecoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12.0),
+                        ),
                       ),
+                      // labelText: "Menu mode",
+                      hintText: "Search by Category",
                     ),
-                    // labelText: "Menu mode",
-                    hintText: "Search by Category",
+                  ),
+                  onChanged: print,
+                  selectedItem: "Pepsi",
+                ),
+    
+                SizedBox(
+                  height: 8.h,
+                ),
+                TextField(
+                    decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                  border:
+                      OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  hintText: 'Search by Product...',
+                  prefixIcon: const Icon(Icons.search),
+                )),
+                SizedBox(
+                  height: 5.h,
+                ),
+                SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(
+                      parent: AlwaysScrollableScrollPhysics()),
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      CustomCard(
+                        image: Image.asset(
+                          'assets/images/pepsi.png',
+                          width: 50.w,
+                        ),
+                        productName: 'Pepsi',
+                        productPrice: 20.0,
+                      ),
+                      CustomCard(
+                        image: Image.asset(
+                          'assets/images/pepsi.png',
+                          width: 50.w,
+                        ),
+                        productName: 'Pepsi',
+                        productPrice: 20.0,
+                      ),
+                      CustomCard(
+                        image: Image.asset(
+                          'assets/images/pepsi.png',
+                          width: 50.w,
+                        ),
+                        productName: 'Pepsi',
+                        productPrice: 20.0,
+                      ),
+                    ],
                   ),
                 ),
-                onChanged: print,
-                selectedItem: "Pepsi",
-              ),
-
-              SizedBox(
-                height: 8.h,
-              ),
-              TextField(
-                  decoration: InputDecoration(
-                contentPadding: const EdgeInsets.symmetric(vertical: 12),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-                hintText: 'Search by Product...',
-                prefixIcon: const Icon(Icons.search),
-              )),
-              SizedBox(
-                height: 5.h,
-              ),
-              SingleChildScrollView(
-                physics: const BouncingScrollPhysics(
-                    parent: AlwaysScrollableScrollPhysics()),
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/pepsi.png',
-                        width: 50.w,
+    
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black12, width: 1)),
+                  height: 362.h,
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 30.h,
+                        decoration: const BoxDecoration(
+                            border: Border(
+                                bottom:
+                                    BorderSide(width: 1, color: Colors.black26))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Text('Product Name'),
+                            Container(
+                                height: 35.h,
+                                width: 1.w,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.black26, width: 1),
+                                )),
+                            const Text('Unit Price'),
+                            Container(
+                                height: 35.h,
+                                width: 1.w,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.black26, width: 1),
+                                )),
+                            const Text('Qty'),
+                            Container(
+                                height: 35.h,
+                                width: 1.w,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.black26, width: 1),
+                                )),
+                            const Text('SD'),
+                            Container(
+                                height: 35.h,
+                                width: 1.w,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.black26, width: 1),
+                                )),
+                            const Text('VAT'),
+                            Container(
+                                height: 35.h,
+                                width: 1.w,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.black26, width: 1),
+                                )),
+                            const Text('Disc'),
+                            Container(
+                                height: 35.h,
+                                width: 1.w,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.black26, width: 1),
+                                )),
+                            const Text('Sub Total')
+                          ],
+                        ),
                       ),
-                      productName: 'Pepsi',
-                      productPrice: 20.0,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/pepsi.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Pepsi',
-                      productPrice: 20.0,
-                    ),
-                    CustomCard(
-                      image: Image.asset(
-                        'assets/images/pepsi.png',
-                        width: 50.w,
-                      ),
-                      productName: 'Pepsi',
-                      productPrice: 20.0,
-                    ),
-                  ],
-                ),
-              ),
-
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black12, width: 1)),
-                height: 362.h,
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    Container(
-                      height: 30.h,
-                      decoration: const BoxDecoration(
-                          border: Border(
-                              bottom:
-                                  BorderSide(width: 1, color: Colors.black26))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Text('Product Name'),
-                          Container(
-                              height: 35.h,
-                              width: 1.w,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          const Text('Unit Price'),
-                          Container(
-                              height: 35.h,
-                              width: 1.w,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          const Text('Qty'),
-                          Container(
-                              height: 35.h,
-                              width: 1.w,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          const Text('SD'),
-                          Container(
-                              height: 35.h,
-                              width: 1.w,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          const Text('VAT'),
-                          Container(
-                              height: 35.h,
-                              width: 1.w,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          const Text('Disc'),
-                          Container(
-                              height: 35.h,
-                              width: 1.w,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.black26, width: 1),
-                              )),
-                          const Text('Sub Total')
-                        ],
-                      ),
-                    ),
-
-                    // ListView.builder(
-                    //     shrinkWrap: true,
-                    //     itemCount: item.length,
-                    //     itemBuilder: (context, index) {
-                    //       return Text(
-                    //           item[index]['data'][2]['name'].toString());
-                    //     }),
-
-                    const Spacer(),
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black26, width: 1)),
-                      height: 65.h,
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 130.w,
-                            decoration: const BoxDecoration(
-                                border: Border(
-                                    right: BorderSide(
-                                        width: 1, color: Colors.black26))),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    const Text('Discrount: ',
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black87,
-                                            fontWeight: FontWeight.bold)),
-                                    Container(
-                                      height: 30.h,
-                                      width: 50.w,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          border: Border.all(
-                                              color: Colors.black26, width: 2)),
-                                      child: Center(
-                                          child: Text(
-                                        '0.0',
-                                        style: TextStyle(
-                                            fontSize: 18.sp,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                    )
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Row(
+    
+                      // ListView.builder(
+                      //     shrinkWrap: true,
+                      //     itemCount: item.length,
+                      //     itemBuilder: (context, index) {
+                      //       return Text(
+                      //           item[index]['data'][2]['name'].toString());
+                      //     }),
+    
+                      const Spacer(),
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black26, width: 1)),
+                        height: 65.h,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 130.w,
+                              decoration: const BoxDecoration(
+                                  border: Border(
+                                      right: BorderSide(
+                                          width: 1, color: Colors.black26))),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      const Text('Discrount: ',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black87,
+                                              fontWeight: FontWeight.bold)),
+                                      Container(
+                                        height: 30.h,
+                                        width: 50.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: Border.all(
+                                                color: Colors.black26, width: 2)),
+                                        child: Center(
+                                            child: Text(
+                                          '0.0',
+                                          style: TextStyle(
+                                              fontSize: 18.sp,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                      )
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 5),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 5),
+                                          child: RichText(
+                                            text: const TextSpan(
+                                                text: 'Items: ',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black54),
+                                                children: [
+                                                  TextSpan(
+                                                      text: '0',
+                                                      style: TextStyle(
+                                                          color: Colors.black))
+                                                ]),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 5),
+                                          child: RichText(
+                                            text: TextSpan(
+                                                text: widget.orderTypeId == 3
+                                                    ? 'Delivery\nCharge: '
+                                                    : '',
+                                                style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black54),
+                                                children: [
+                                                  TextSpan(
+                                                      text:
+                                                          widget.orderTypeId == 3
+                                                              ? '0'
+                                                              : '',
+                                                      style: const TextStyle(
+                                                          color: Colors.black))
+                                                ]),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    // child: Text(
+                                    //   'Items: 0',
+                                    //   style:
+                                    //       TextStyle(fontWeight: FontWeight.bold),
+                                    // ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 211.w,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    // ignore: prefer_const_literals_to_create_immutables
+                                    children: [
+                                      const Text('Total:',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black87,
+                                              fontWeight: FontWeight.bold)),
+                                      const SizedBox(
+                                        height: 30,
+                                        width: 50,
+                                        child: Center(
+                                            child: Text(
+                                          '0.0',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Color(0xFF0E4A88),
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
@@ -655,90 +739,21 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                         padding: const EdgeInsets.only(left: 5),
                                         child: RichText(
                                           text: const TextSpan(
-                                              text: 'Items: ',
+                                              text: 'SD: ',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.black54),
                                               children: [
                                                 TextSpan(
-                                                    text: '0',
+                                                    text: '0.0',
                                                     style: TextStyle(
                                                         color: Colors.black))
                                               ]),
                                         ),
                                       ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 5),
-                                        child: RichText(
-                                          text: TextSpan(
-                                              text: widget.orderTypeId == 3
-                                                  ? 'Delivery\nCharge: '
-                                                  : '',
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.black54),
-                                              children: [
-                                                TextSpan(
-                                                    text:
-                                                        widget.orderTypeId == 3
-                                                            ? '0'
-                                                            : '',
-                                                    style: const TextStyle(
-                                                        color: Colors.black))
-                                              ]),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  // child: Text(
-                                  //   'Items: 0',
-                                  //   style:
-                                  //       TextStyle(fontWeight: FontWeight.bold),
-                                  // ),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: 211.w,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    const Text('Total:',
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black87,
-                                            fontWeight: FontWeight.bold)),
-                                    const SizedBox(
-                                      height: 30,
-                                      width: 50,
-                                      child: Center(
-                                          child: Text(
-                                        '0.0',
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Color(0xFF0E4A88),
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 5),
-                                      child: RichText(
+                                      RichText(
                                         text: const TextSpan(
-                                            text: 'SD: ',
+                                            text: 'VAT: ',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black54),
@@ -749,54 +764,41 @@ class _OrderCheckOutState extends State<OrderCheckOut> {
                                                       color: Colors.black))
                                             ]),
                                       ),
-                                    ),
-                                    RichText(
-                                      text: const TextSpan(
-                                          text: 'VAT: ',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black54),
-                                          children: [
-                                            TextSpan(
-                                                text: '0.0',
+                                      Padding(
+                                        padding: const EdgeInsets.only(right: 5),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 5),
+                                          child: RichText(
+                                            text: const TextSpan(
+                                                text: 'Service\nCharge: ',
                                                 style: TextStyle(
-                                                    color: Colors.black))
-                                          ]),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 5),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 5),
-                                        child: RichText(
-                                          text: const TextSpan(
-                                              text: 'Service\nCharge: ',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.black54),
-                                              children: [
-                                                TextSpan(
-                                                    text: '0',
-                                                    style: TextStyle(
-                                                        color: Colors.black))
-                                              ]),
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black54),
+                                                children: [
+                                                  TextSpan(
+                                                      text: '0',
+                                                      style: TextStyle(
+                                                          color: Colors.black))
+                                                ]),
+                                          ),
                                         ),
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    CheckOutButton(checkOutButtonName: 'CHECK OUT'),
-                  ],
-                ),
-              )
-              // showOrderMessage(defalutValue),
-            ],
+                      CheckOutButton(checkOutButtonName: 'CHECK OUT'),
+                    ],
+                  ),
+                )
+                // showOrderMessage(defalutValue),
+              ],
+            ),
           ),
         ),
       ),

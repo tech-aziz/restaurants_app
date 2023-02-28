@@ -24,40 +24,43 @@ class SetUpPage extends StatefulWidget {
 class _SetUpPageState extends State<SetUpPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        endDrawer:const DrawerWidget(),
-        appBar: AppBar(
-          // centerTitle: true,
-          titleSpacing: -5,
-          automaticallyImplyLeading: false,
-          leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon:  Icon(
-              Icons.arrow_back_ios_new_rounded,
-              size: 18.0.sp,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+          endDrawer:const DrawerWidget(),
+          appBar: AppBar(
+            // centerTitle: true,
+            titleSpacing: -5,
+            automaticallyImplyLeading: false,
+            leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon:  Icon(
+                Icons.arrow_back_ios_new_rounded,
+                size: 18.0.sp,
+              ),
             ),
+            title: const Text(
+              'Setup',
+              style: TextStyle(fontSize: 19),
+            ),
+            actions: [
+              Builder(builder: (context) {
+                return IconButton(
+                    onPressed: () {
+                      Scaffold.of(context).openEndDrawer();
+                    },
+                    icon: Image.asset(
+                      'assets/images/drawer_menu.png',
+                      height: 22,
+                      width: 22,
+                    ));
+              })
+            ],
           ),
-          title: const Text(
-            'Setup',
-            style: TextStyle(fontSize: 19),
-          ),
-          actions: [
-            Builder(builder: (context) {
-              return IconButton(
-                  onPressed: () {
-                    Scaffold.of(context).openEndDrawer();
-                  },
-                  icon: Image.asset(
-                    'assets/images/drawer_menu.png',
-                    height: 22,
-                    width: 22,
-                  ));
-            })
-          ],
-        ),
-        body: showMessage(widget.name.toString()));
+          body: showMessage(widget.name.toString())),
+    );
   }
 
   showMessage(String newValue) {

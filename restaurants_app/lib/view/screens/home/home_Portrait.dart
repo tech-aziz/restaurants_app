@@ -4,10 +4,6 @@ import 'package:get/get.dart';
 import 'package:restaurants_app/view/widgets/helpers/url_helpers.dart';
 import 'package:restaurants_app/view/screens/setup/setup_home.dart';
 
-import '../dashboard/dashboard_home.dart';
-import '../order/order_details.dart';
-import '../report/report_home.dart';
-
 class PortraitHome extends StatefulWidget {
   const PortraitHome({super.key});
 

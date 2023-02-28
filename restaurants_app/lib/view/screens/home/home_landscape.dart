@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:restaurants_app/view/widgets/helpers/url_helpers.dart';
-import 'package:restaurants_app/view/screens/dashboard/dashboard_home.dart';
-import 'package:restaurants_app/view/screens/order/order_details.dart';
-
-import 'package:restaurants_app/view/screens/report/report_home.dart';
 import 'package:restaurants_app/view/screens/setup/setup_home.dart';
-
 class LandScapeHome extends StatefulWidget {
   const LandScapeHome({super.key});
 

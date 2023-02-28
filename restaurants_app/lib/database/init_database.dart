@@ -1,11 +1,9 @@
-import 'dart:convert';
 
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_migration/sqflite_migration.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 
-import '../model/add_category_model.dart';
 import 'sql_scripts.dart';
 
 class InitDatabase {

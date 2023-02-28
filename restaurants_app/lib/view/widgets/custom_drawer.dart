@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:restaurants_app/view/screens/setup/all_charges.dart';
-import 'package:restaurants_app/view/screens/setup/category.dart';
-import 'package:restaurants_app/view/screens/setup/employes.dart';
-import 'package:restaurants_app/view/screens/setup/items.dart';
-import 'package:restaurants_app/view/screens/setup/manage.dart';
-import 'package:restaurants_app/view/screens/setup/payment_method.dart';
-import 'package:restaurants_app/view/screens/setup/restaurent_info.dart';
-import 'package:restaurants_app/view/screens/setup/tables.dart';
 import 'helpers/url_helpers.dart';
 import '../screens/setup/setup_home.dart';
 

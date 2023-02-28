@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:restaurants_app/controller/add_category_controller.dart';
-import 'package:restaurants_app/model/add_category_model.dart';
 
-import '../../widgets/input_field.dart';
 
 class Category extends StatefulWidget {
   const Category({super.key});
@@ -26,121 +22,124 @@ class _CategoryState extends State<Category> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xFF0E4A88),
-          onPressed: () {
-            _showCategoryDialog();
-          },
-          child: const Icon(
-            Icons.add,
-            color: Colors.white,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: const Color(0xFF0E4A88),
+            onPressed: () {
+              _showCategoryDialog();
+            },
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
           ),
-        ),
-        body: Column(children: [
-          Expanded(
-              child: ListView.separated(
-            physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics()),
-            itemCount: names.length,
-            separatorBuilder: (BuildContext context, int index) {
-              return Divider(
-                height: 1.h,
-                indent: 20,
-                color: Colors.black12,
-                endIndent: 20,
-                thickness: 1,
-              );
-            },
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(10),
-                child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    elevation: 10,
-                    child: ListTile(
-                        leading: const CircleAvatar(
-                          radius: 22,
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.white,
-                            size: 30,
+          body: Column(children: [
+            Expanded(
+                child: ListView.separated(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
+              itemCount: names.length,
+              separatorBuilder: (BuildContext context, int index) {
+                return Divider(
+                  height: 1.h,
+                  indent: 20,
+                  color: Colors.black12,
+                  endIndent: 20,
+                  thickness: 1,
+                );
+              },
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      elevation: 10,
+                      child: ListTile(
+                          leading: const CircleAvatar(
+                            radius: 22,
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.white,
+                              size: 30,
+                            ),
                           ),
-                        ),
-                        title: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              names[index].toString(),
-                              style: const TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                                'Created at: ${DateFormat.yMMMd().format(DateTime.now())}',
-                                style: const TextStyle(fontSize: 13)),
-                          ],
-                        ),
-                        trailing: IconButton(
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    shape: const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(12.0))),
-                                    elevation: 10,
-                                    title: Text('Delete Customer: $names'),
-                                    actions: [
-                                      ElevatedButton(
-                                        onPressed: () => Navigator.pop(
-                                            context, false), // passing false
-                                        child: const Text('No'),
-                                      ),
-                                      ElevatedButton(
-                                        onPressed: () => Navigator.pop(
-                                            context, true), // passing true
-                                        child: const Text('Yes'),
-                                      ),
-                                    ],
+                          title: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                names[index].toString(),
+                                style: const TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                  'Created at: ${DateFormat.yMMMd().format(DateTime.now())}',
+                                  style: const TextStyle(fontSize: 13)),
+                            ],
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12.0))),
+                                      elevation: 10,
+                                      title: Text('Delete Customer: $names'),
+                                      actions: [
+                                        ElevatedButton(
+                                          onPressed: () => Navigator.pop(
+                                              context, false), // passing false
+                                          child: const Text('No'),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () => Navigator.pop(
+                                              context, true), // passing true
+                                          child: const Text('Yes'),
+                                        ),
+                                      ],
+                                    );
+                                  }).then((exit) {
+                                if (exit == null) return;
+    
+                                if (exit) {
+                                  // user pressed Yes button
+                                  Get.snackbar(
+                                    'Delete Item',
+                                    'Successfully',
+                                    snackPosition: SnackPosition.BOTTOM,
+                                    backgroundColor: Colors.deepOrange,
                                   );
-                                }).then((exit) {
-                              if (exit == null) return;
-
-                              if (exit) {
-                                // user pressed Yes button
-                                Get.snackbar(
-                                  'Delete Item',
-                                  'Successfully',
-                                  snackPosition: SnackPosition.BOTTOM,
-                                  backgroundColor: Colors.deepOrange,
-                                );
-                              } else {
-                                // user pressed No button
-                                Get.snackbar(
-                                  'Item not deleted',
-                                  'There were some problem',
-                                  snackPosition: SnackPosition.BOTTOM,
-                                  backgroundColor: Colors.deepOrange,
-                                );
-                              }
-                            });
-                          },
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.red,
-                            size: 30.sp,
-                          ),
-                        ))),
-              );
-            },
-          ))
-        ]));
+                                } else {
+                                  // user pressed No button
+                                  Get.snackbar(
+                                    'Item not deleted',
+                                    'There were some problem',
+                                    snackPosition: SnackPosition.BOTTOM,
+                                    backgroundColor: Colors.deepOrange,
+                                  );
+                                }
+                              });
+                            },
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                              size: 30.sp,
+                            ),
+                          ))),
+                );
+              },
+            ))
+          ])),
+    );
   }
 
   // Widget customWidget() {

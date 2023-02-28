@@ -5,8 +5,8 @@ class CustomCard extends StatelessWidget {
   final String productName;
   final double productPrice;
 
-  CustomCard(
-      {required this.image,
+  const CustomCard(
+      {super.key, required this.image,
       required this.productName,
       required this.productPrice});
 
@@ -26,22 +26,22 @@ class CustomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               image,
-              SizedBox(
+              const SizedBox(
                 height: 2,
               ),
               Text(
                 productName,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 2,
               ),
               Text(
-                'Price: ' + productPrice.toString(),
-                style: TextStyle(
+                'Price: $productPrice',
+                style: const TextStyle(
                     fontSize: 10.0,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF0E4A88)),

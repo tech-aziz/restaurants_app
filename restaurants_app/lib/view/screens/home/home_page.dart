@@ -15,14 +15,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: Scaffold(
-        backgroundColor: const Color(0xFF0E4A88),
-        body: SafeArea(
-          child: OrientationBuilder(
-            builder: (BuildContext context, Orientation orientation) =>
-                orientation == Orientation.portrait
-                    ? const PortraitHome()
-                    : const LandScapeHome(),
+      child: GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: Scaffold(
+          backgroundColor: const Color(0xFF0E4A88),
+          body: SafeArea(
+            child: OrientationBuilder(
+              builder: (BuildContext context, Orientation orientation) =>
+                  orientation == Orientation.portrait
+                      ? const PortraitHome()
+                      : const LandScapeHome(),
+            ),
           ),
         ),
       ),

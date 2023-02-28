@@ -15,18 +15,21 @@ class _TablesState extends State<Tables> {
   TextEditingController tableNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF0E4A88),
-        onPressed: () {
-          _showTableDialog();
-        },
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: const Color(0xFF0E4A88),
+          onPressed: () {
+            _showTableDialog();
+          },
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
+        body: const CustomTable(),
       ),
-      body: CustomTable(),
     );
   }
 
@@ -34,9 +37,12 @@ class _TablesState extends State<Tables> {
     showDialog(
         context: context,
         builder: ((context) {
-          return AlertDialog(
-            title: _title(),
-            content: _body(),
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: AlertDialog(
+              title: _title(),
+              content: _body(),
+            ),
           );
         }));
   }

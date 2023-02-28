@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class UpdateButton extends StatelessWidget {
   String updateButtonName;
   UpdateButton({super.key, required this.updateButtonName});

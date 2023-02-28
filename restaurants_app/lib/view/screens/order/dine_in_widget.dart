@@ -17,49 +17,52 @@ class _DineInWidgetState extends State<DineInWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          titleSpacing: -5,
-          automaticallyImplyLeading: false,
-          leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(
-              Icons.arrow_back_ios_new_rounded,
-              size: 18.0.sp,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+            titleSpacing: -5,
+            automaticallyImplyLeading: false,
+            leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(
+                Icons.arrow_back_ios_new_rounded,
+                size: 18.0.sp,
+              ),
             ),
-          ),
-          title: const Padding(
-            padding: EdgeInsets.only(left: 0),
-            child: Text(
-              'Table Select',
-              style: TextStyle(fontSize: 19),
-            ),
-          )),
-      body: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics()),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const CustomTable(),
-                SizedBox(
-                  height: 80.h,
-                ),
-                const Text(
-                  'Table:',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                _table()
-              ],
+            title: const Padding(
+              padding: EdgeInsets.only(left: 0),
+              child: Text(
+                'Table Select',
+                style: TextStyle(fontSize: 19),
+              ),
+            )),
+        body: Form(
+          key: _formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const CustomTable(),
+                  SizedBox(
+                    height: 80.h,
+                  ),
+                  const Text(
+                    'Table:',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  _table()
+                ],
+              ),
             ),
           ),
         ),

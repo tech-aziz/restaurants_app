@@ -20,50 +20,53 @@ class _ItemsState extends State<Items> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF0E4A88),
-        onPressed: () {
-          _showItemDialog();
-        },
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: const Color(0xFF0E4A88),
+          onPressed: () {
+            _showItemDialog();
+          },
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            InputField(
-              controller: searchItemController,
-              hintText: 'Search Item Here...',
-              icon: const Icon(Icons.search),
-              contentPadding: const EdgeInsets.symmetric(vertical: 18),
-            ),
-            SizedBox(
-              height: 5.h,
-            ),
-            SingleChildScrollView(
-              physics: const BouncingScrollPhysics(
-                  parent: AlwaysScrollableScrollPhysics()),
-              child: Column(
-                children: [
-                  customWidget(),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-                  Divider(
-                    height: 0.h,
-                    indent: 54,
-                    color: Colors.black12,
-                    endIndent: 50,
-                    thickness: 1,
-                  )
-                ],
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              InputField(
+                controller: searchItemController,
+                hintText: 'Search Item Here...',
+                icon: const Icon(Icons.search),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18),
               ),
-            )
-          ],
+              SizedBox(
+                height: 5.h,
+              ),
+              SingleChildScrollView(
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
+                child: Column(
+                  children: [
+                    customWidget(),
+                    // const SizedBox(
+                    //   height: 10,
+                    // ),
+                    Divider(
+                      height: 0.h,
+                      indent: 54,
+                      color: Colors.black12,
+                      endIndent: 50,
+                      thickness: 1,
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

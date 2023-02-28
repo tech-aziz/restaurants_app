@@ -22,32 +22,35 @@ class _EmplyesState extends State<Emplyes> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF0E4A88),
-        onPressed: () {
-          _showEmployeDialog();
-        },
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: const Color(0xFF0E4A88),
+          onPressed: () {
+            _showEmployeDialog();
+          },
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(
-          parent: AlwaysScrollableScrollPhysics()
-        ),
-        child: Column(
-          children: [
-            customWidget(),
-            Divider(
-              height: 0.h,
-              indent: 54,
-              color: Colors.black12,
-              endIndent: 50,
-              thickness: 1,
-            )
-          ],
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()
+          ),
+          child: Column(
+            children: [
+              customWidget(),
+              Divider(
+                height: 0.h,
+                indent: 54,
+                color: Colors.black12,
+                endIndent: 50,
+                thickness: 1,
+              )
+            ],
+          ),
         ),
       ),
     );

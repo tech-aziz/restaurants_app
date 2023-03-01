@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
+      //onWillPop function will work when user press back navigation button in device / mobile
       onWillPop: _onBackPressed,
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
